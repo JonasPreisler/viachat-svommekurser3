@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customers</h1>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Source</th>
+      <th>Profile pic url</th>
+      <th>Messenger user</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Last visited block name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.source %></td>
+        <td><%= customer.profile_pic_url %></td>
+        <td><%= customer.messenger_user_id %></td>
+        <td><%= customer.country %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.last_visited_block_name %></td>
+        <td><%= customer.last_clicked_button_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_customer_path %>

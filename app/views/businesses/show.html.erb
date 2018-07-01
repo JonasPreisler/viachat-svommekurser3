@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @business.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @business.image %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @business.website %>
+</p>
+
+<p>
+  <strong>Secret:</strong>
+  <%= @business.secret %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @business.slug %>
+</p>
+
+<%= link_to 'Edit', edit_business_path(@business) %> |
+<%= link_to 'Back', businesses_path %>

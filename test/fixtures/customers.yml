@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  gender: MyString
+  source: MyString
+  locale: MyString
+  profile_pic_url: MyString
+  timezone: MyString
+  messenger_user_id: MyString
+  chatfuel_user_id: MyString
+  ref: MyString
+  country: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  address: MyString
+  latitude: MyString
+  longitude: MyString
+  map_url: MyString
+  last_visited_block_name: MyString
+  last_visited_block_id: MyString
+  last_clicked_button_name: MyString
+  last_user_freeform_input: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  gender: MyString
+  source: MyString
+  locale: MyString
+  profile_pic_url: MyString
+  timezone: MyString
+  messenger_user_id: MyString
+  chatfuel_user_id: MyString
+  ref: MyString
+  country: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  address: MyString
+  latitude: MyString
+  longitude: MyString
+  map_url: MyString
+  last_visited_block_name: MyString
+  last_visited_block_id: MyString
+  last_clicked_button_name: MyString
+  last_user_freeform_input: MyString

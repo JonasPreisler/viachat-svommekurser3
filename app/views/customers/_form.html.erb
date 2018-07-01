@@ -1,0 +1,127 @@
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :locale %>
+    <%= form.text_field :locale %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_pic_url %>
+    <%= form.text_field :profile_pic_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timezone %>
+    <%= form.text_field :timezone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :messenger_user_id %>
+    <%= form.text_field :messenger_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chatfuel_user_id %>
+    <%= form.text_field :chatfuel_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :map_url %>
+    <%= form.text_field :map_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_visited_block_name %>
+    <%= form.text_field :last_visited_block_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_visited_block_id %>
+    <%= form.text_field :last_visited_block_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_clicked_button_name %>
+    <%= form.text_field :last_clicked_button_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_user_freeform_input %>
+    <%= form.text_field :last_user_freeform_input %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
