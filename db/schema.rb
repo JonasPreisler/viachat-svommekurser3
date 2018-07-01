@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2018_07_01_104102) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "option_1"
+    t.bigint "place_id"
+    t.bigint "webview_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_addresses_on_place_id"
+    t.index ["webview_id"], name: "index_addresses_on_webview_id"
+  end
+
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -60,6 +73,16 @@ ActiveRecord::Schema.define(version: 2018_07_01_104102) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "options", force: :cascade do |t|
+    t.string "name"
+    t.bigint "address_id"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_options_on_address_id"
+    t.index ["place_id"], name: "index_options_on_place_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "last_purchased_item"
     t.string "address"
@@ -68,7 +91,7 @@ ActiveRecord::Schema.define(version: 2018_07_01_104102) do
     t.string "first_name"
     t.string "last_name"
     t.string "amount"
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first name"
@@ -83,6 +106,27 @@ ActiveRecord::Schema.define(version: 2018_07_01_104102) do
     t.string "last_payment_email"
     t.string "last payment email"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "webview_id"
+    t.index ["webview_id"], name: "index_places_on_webview_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,4 +146,17 @@ ActiveRecord::Schema.define(version: 2018_07_01_104102) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "webviews", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "place_id"
+    t.string "question_1"
+    t.string "question_2"
+  end
+
+  add_foreign_key "addresses", "places"
+  add_foreign_key "addresses", "webviews"
+  add_foreign_key "options", "addresses"
+  add_foreign_key "options", "places"
 end
