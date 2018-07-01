@@ -1,34 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <%= image_tag @business.logo.url(:small) %>
+</p>
+
+<p>
+  <b>Name:</b>
   <%= @business.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @business.user_id %>
+  <b>Representative:</b>
+
+  <%= @business.representative_name %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @business.image %>
-</p>
-
-<p>
-  <strong>Website:</strong>
+  <b>Website:</b>
   <%= @business.website %>
 </p>
 
 <p>
-  <strong>Secret:</strong>
+  <b>Secret:</b>
   <%= @business.secret %>
 </p>
 
 <p>
-  <strong>Slug:</strong>
-  <%= @business.slug %>
+  <b>Address:</b>
+  <%= @business.street %>
+  <%= @business.city %>
 </p>
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
+<p>
+  <b>Contact:</b><br />
+  <%= @business.phone %><br />
+  <%= @business.email %><br />
+  <%= @business.website %><br />
+</p>
+
+<% if current_user == @business.user_id %>
+  <%= link_to 'Edit', edit_business_path(@business) %>
+<% end %>

@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @business = @order.business
   end
 
   # GET /orders/new
@@ -61,11 +62,11 @@ class OrdersController < ApplicationController
     end
   end
 
-      def connect
-        last_purchased_item = params['last purchased item']
-        first_name = params['first name']
-        last_name = params['last name']
-      end
+  def connect
+    last_purchased_item = params['last purchased item']
+    first_name = params['first name']
+    last_name = params['last name']
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +76,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:last_purchased_item, :address, :phone, :email, :first_name, :last_name, :'first name', :'last name', :'last purchased item', :amount, :customer_id)
+      params.require(:order).permit(:last_purchased_item, :address, :phone, :email, :first_name, :last_name, :'first name', :'last name', :'last purchased item', :amount, :customer_id, :created_at, :business_id)
     end
 end

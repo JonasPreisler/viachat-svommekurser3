@@ -17,13 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.hidden_field :user_id,:value=>current_user.id %>
   </div>
 
   <div class="field">
@@ -36,12 +30,40 @@
     <%= form.text_field :secret %>
   </div>
 
+
   <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
+    <%= form.label :representative_name %>
+    <%= form.text_field :representative_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :logo_100_x_100 %>
+    <%= form.file_field :logo %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit "Registrér bedrift", class: 'waves-effect waves-light btn-large' %>
   </div>
 <% end %>

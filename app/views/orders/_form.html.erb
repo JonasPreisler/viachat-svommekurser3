@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :business %>
+    <%= form.number_field :business_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :last_purchased_item %>
     <%= form.text_field :last_purchased_item %>
   </div>
@@ -44,9 +49,5 @@
   <div class="field">
     <%= form.label :amount %>
     <%= form.text_field :amount %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>

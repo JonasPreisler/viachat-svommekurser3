@@ -17,6 +17,6 @@
 //= require jquery-ui/effect-highlight
 //= require activestorage
 //= require turbolinks
+//= require materialize-sprockets
 //= require chosen-jquery
-//= require materialize
 //= require_tree .

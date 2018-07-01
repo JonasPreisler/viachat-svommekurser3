@@ -1,39 +1,216 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Last purchased item:</strong>
-  <%= @order.last_purchased_item %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-  <strong>Phone:</strong>
-  <%= @order.phone %>
-</p>
+<!--================================================================================
+  Item Name: Materialize - Material Design Admin Template
+  Version: 3.1
+  Author: GeeksLabs
+  Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
 
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @order.first_name %>
-</p>
+<body>
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>        
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
+  <!-- End Page Loading -->
 
-<p>
-  <strong>Last:</strong>
-  <%= @order.last_name %>
-</p>
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-<p>
-  <strong>Amount:</strong>
-  <%= @order.amount %>
-</p>
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <!-- START MAIN -->
+  <div id="main">
+    <!-- START WRAPPER -->
+    <div class="wrapper">
+
+
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+      <!-- START CONTENT -->
+      <section id="content">
+
+
+        <!--start container-->
+        <div class="container">
+          <div id="invoice">
+            <div class="invoice-header">
+              <div class="row section">
+                <div class="col s12 m6 l6">
+                  <%= image_tag @business.logo.url(:thumb) %>
+                  <p>Til,
+                    <br/>
+                    <span class="strong"><%= @order.first_name %> <%= @order.last_name %></span>
+                    <br/>
+                    <span><%= @order.address %></span>
+                    <br/>
+                    <span><%= @order.phone %></span>
+                  </p>
+                </div>
+
+                <div class="col s12 m6 l6">
+                  <div class="invoce-company-address right-align">
+                    <span class="invoice-icon"><i class="mdi-social-location-city cyan-text"></i></span>
+
+                    <p><span class="strong"><%= @business.name %></span>
+                      <br/>
+                      <span><%= @business.street %></span>
+                      <br/>
+                      <span><%= @business.city %></span>
+                      <br/>
+                      <span><%= @business.phone %></span>
+                    </p>
+                  </div>
+
+                  <div class="invoce-company-contact right-align">
+                    <span class="invoice-icon"><i class="mdi-communication-quick-contacts-mail cyan-text"></i></span>
+                    <p><span class="strong"><%= @business.website %></span>
+                      <br/>
+                      <span><%= @order.last_payment_email%></span>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="invoice-lable">
+              <div class="row">
+                <div class="col s12 m3 l3">
+                </div>
+                <div class="col s12 m9 l9 invoice-brief cyan white-text">
+                  <div class="row">
+                    <div class="col s12 m3 l3">
+                      <h4>Kvittering</h4>
+                    </div>
+                    <div class="col s12 m3 l3">
+                      <h4 class="header"><%= @order.last_payment_charge_id %></h4>
+                    </div>
+                    <div class="col s12 m3 l3">
+                      <p><%= @order.created_at.to_time.strftime('%B %e at %l:%M %p') %></hp>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="invoice-table">
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <table class="striped">
+                    <thead>
+                      <tr>
+                        <th data-field="no">No</th>
+                        <th data-field="item">Vare</th>
+                        <th data-field="uprice">Enhetspris</th>
+                        <th data-field="price">Enhet</th>
+                        <th data-field="price">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td><%= @order.last_purchased_item %></td>
+                        <td>NOK <%= @order.amount%></td>
+                        <td>1</td>
+                        <td>$ <%= @order.amount%></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"></td>
+                        <td>Sub Total:</td>
+                        <td>NOK <%= @order.amount%></td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"></td>
+                        <td>Service Tax</td>
+                        <td>Included</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3"></td>
+                        <td class="cyan white-text">Total</td>
+                        <td class="cyan strong white-text">$ <%= @order.amount%></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="invoice-footer">
+              <div class="row">
+                <div class="col s12 m6 l6">
+                  <p class="strong">Payment Method</p>
+                  <p>Please make the cheque to: VIACHAT</p>
+                  <p class="strong">Terms & Condition</p>
+                  <ul>
+                    <li>You know, being a test pilot isn't always the healthiest business in the world.</li>
+                    <li>We predict too much for the next year and yet far too little for the next 10.</li>
+                  </ul>
+                </div>
+                <div class="col s12 m6 l6 center-align">
+                  <p>Approved By</p>
+                  <p class="header"><%= @business.representative_name %></p>
+                  <p><%= @business.name %> Representative</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!-- Floating Action Button -->
+            <div class="fixed-action-btn" style="bottom: 50px; right: 19px;">
+                <a class="btn-floating btn-large">
+                  <i class="mdi-action-stars"></i>
+                </a>
+                <ul>
+                  <li><a href="css-helpers.html" class="btn-floating red"><i class="large mdi-communication-live-help"></i></a></li>
+                  <li><a href="app-widget.html" class="btn-floating yellow darken-1"><i class="large mdi-device-now-widgets"></i></a></li>
+                  <li><a href="app-calendar.html" class="btn-floating green"><i class="large mdi-editor-insert-invitation"></i></a></li>
+                  <li><a href="app-email.html" class="btn-floating blue"><i class="large mdi-communication-email"></i></a></li>
+                </ul>
+            </div>
+            <!-- Floating Action Button -->
+        </div>
+        <!--end container-->
+
+      </section>
+      <!-- END CONTENT -->
+
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+      <!-- START RIGHT SIDEBAR NAV-->
+      
+    </div>
+    <!-- END WRAPPER -->
+
+  </div>
+  <!-- END MAIN -->
+
+
+
+  <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- START FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        <span>Copyright © 2018 <a class="grey-text text-lighten-4" href="http://themeforest.net/user/geekslabs/portfolio?ref=geekslabs" target="_blank">ViaChat</a> All rights reserved.</span>
+        </div>
+    </div>
+  </footer>
+    <!-- END FOOTER -->
+
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+    
+</body>
+
+</html>
