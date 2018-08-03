@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h4><b>COMPANIES</b></h4>
-
+<%= link_to "Register business", new_business_path %>
 <br>
 <div class="row">  
   <% @businesses.each do |business| %>
@@ -10,7 +10,7 @@
 
         <!-- Card image -->
         <div class="view view-cascade overlay">
-          <center><%= image_tag business.logo.url(:thumb), class: 'card-img-top' %></center>
+          <center><%= image_tag ('/logo.png'), class: 'logoindex' %></center>
           <a href="#!">
             <div class="mask rgba-white-slight"></div>
           </a>

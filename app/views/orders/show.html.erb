@@ -43,8 +43,8 @@
             <div class="invoice-header">
               <div class="row section">
                 <div class="col s12 m6 l6">
-                  <%= image_tag @business.logo.url(:thumb) %>
-                  <p>Til,
+                  <%= image_tag ('/logo.png'), class: 'logo' %>
+                  <p>To,
                     <br/>
                     <span class="strong"><%= @order.first_name %> <%= @order.last_name %></span>
                     <br/>
@@ -87,7 +87,7 @@
                 <div class="col s12 m9 l9 invoice-brief cyan white-text">
                   <div class="row">
                     <div class="col s12 m3 l3">
-                      <h4>Kvittering</h4>
+                      <h4>Receipt</h4>
                     </div>
                     <div class="col s12 m3 l3">
                       <h4 class="header"><%= @order.last_payment_charge_id %></h4>
@@ -106,10 +106,10 @@
                   <table class="striped">
                     <thead>
                       <tr>
-                        <th data-field="no">No</th>
-                        <th data-field="item">Vare</th>
-                        <th data-field="uprice">Enhetspris</th>
-                        <th data-field="price">Enhet</th>
+                        <th data-field="no">#</th>
+                        <th data-field="item">Product</th>
+                        <th data-field="uprice">Product price</th>
+                        <th data-field="price">Unit</th>
                         <th data-field="price">Total</th>
                       </tr>
                     </thead>
@@ -117,14 +117,14 @@
                       <tr>
                         <td>1.</td>
                         <td><%= @order.last_purchased_item %></td>
-                        <td>NOK <%= @order.amount%></td>
+                        <td>USD <%= @order.amount%></td>
                         <td>1</td>
                         <td>$ <%= @order.amount%></td>
                       </tr>
                       <tr>
                         <td colspan="3"></td>
                         <td>Sub Total:</td>
-                        <td>NOK <%= @order.amount%></td>
+                        <td>USD <%= @order.amount%></td>
                       </tr>
                       <tr>
                         <td colspan="3"></td>

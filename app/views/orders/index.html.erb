@@ -19,10 +19,10 @@
       <tr>
         <td><%= order.id %></td>
         <td><%= link_to order.first_name, order_path(order.id) %></td>
-        <td><%= order.last_name %></td>
+        <td><%= link_to order.last_name, order_path(order.id) %></td>
         <td><%= order.created_at.to_time.strftime('%B %e at %l:%M %p') %></td>
         <td><%= order.last_purchased_item %></td>
-        <td>NOK <%= order.amount %></td>
+        <td>$ <%= order.amount %></td>
       </tr>
     <% end %>
   </tbody>
