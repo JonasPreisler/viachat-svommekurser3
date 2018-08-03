@@ -79,7 +79,7 @@ module Api
 
         # Never trust parameters from the scary internet, only allow the white list through.
         def order_params
-          params.permit(:last_payment_address, :'last payment address', :last_payment_phone, :'last payment phone', :last_payment_email, :'last payment email', :last_payment_charge_id, :'last payment charge id', :last_purchased_item, :address, :phone, :email, :first_name, :last_name, :'first name', :'last name', :'last purchased item', :amount, :customer_id)
+          params.permit(:last_payment_address, :'last payment address', :last_payment_phone, :'last payment phone', :last_payment_email, :'last payment email', :last_payment_charge_id, :'last payment charge id', :last_purchased_item, :address, :phone, :email, :first_name, :last_name, :'first name', :'last name', :'last purchased item', :amount, :customer_id, :business_id)
         end
     end
   end
