@@ -39,7 +39,6 @@ gem 'prawn', '~> 2.2', '>= 2.2.2'
 gem 'prawn-table', '~> 0.1.0'
 gem "chartkick"
 gem 'groupdate'
-gem 'fog'
 gem 'simple_form'
 gem 'route_downcaser'
 gem 'jquery-ui-rails'
