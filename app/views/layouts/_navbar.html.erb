@@ -1,20 +1,25 @@
-<nav>
-  <div class="nav-wrapper">
-    <%= image_tag '/logo.png', class: 'logo' %>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><%= link_to 'Bedrifter', businesses_path, class: 'waves-effect waves-light btn z-depth-3' %></li>
-      <li><%= link_to 'Bestillinger', orders_path, class: 'waves-effect waves-light btn z-depth-3' %></li>
-      <li><%= link_to 'Logg inn/Registrér', new_user_registration_path, class: 'waves-effect waves-light btn z-depth-3' %></li>
-    </ul>
-  </div>
-</nav>
 
-<ul class="sidenav" id="mobile-demo">
-  <li><a href="sass.html">Sass</a></li>
-  <li><a href="badges.html">Components</a></li>
-  <li><a href="collapsible.html">Javascript</a></li>
-  <li><a href="mobile.html">Mobile</a></li>
-  <li><%= link_to 'Businesses', businesses_path, class: 'waves-effect waves-light btn' %></li>
-</ul>
-      
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path do %>
+        <%= image_tag ('/logo.png'), class: 'logo' %>
+      <% end %>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Companies', businesses_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
+        <li><%= link_to 'Orders', orders_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
+        <li><%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary box shadow navbar-padding'%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
