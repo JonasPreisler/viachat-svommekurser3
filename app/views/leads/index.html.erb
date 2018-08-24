@@ -24,7 +24,7 @@
         <td><%= lead.id %></td>
         <td><%= lead.first_name %> <%= lead.last_name %></td>
         <td><%= lead.address %><%= link_to lead.property.address, property_path(lead.property) if lead.property.address? %></td>
-        <td><%= lead.slot.date.strftime('%d/%m') %></td>
+        <td><%= lead.slot.date.strftime('%A, %b %y') %></td>
         <td><%= lead.slot.time.strftime('%H:%M') %></td>
         <td><%= lead.phone %></td>
         <td><%= lead.email %></td>
