@@ -39,12 +39,12 @@ module Api
                     "image_aspect_ratio": "square",
                     "elements":[
                       {
-                        "title":"Vælg dato og tidspunkt",
+                        "title":"Vælg dato og tidspunkt for #{@lead.property}",
                         "image_url":"http://chatsales.dk/vælg%20dato%20og%20tid.jpeg",
                         "buttons":[
                           {
                             "type":"web_url",
-                            "url":"www.chatestate.herokuapp.com/#{@lead.id}/tid",
+                            "url":"http://chatestate.herokuapp.com/#{@lead.id}/tid",
                             "title":"Klik hér."
                           }
                         ]
