@@ -20,6 +20,7 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
+        <% if current_user.secret == lead.secret? %>
         <td><%= lead.id %></td>
         <td><%= lead.first_name %> <%= lead.last_name %></td>
         <td><%= lead.property %></td>
@@ -28,6 +29,7 @@
         <td><%= lead.phone %></td>
         <td><%= lead.email %></td>
         <td><%= lead.city %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_035837) do
+ActiveRecord::Schema.define(version: 2018_08_24_071554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_24_035837) do
     t.string "email"
     t.date "date"
     t.bigint "slot_id"
+    t.string "secret"
     t.index ["slot_id"], name: "index_leads_on_slot_id"
   end
 
@@ -104,6 +105,15 @@ ActiveRecord::Schema.define(version: 2018_08_24_035837) do
     t.index ["lead_id"], name: "index_orders_on_lead_id"
   end
 
+  create_table "properties", force: :cascade do |t|
+    t.string "address"
+    t.string "image"
+    t.text "description"
+    t.string "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "slots", force: :cascade do |t|
     t.date "date"
     t.time "time"
@@ -127,6 +137,7 @@ ActiveRecord::Schema.define(version: 2018_08_24_035837) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "secret"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

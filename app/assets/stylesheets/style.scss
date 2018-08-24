@@ -140,3 +140,23 @@ label > input + span{
 .mobile {
   background: linear-gradient(to bottom right, #f3f2f2, #c3c2c2);
 }
+
+
+/* PROPERTY FORM */
+
+.property-form {
+  padding: 60px !important;
+}
+
+input, button, select, textarea {
+  padding: 8px;
+}
+.button {
+  background: #fff;
+  padding: 10px !important;
+  border: 1px solid #1c1c1c !important;
+  &hover {
+  background: #c3c2c2 !important;
+  }
+}
+/* END OF PROPERTY FORM */

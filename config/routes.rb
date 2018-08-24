@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :properties
   resources :orders
   resources :slots
   devise_for :users

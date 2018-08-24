@@ -16,7 +16,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li style="color:#fff;padding:15px;"><strong>Your secret:</strong>: <%= current_user.secret %></li>
         <li><%= link_to 'Leads', leads_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Properties', properties_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Edit account', edit_user_registration_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn-primary box shadow'%></li>
+        <% else %>
+        <li><%= link_to 'Sign up', new_user_registration_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Sign in', new_user_session_path, class: 'btn-primary box shadow'%></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
