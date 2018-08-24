@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :property_images
   resources :properties
   resources :orders
   resources :slots

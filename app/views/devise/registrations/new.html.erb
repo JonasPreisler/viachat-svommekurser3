@@ -1,19 +1,27 @@
-<h4><b>REGISTRER</b></h4>
+<center>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
+  <h4><b>REGISTER</b></h4>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :secret, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
+      <%= f.input :secret, placeholder: 'Secret', label: false, required: true, autofocus: true %>
+      <span style="color:#888787;font-size:12px;">Your secret is to make sure that noone else can send data to any random user_id.</span>
+      <br /><br />
+      <%= f.input :password, placeholder: 'Password', label: false, required: true %>
+      <span style="color:#888787;font-size:12px;">Minimum 6 characters</span>
+      <br /><br />
+      <%= f.input :password_confirmation, placeholder: 'Confirm Password', label: false, required: true %><br />
+    </div>
 
-  <div class="form-actions">
-    <%= f.submit "Registrer", class: 'waves-effect waves-light btn-large' %>
+    <div class="form-actions">
+      <%= f.submit "Register", class: 'button' %><br /><br />
 
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
+</center>

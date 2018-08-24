@@ -2,71 +2,45 @@
 
 <h1>Properties</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Image</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.address %></td>
-        <td><%= property.image %></td>
-        <td><%= property.description %></td>
-        <td><%= property.price %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Property', new_property_path %>
-
 
 <% unless current_user.properties.any? %>
-<div style="font-size:20px;text-align: center;padding-top:30px;">Hey there! 🙂 You didn't add any properties yet. <%= link_to "Add property", new_property_path, class: 'btn btn-primary box' %> </div>
+<div style="font-size:20px;text-align: center;padding-top:30px;">Hey there! 🙂 You didn't add any properties yet.<br /> <%= link_to "Add property", new_property_path, class: 'btn-primary2 box shadow' %> </div>
 <% else %>
 
 <br />
 <div class="row">
-<% @properties.each do |bot| %>
-  <div class="col-md-3 col-sm-4">
-    <div class="thumbnail">
-      <% if property.image? %>
-        <%= link_to (image_tag property.image.url(:small)), property, class: 'seller-preview' %>
-      <% else %>
-        <%= link_to (image_tag '/thumbnail.png'), property, class: 'seller-preview' %>
-      <% end %>
-      <div class="caption">
-        <div class="row">
-          <div class="col-sm-6 col-sm-4 col-xs-6">
-            <h4 style="font-size:16px;padding-top: 10px;"><%= link_to property.address.truncate(20), property %></h4>
-          </div>
-          <div class="col-sm-6 col-sm-4 col-xs-6">
-            <h4><%= link_to "EDIT", edit_property_path(property), class: 'btn btn-green box' %></h4>
+<% @properties.each do |property| %>
+  <% if current_user.id == property.user_id %>
+    <div class="col-md-3 col-sm-4">
+      <div class="thumbnail">
+        <% if property.image? %>
+          <%= link_to (image_tag property.image.url(:thumb)), property, class: 'property-image' %>
+        <% else %>
+          <%= link_to (image_tag '/thumbnail.png'), property, class: 'property-image' %>
+        <% end %>
+        <div class="caption">
+          <div class="row">
+            <div class="col-sm-6 col-sm-4 col-xs-6">
+              <h4 style="font-size:16px;padding-top: 10px;"><%= link_to property.address, property %></h4>
+            </div>
+            <div class="col-sm-6 col-sm-4 col-xs-6">
+            </div>
           </div>
         </div>
+        <div class="panel-footer">
+              <%= link_to "Show", property_path(property), class: 'btn-green box' %>
+              <%= link_to "Edit", edit_property_path(property), class: 'btn-green box' %>
+          <%= link_to 'Delete', property_path(property),
+          data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn-red box' %>
+          <%#div class="col-xs-8 col-sm-6">
+            <% &#9889; rating %>
+          <%#/div>
+          <%#div class="col-xs-4 col-sm-6"%>
+        </div>
+          <%#/div%>
       </div>
-      <div class="panel-footer">
-        Users: <%= property.description.truncate(20) %>
-        <%#div class="col-xs-8 col-sm-6">
-          <% &#9889; rating %>
-        <%#/div>
-        <%#div class="col-xs-4 col-sm-6"%>
-      </div>
-        <%#/div%>
     </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
 <br />

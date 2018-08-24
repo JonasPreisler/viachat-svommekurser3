@@ -7,4 +7,11 @@ class Lead < ApplicationRecord
 	alias_attribute :pofile_pic_url, :'profile pic url'
 
 	belongs_to :slot, optional: :true
+	belongs_to :user
+	belongs_to :property, optional: :true
+
+    def properties_objects
+      Property.where(id: self.properties.reject(&:empty?)).map(&:address).join(",")
+    end
+
 end

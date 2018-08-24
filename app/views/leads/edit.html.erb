@@ -1,4 +1,6 @@
-Hvad tid ønsker du at se <%= @lead.property %>?
+<br /><br />
+<center>What date and time do you wish to see  <%= @lead.property %>?</center>
+<br /><br />
 <%= form_with(model: @lead, local: true) do |f| %>
 
 
@@ -7,8 +9,8 @@ Hvad tid ønsker du at se <%= @lead.property %>?
       <table>
         <thead>
             <tr>
-              <th id="item_direction" style="padding-right: 25px;"><span id="day1"><%= I18n.t 'today' %></</th>
-              <th id="item_direction" style="padding-right: 25px;"><span id="day2"><%= I18n.t 'tomorrow' %></th>
+              <th id="item_direction" style="padding-right: 25px;"><span id="day1"><%= Date.today.strftime("%d/%m") %></</th>
+              <th id="item_direction" style="padding-right: 25px;"><span id="day2"><%= (Date.today + 1.days).strftime("%d/%m") %></th>
               <th id="item_direction" style="padding-right: 25px;"><span id="day3"><%= (Date.today + 2.days).strftime("%d/%m") %></th>
               <th id="item_direction" style="padding-right: 25px;"><span id="day4"><%= (Date.today + 3.days).strftime("%d/%m") %></th>
               <th id="item_direction" style="padding-right: 25px;"><span id="day5"><%= (Date.today + 4.days).strftime("%d/%m") %></th>
@@ -32,7 +34,7 @@ Hvad tid ønsker du at se <%= @lead.property %>?
           <label class="btn btn-primary box3" for="lead_slot_id_<%=sl.id%>">
             <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
             <%= sl.time.strftime('%H:%M') %><br />
-            <span class="weekday"><%= I18n.t 'today' %></span>
+            <span class="weekday"><%= sl.time.strftime('%H:%M') %></span>
           </label>
         <% end %>
       <% end %>
@@ -44,7 +46,7 @@ Hvad tid ønsker du at se <%= @lead.property %>?
           <label class="btn btn-primary box3" for="lead_slot_id_<%=sl.id%>">
             <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
             <%= sl.time.strftime('%H:%M') %><br />
-            <span class="weekday" style="margin-left: -6px;"><%= I18n.t 'tomorrow' %></span>
+            <span class="weekday" style="margin-left: -6px;"><%= sl.time.strftime('%H:%M') %></span>
           </label>
         <% end %>
       <% end %>

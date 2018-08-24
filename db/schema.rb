@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_071554) do
+ActiveRecord::Schema.define(version: 2018_08_24_185728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,11 @@ ActiveRecord::Schema.define(version: 2018_08_24_071554) do
     t.date "date"
     t.bigint "slot_id"
     t.string "secret"
+    t.bigint "user_id"
+    t.bigint "property_id"
+    t.index ["property_id"], name: "index_leads_on_property_id"
     t.index ["slot_id"], name: "index_leads_on_slot_id"
+    t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -112,6 +116,17 @@ ActiveRecord::Schema.define(version: 2018_08_24_071554) do
     t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "property_image_id"
+    t.index ["property_image_id"], name: "index_properties_on_property_image_id"
+    t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
+  create_table "property_images", force: :cascade do |t|
+    t.integer "property_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "slots", force: :cascade do |t|
@@ -142,7 +157,11 @@ ActiveRecord::Schema.define(version: 2018_08_24_071554) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "leads", "properties"
   add_foreign_key "leads", "slots"
+  add_foreign_key "leads", "users"
   add_foreign_key "orders", "businesses"
+  add_foreign_key "properties", "property_images"
+  add_foreign_key "properties", "users"
   add_foreign_key "slots", "leads"
 end

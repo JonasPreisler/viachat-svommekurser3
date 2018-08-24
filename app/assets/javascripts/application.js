@@ -18,7 +18,9 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.easy-autocomplete
 //= require chosen-jquery
+//= require cocoon
 //= require_tree .
 
 
@@ -31,3 +33,11 @@ $(this).closest(form)
 // an ID or class
 $("#my-form")
 $(".my-form")
+
+
+
+$(document).on('turbolinks:load', function(){
+	$(".chosen-select").chosen();
+	allow_single_deselect: true
+    no_results_text: 'No results matched';
+});

@@ -11,11 +11,13 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @property_images = @property.property_images.all
   end
 
   # GET /properties/new
   def new
     @property = Property.new
+    @property_image = @property.property_images.build
   end
 
   # GET /properties/1/edit
@@ -70,7 +72,7 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:address, :image, :description, :price)
+      params.require(:property).permit(:user_id, :image, :address, :description, :price, :property_image_id, property_images_attributes: [:id, :image, :property_id, :destroy])
     end
 
     def require_login

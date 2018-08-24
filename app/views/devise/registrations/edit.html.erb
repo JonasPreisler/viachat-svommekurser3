@@ -1,28 +1,32 @@
-<h4><b>EDIT <%= resource_name.to_s.humanize %></b></h4>
+<center>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
+  <h4><b>EDIT ACCOUNT</b></h4>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+    <strong>Your secret:</strong> <%= @user.secret %><br />
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <strong>Your secret:</strong> <%= @user.secret %>
+    <div class="form-inputs">
+      <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "La det være tomt hvis du ikke vil endre det", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "Vi trenger ditt nåværende passord for å bekrefte endringene dine", required: true %>
-  </div>
+      <%= f.input :password, placeholder: 'Password', label: false, autocomplete: "off", required: false %><br />
+      <%= f.input :password_confirmation, placeholder: 'Confirm Password', label: false, required: false %><br />
+      <%= f.input :current_password, placeholder: 'Current Password', label: false, required: true %>
+      <span style="color:#888787;font-size:12px;">We need your current password to confirm your changes.</span><br />
+      <br /><br />
 
-  <div class="form-actions">
-    <%= f.button :submit, "Oppdatér" %>
-  </div>
-<% end %>
+    </div>
 
-<h3>Avbryt kontoen min</h3>
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: 'button' %><br /><br />
+    </div>
+  <% end %>
 
-<p>Misfornøyd? <%= link_to "Avbryt kontoen min", registration_path(resource_name), data: { confirm: "Er du sikker?" }, method: :delete %></p>
 
-<%= link_to "Tilbake", :back %>
+  <p><%= link_to "Cancel account.", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
+</center>

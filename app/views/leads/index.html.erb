@@ -6,11 +6,11 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Navn</th>
-      <th>Ejendom</th>
-      <th>Dato</th>
-      <th>Tid</th>
-      <th>Telefon</th>
+      <th>Name</th>
+      <th>Property</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Phone</th>
       <th>Email</th>
       <th>City</th>
       <th colspan="3"></th>
@@ -20,10 +20,10 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
-        <% if current_user.secret == lead.secret? %>
+        <% if current_user.secret == lead.secret %>
         <td><%= lead.id %></td>
         <td><%= lead.first_name %> <%= lead.last_name %></td>
-        <td><%= lead.property %></td>
+        <td><%= lead.address %><%= link_to lead.property.address, property_path(lead.property) if lead.property.address? %></td>
         <td><%= lead.slot.date.strftime('%d/%m') %></td>
         <td><%= lead.slot.time.strftime('%H:%M') %></td>
         <td><%= lead.phone %></td>
@@ -37,4 +37,4 @@
 
 <br>
 
-<%= link_to 'Nyt Lead', new_lead_path %>
+<%= link_to 'New Lead', new_lead_path %>
