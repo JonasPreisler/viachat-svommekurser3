@@ -1,0 +1,258 @@
+Searching 5384 files for "customers" (case sensitive)
+
+/Users/jonaspreisler/rails/realestate/app/assets/stylesheets/customers.scss:
+    1: // Place all the styles related to the customers controller here.
+    2  // They will automatically be included in application.css.
+    3  // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/Users/jonaspreisler/rails/realestate/app/controllers/customers_controller.rb:
+    2    before_action :set_customer, only: [:show, :edit, :update, :destroy]
+    3  
+    4:   # GET /customers
+    5:   # GET /customers.json
+    6    def index
+    7:     @customers = Lead.all
+    8    end
+    9  
+   10:   # GET /customers/1
+   11:   # GET /customers/1.json
+   12    def show
+   13    end
+   14  
+   15:   # GET /customers/new
+   16    def new
+   17      @customer = Lead.new
+   18    end
+   19  
+   20:   # GET /customers/1/edit
+   21    def edit
+   22    end
+   23  
+   24:   # POST /customers
+   25:   # POST /customers.json
+   26    def create
+   27      @customer = Lead.new(customer_params)
+   ..
+   38    end
+   39  
+   40:   # PATCH/PUT /customers/1
+   41:   # PATCH/PUT /customers/1.json
+   42    def update
+   43      respond_to do |format|
+   ..
+   52    end
+   53  
+   54:   # DELETE /customers/1
+   55:   # DELETE /customers/1.json
+   56    def destroy
+   57      @customer.destroy
+   58      respond_to do |format|
+   59:       format.html { redirect_to customers_url, notice: 'Lead was successfully destroyed.' }
+   60        format.json { head :no_content }
+   61      end
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/edit.html.erb:
+    4  
+    5  <%= link_to 'Show', @customer %> |
+    6: <%= link_to 'Back', customers_path %>
+    7  
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/index.html.erb:
+   20  
+   21    <tbody>
+   22:     <% @customers.each do |customer| %>
+   23        <tr>
+   24          <td><%= customer.id %></td>
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/index.json.jbuilder:
+    1: json.array! @customers, partial: 'customers/customer', as: :customer
+    2  
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/new.html.erb:
+    3  <%= render 'form', customer: @customer %>
+    4  
+    5: <%= link_to 'Back', customers_path %>
+    6  
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/show.html.erb:
+  112  
+  113  <%= link_to 'Edit', edit_customer_path(@customer) %> |
+  114: <%= link_to 'Back', customers_path %>
+  115  
+
+/Users/jonaspreisler/rails/realestate/app/views/customers/show.json.jbuilder:
+    1: json.partial! "customers/customer", customer: @customer
+    2  
+
+/Users/jonaspreisler/rails/realestate/config/routes.rb:
+    3    devise_for :users
+    4    resources :businesses
+    5:   resources :customers
+    6    root to: "orders#index"
+    7    namespace 'api' do
+
+/Users/jonaspreisler/rails/realestate/db/development.sqlite3:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/db/schema.rb:
+   34    end
+   35  
+   36:   create_table "customers", force: :cascade do |t|
+   37      t.string "first_name"
+   38      t.string "first name"
+
+/Users/jonaspreisler/rails/realestate/db/migrate/20180701084836_create_customers.rb:
+    1  class CreateLeads < ActiveRecord::Migration[5.2]
+    2    def change
+    3:     create_table :customers do |t|
+    4        t.string :first_name
+    5        t.string :'first name'
+
+/Users/jonaspreisler/rails/realestate/log/development.log:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/test/controllers/customers_controller_test.rb:
+    3  class LeadsControllerTest < ActionDispatch::IntegrationTest
+    4    setup do
+    5:     @customer = customers(:one)
+    6    end
+    7  
+    8    test "should get index" do
+    9:     get customers_url
+   10      assert_response :success
+   11    end
+   ..
+   18    test "should create customer" do
+   19      assert_difference('Lead.count') do
+   20:       post customers_url, params: { customer: { address: @customer.address, chatfuel_user_id: @customer.chatfuel_user_id, city: @customer.city, country: @customer.country, first_name: @customer.first_name, gender: @customer.gender, last_clicked_button_name: @customer.last_clicked_button_name, last_name: @customer.last_name, last_user_freeform_input: @customer.last_user_freeform_input, last_visited_block_id: @customer.last_visited_block_id, last_visited_block_name: @customer.last_visited_block_name, latitude: @customer.latitude, locale: @customer.locale, longitude: @customer.longitude, map_url: @customer.map_url, messenger_user_id: @customer.messenger_user_id, profile_pic_url: @customer.profile_pic_url, ref: @customer.ref, source: @customer.source, state: @customer.state, timezone: @customer.timezone, zip: @customer.zip } }
+   21      end
+   22  
+   ..
+   44      end
+   45  
+   46:     assert_redirected_to customers_url
+   47    end
+   48  end
+
+/Users/jonaspreisler/rails/realestate/test/system/customers_test.rb:
+    3  class LeadsTest < ApplicationSystemTestCase
+    4    setup do
+    5:     @customer = customers(:one)
+    6    end
+    7  
+    8    test "visiting the index" do
+    9:     visit customers_url
+   10      assert_selector "h1", text: "Leads"
+   11    end
+   12  
+   13    test "creating a Lead" do
+   14:     visit customers_url
+   15      click_on "New Lead"
+   16  
+   ..
+   44  
+   45    test "updating a Lead" do
+   46:     visit customers_url
+   47      click_on "Edit", match: :first
+   48  
+   ..
+   76  
+   77    test "destroying a Lead" do
+   78:     visit customers_url
+   79      page.accept_confirm do
+   80        click_on "Destroy", match: :first
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-load-path-cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/0m/0mtbRCQfgQQ2qsdQMLozTC-nzkP7NJlyb1AFVS8f-qs.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/aK/aKKbedTnSndmdYWlvlaCgQhR9yCJrWTLWP42wWD6MkA.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/AY/AY-ST_F39El9jYbnN-IrJX__17PeAULrWkT-Uba99qE.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/bg/bg6I-JwDET2DOUTPX_N5Swr5DWebVzOaiaFtr2mtu0A.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/gD/gdm2QgW9uhSCjMwfR7Eov7cbanny6ezM8uhlRdKmFZs.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/GG/gg2xj7OXkRX5-IxlG9wlw8WD1jeAWGSPTDSHeI6Zz3I.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/gV/Gva8P4VJGF9S_UIDumc1wNWrGsot5FjtJK4-Klwm-8M.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/jR/jRpN1F_85EDD-Q3Uyz30_nRc7uhBkJcLcjA-3sJJNOw.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/jx/JxwXWorlJDyt4ndFeWPiy6aj-bXICD8eI0lz7PZ0cSM.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/lp/lppuz-ayqBsB8QvcgpEvemSW_T_878ifJ_vp2Vc2TE0.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/oP/OpOFZs37bd78prqoPvmLYhtCl7_8aVza0Vm_CVRYUjs.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/Qf/QFiHuaU_4DP5Z9T_cJZhURT0vsfFPIVS-lFH1cXGcYo.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/QJ/QJlFWvR7jzfz2NGUU10_q-rJ8NZB6VkEaII7wqzDFu4.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/uU/uUUw6CRVg8Vcn55Zhi882jMCAdrD_N64Jl36O5jA7qM.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/Wh/WhQ9_xKNbl3gTA1Ok8TJiASHNHa1X5pv-_HNVTTcCao.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/YB/ybCSz1Ax674cEKJKiodViFiSsPauOGg_q73UhvauyiA.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/Zl/ZlNiJF--DH5V9YLBjMUk0DpvSdk4L1LL8Z4tPAQH32A.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/assets/sprockets/v3.0/Zm/ZmVLCZxaV7YUMjjYqXlhRfk4VpZ9ItFEcoJJbRg33Z4.cache:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/12/4bf5ec362d983c:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/12/fb59acf65c0d60:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/2c/8c9f73a5cf5fc7:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/42/b8852f6f0cb0a4:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/49/88d42f21e63ccc:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/65/035df03ee8369c:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/70/f56ae4070c86ff:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/80/2262e1e54223d8:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/ce/6f41dc65eb93f7:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/d1/9425edf76e746c:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/d3/7ce4b636e487f4:
+    <binary>
+
+/Users/jonaspreisler/rails/realestate/tmp/cache/bootsnap-compile-cache/ee/00b6777d659163:
+    <binary>
+
+313 matches across 46 files

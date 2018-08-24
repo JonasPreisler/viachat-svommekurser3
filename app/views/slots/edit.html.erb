@@ -1,0 +1,54 @@
+  <div class="dropdown pull-right">
+  <button onclick="myFunction()" class="dropbtn">LANG</button>
+    <div id="myDropdown" class="dropdown-content">
+      <div class="pull-right">
+        <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
+        <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
+        <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
+      </div>
+
+    </div>
+  </div>
+
+<center>
+<%= simple_form_for(@slot, :html => {:class=> "myForm"}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+    <%= image_tag ('/tables.png'), class: 'responsive' %>
+
+    <br />
+    <br />
+    <%= I18n.t 'table' %>
+    <br />
+    <br />
+
+
+    <input type="hidden" value="<%= @slot.id %>" name="id">
+
+
+	<% Table.all.each do |rt| %>
+	  <label class="btn btn-primary slot_check <%= 'box5' if @slot.table_id != rt.id %> <%= 'reserved' if @slot.table_id == rt.id %>" for="slot_table_id_<%=rt.id%>">
+	    <%= f.radio_button :table_id, rt.id %>
+	    <span><%= rt.id %> <span style="font-size: 12px;"><%= 'RESERVED' if @slot.table_id == rt.id %></span></span>
+	  </label>
+	<% end %>
+    <br />
+    <br />
+    <br />
+
+	<div class="form-actions">
+	  <%= f.submit class: 'btn-submit box2', :name=>'commit' %>
+  </div>
+<% end %>
+<%= string_with_link(t('back'), root_path) %>
+</center>
+
+<script type="text/javascript">
+$(".slot_check").click(function(){
+  $(".slot_check").removeClass('active');
+  $(this).addClass('active');
+});
+
+</script>

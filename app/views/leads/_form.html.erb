@@ -1,10 +1,12 @@
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
+
+
+<%= form_with(model: lead, local: true) do |form| %>
+  <% if lead.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
 
       <ul>
-      <% customer.errors.full_messages.each do |message| %>
+      <% lead.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -19,6 +21,26 @@
   <div class="field">
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :property %>
+    <%= form.text_field :property %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_and_date %>
+    <%= form.text_field :timeanddate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_and_date %>
+    <%= form.text_field :timeanddate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
   </div>
 
   <div class="field">

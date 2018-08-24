@@ -20,3 +20,14 @@
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require_tree .
+
+
+// data attributes (my preference because it's explicit and flexible)
+$('[data-target=my-form]')
+
+// using jQuery's closest() method; "this" will refer to the radio button you clicked
+$(this).closest(form)
+
+// an ID or class
+$("#my-form")
+$(".my-form")

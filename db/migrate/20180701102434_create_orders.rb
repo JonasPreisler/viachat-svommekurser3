@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.string :amount
-      t.references :customer, index: :true
+      t.references :lead, index: :true
 
       t.timestamps
     end
