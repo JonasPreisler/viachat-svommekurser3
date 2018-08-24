@@ -40,13 +40,12 @@ module Api
                     "elements":[
                       {
                         "title":"Vælg dato og tidspunkt",
-                        "image_url":"https://rockets.chatfuel.com/assets/shirt.jpg",
-                        "subtitle":"Klik hér.",
+                        "image_url":"http://chatsales.dk/vælg%20dato%20og%20tid.jpeg",
                         "buttons":[
                           {
                             "type":"web_url",
-                            "url":"http://chatestate.herokuapp.com/",
-                            "title":"Vælg tid"
+                            "url":"www.chatestate.herokuapp.com/#{@lead.id}/tid",
+                            "title":"Klik hér."
                           }
                         ]
                       }
