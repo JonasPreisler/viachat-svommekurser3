@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :leads
+      get '/:messenger_user_id/tid', to: 'leads#broadcast'
   	end
   end
   get '/:id/tid', to: 'leads#edit'

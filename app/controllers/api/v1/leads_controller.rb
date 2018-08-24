@@ -31,10 +31,40 @@ module Api
         if @lead.save
           render json: {
            "messages": [
-             {"text": "Vælg tidspunkt hér: www.chatestate.herokuapp.com/#{@lead.id}/tid "}
+              {
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "image_aspect_ratio": "square",
+                    "elements":[
+                      {
+                        "title":"Vælg dato og tidspunkt",
+                        "image_url":"https://rockets.chatfuel.com/assets/shirt.jpg",
+                        "subtitle":"Klik hér.",
+                        "buttons":[
+                          {
+                            "type":"web_url",
+                            "url":"http://chatestate.herokuapp.com/",
+                            "title":"Vælg tid"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
             ]
           }
         end
+      end
+
+      def broadcast
+        render json: {
+         "messages": [
+           {"text": "Vælg tidspunkt hér: www.chatestate.herokuapp.com/#{@lead.id}/tid "}
+          ]
+        }
       end
 
       # PATCH/PUT /leads/1
