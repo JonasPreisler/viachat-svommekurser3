@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
+  layout 'mobile', only: [:edit]
 
   # GET /leads
   # GET /leads.json
