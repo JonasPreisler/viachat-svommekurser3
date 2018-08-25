@@ -15,9 +15,9 @@ module Api
                 "image_aspect_ratio": "square",
                 "elements":[
                   {
-                    "title":"#{current_user.properties.first.address}",
-                    "image_url":"http://chatestate.herokuapp.com#{current_user.properties.first.image}",
-                    "subtitle":"$ #{current_user.properties.first.price}",
+                    "title":"#{properties.first.address}",
+                    "image_url":"http://chatestate.herokuapp.com#{properties.first.image}",
+                    "subtitle":"$ #{properties.first.price}",
                     "buttons":[
                       {
                         "type":"web_url",
