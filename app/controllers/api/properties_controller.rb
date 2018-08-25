@@ -5,7 +5,6 @@ module Api
 
 
     def index
-
       render json: {
        "messages": [
           {
