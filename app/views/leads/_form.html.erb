@@ -39,9 +39,9 @@
       <%= form.text_field :city, placeholder: 'City', label: false %>
     </div><br />
 
-    Select property:
-
-    <%= form.select :property_id,  Property.all.map{ |m| [m.address,m.id]}, {}, placeholder: "Select property", class: "chosen-select form-control" %><br />
+    <div class="field">
+      <%= form.text_field :property, placeholder: 'Property', label: false %>
+    </div><br />
 
     <div class="actions">
       <%= form.submit "Register lead", class: 'waves-effect waves-light btn-large' %>
