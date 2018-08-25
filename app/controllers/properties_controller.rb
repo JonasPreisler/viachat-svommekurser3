@@ -1,12 +1,11 @@
 class PropertiesController < ApplicationController
-  before_action :require_login, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   # GET /properties
   # GET /properties.json
   def index
     @properties = Property.all
-    @properties.each do |property|
       @properties_to_render = {
         :messages => [
           {
@@ -16,13 +15,13 @@ class PropertiesController < ApplicationController
               :image_aspect_ratio => "square",
               :elements => [
                 {
-                  :title => "#{property.address}",
+                  :title => "#{@properties.second.address}",
                   :image_url => "https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  :subtitle => "$ #{property.price}",
+                  :subtitle => "$ #{@properties.second.price}",
                   :buttons => [
                     {
                       :type => "web_url",
-                      :url => "http://chatestate.herokuapp.com/properties/#{property.id}",
+                      :url => "http://chatestate.herokuapp.com/properties/#{@properties.second.id}",
                       :title => "Click here."
                     } 
                   ]
@@ -32,7 +31,6 @@ class PropertiesController < ApplicationController
           }
         ]
       }
-    end    
     render :json => @properties_to_render
   end
 
