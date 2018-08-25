@@ -21,7 +21,7 @@ module Api
                     "buttons":[
                       {
                         "type":"web_url",
-                        "url":"http://chatestate.herokuapp.com",
+                        "url":"http://chatestate.herokuapp.com/properties/#{@property.id}",
                         "title":"Click here."
                       }
                     ]
