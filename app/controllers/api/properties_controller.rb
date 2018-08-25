@@ -35,6 +35,9 @@ module Api
       }
     end
 
+    def show
+    end
+
     # GET /leads/new
     def new
       @lead = Lead.new
