@@ -1,10 +1,16 @@
+<%= current_user.properties.second.address %>
 <p id="notice"><%= notice %></p>
-
-<h1>Properties</h1>
-
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h1>Properties</h1>
+  </div>
+  <div class="col-md-6 col-sm-6">
+    <%= link_to "Add property", new_property_path, class: 'btn-primary2 box shadow pull-right' %>
+  </div>
+</div>
 
 <% unless current_user.properties.any? %>
-<div style="font-size:20px;text-align: center;padding-top:30px;">Hey there! 🙂 You didn't add any properties yet.<br /> <%= link_to "Add property", new_property_path, class: 'btn-primary2 box shadow' %> </div>
+<div style="font-size:20px;text-align: center;padding-top:30px;">Hey there! 🙂 You didn't add any properties yet. </div>
 <% else %>
 
 <br />

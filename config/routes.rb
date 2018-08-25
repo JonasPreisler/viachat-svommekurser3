@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   resources :leads
   root to: "leads#index"
   namespace 'api' do
-    namespace 'v1' do
-      resources :leads
+    resources :leads
+    resources :properties
+    scope "/users/:id", :as => "user" do
       resources :properties
-      get '/:messenger_user_id/tid', to: 'leads#broadcast'
-  	end
+    end
+    get '/:messenger_user_id/tid', to: 'leads#broadcast'
+    get '/:user', to: 'properties#show'
   end
   get '/:id/tid', to: 'leads#edit'
 end

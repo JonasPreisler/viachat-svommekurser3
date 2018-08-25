@@ -4,4 +4,5 @@ class Property < ApplicationRecord
 	has_many :property_images
 	has_many :leads
     accepts_nested_attributes_for :property_images, allow_destroy: true
+
 end
