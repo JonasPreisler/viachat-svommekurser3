@@ -17,7 +17,7 @@ class PropertiesController < ApplicationController
               :elements => [
                 {
                   :title => "#{property.address}",
-                  :image_url => "http://chatestate.herokuapp.com#{property.image}",
+                  :image_url => "https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
                   :subtitle => "$ #{property.price}",
                   :buttons => [
                     {
