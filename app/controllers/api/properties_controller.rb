@@ -16,13 +16,13 @@ module Api
                 "image_aspect_ratio": "square",
                 "elements":[
                   {
-                    "title":"#{@properties.second.address}",
+                    "title":"#{@properties.first.address}",
                     "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                    "subtitle":"#{@properties.second.price}",
+                    "subtitle":"#{@properties.first.price}",
                     "buttons":[
                       {
                         "type":"web_url",
-                        "url":"http://chatestate.herokuapp.com/properties/#{@properties.second.id}",
+                        "url":"http://chatestate.herokuapp.com/properties/#{@properties.first.id}",
                         "title":"Click here!"
                       }
                     ]
