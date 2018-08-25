@@ -29,7 +29,14 @@ module Api
       @lead = Lead.new(lead_params)
       if @lead.save
         render json: {
-          "redirect_to_blocks": ["Welcome message"]
+          "set_attributes": 
+            {
+              "property": "test",
+              "secret": "another value"
+            },
+          "block_names": ["send data"],
+          "type": "show_block",
+          "title": "Go!"
         }
       end
     end
