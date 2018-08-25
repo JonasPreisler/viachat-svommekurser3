@@ -30,10 +30,7 @@ module Api
         @lead = Lead.new(lead_params)
         if @lead.save
           render json: {
-          "set_attributes":
-            {
-              "time": "#{@lead.slot.time}"
-            }
+            "redirect_to_blocks": ["Welcome message"]
           }
         end
       end
