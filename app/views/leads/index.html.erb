@@ -24,8 +24,8 @@
         <td><%= lead.id %></td>
         <td><%= lead.first_name %> <%= lead.last_name %></td>
         <td><%= lead.address %></td>
-        <td><%= lead.slot.date.strftime('%A, %b %y') %></td>
-        <td><%= lead.slot.time.strftime('%H:%M') %></td>
+        <td><%= lead.slot.date.strftime('%A, %b %y') if lead.slot_id? %></td>
+        <td><%= lead.slot.time.strftime('%H:%M') if lead.slot_id? %></td>
         <td><%= lead.phone %></td>
         <td><%= lead.email %></td>
         <td><%= lead.city %></td>

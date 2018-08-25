@@ -3,7 +3,7 @@
   Great <%= @lead.first_name %>!
 </p>
 <br />
-You have requested to see <strong><%= @lead.property.address %></strong> at <strong><%= @lead.slot.date.strftime('%A, %b %y') %>, <%= @lead.slot.time.strftime('%I %p') %></strong>
+You have requested to see <strong><%= @lead.address %></strong> at <strong><%= @lead.slot.date.strftime('%A, %b %y') %>, <%= @lead.slot.time.strftime('%I %p') %></strong>
 
 <br /><br />
 We will confirm with you in the morning of <strong><%= @lead.slot.date.strftime('%d/%m') %></strong>.
