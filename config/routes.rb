@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :slots
   devise_for :users
+  resources :users, only: [:show]
   resources :businesses
   resources :leads
   root to: "leads#index"
