@@ -20,10 +20,10 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
-        <% if current_user.secret == lead.secret %>
+        <% if current_user.secret == lead.secret and current_user.id == lead.user_id %>
         <td><%= lead.id %></td>
         <td><%= lead.first_name %> <%= lead.last_name %></td>
-        <td><%= lead.address %></td>
+        <td><%= lead.property %></td>
         <td><%= lead.slot.date.strftime('%A, %b %y') if lead.slot_id? %></td>
         <td><%= lead.slot.time.strftime('%H:%M') if lead.slot_id? %></td>
         <td><%= lead.phone %></td>
