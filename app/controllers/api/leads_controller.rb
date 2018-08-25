@@ -38,7 +38,7 @@ module Api
                   "image_aspect_ratio": "square",
                   "elements":[
                     {
-                      "title":"#{@lead.address}",
+                      "title":"hiii#{@lead.property}",
                       "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
                       "subtitle":"Select time and date.",
                       "buttons":[

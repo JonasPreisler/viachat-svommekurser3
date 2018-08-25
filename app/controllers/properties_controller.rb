@@ -6,6 +6,34 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @properties = Property.all
+    @properties.each do |property|
+      @properties_to_render = {
+        :messages => [
+          {
+            :type => "template",
+            :payload => {
+              :template_type => "generic",
+              :image_aspect_ratio => "square",
+              :elements => [
+                {
+                  :title => "#{property.address}",
+                  :image_url => "http://chatestate.herokuapp.com#{property.image}",
+                  :subtitle => "$ #{property.price}",
+                  :buttons => [
+                    {
+                      :type => "web_url",
+                      :url => "http://chatestate.herokuapp.com/properties/#{property.id}",
+                      :title => "Click here."
+                    } 
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    end    
+    render :json => @properties_to_render
   end
 
   # GET /properties/1

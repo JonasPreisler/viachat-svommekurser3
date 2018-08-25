@@ -5,33 +5,36 @@ module Api
 
 
     def index
-      render json: {
-       "messages": [
-          {
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"generic",
-                "image_aspect_ratio": "square",
-                "elements":[
-                  {
-                    "title":"#{properties.first.address}",
-                    "image_url":"http://chatestate.herokuapp.com#{properties.first.image}",
-                    "subtitle":"$ #{properties.first.price}",
-                    "buttons":[
-                      {
-                        "type":"web_url",
-                        "url":"http://chatestate.herokuapp.com/properties/#{@property.id}",
-                        "title":"Click here."
-                      }
-                    ]
-                  }
-                ]
+      @properties = Property.all
+      @properties.each do |property|
+        render json: {
+         "messages": [
+            {
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"generic",
+                  "image_aspect_ratio": "square",
+                  "elements":[
+                    {
+                      "title":"#{property.address}",
+                      "image_url":"http://chatestate.herokuapp.com#{property.image}",
+                      "subtitle":"$ #{property.price}",
+                      "buttons":[
+                        {
+                          "type":"web_url",
+                          "url":"http://chatestate.herokuapp.com/properties/#{property.id}",
+                          "title":"Click here."
+                        }
+                      ]
+                    }
+                  ]
+                }
               }
             }
-          }
-        ]
-      }
+          ]
+        }
+      end
     end
 
     def show

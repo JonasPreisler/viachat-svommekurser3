@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :businesses
   resources :leads
   root to: "leads#index"
+  scope "/users/:id", :as => "user" do
+    resources :properties
+  end
+
   namespace 'api' do
     resources :leads
     resources :properties
