@@ -31,10 +31,11 @@ module Api
         render json: {
           "messages": [
             {
-              "text":  "What time?": [
+              "text":  "What time?",
+              "quick_replies": [
                 {
                   "title":"What time?",
-                  "url": "www.chatestate.herokuapp.com/#{@lead.id}/tid",
+                  "url":"http://chatestate.herokuapp.com/#{@lead.id}/tid",
                   "type":"json_plugin_url"
                 }
               ]
