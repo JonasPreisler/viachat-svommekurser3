@@ -29,14 +29,17 @@ module Api
       @lead = Lead.new(lead_params)
       if @lead.save
         render json: {
-          "set_attributes": 
+          "messages": [
             {
-              "property": "test",
-              "secret": "another value"
-            },
-          "block_names": ["send data"],
-          "type": "show_block",
-          "title": "Go!"
+              "text":  "What time?": [
+                {
+                  "title":"What time?",
+                  "url": "www.chatestate.herokuapp.com/#{@lead.id}/tid",
+                  "type":"json_plugin_url"
+                }
+              ]
+            }
+          ]
         }
       end
     end
