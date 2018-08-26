@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice if user_signed_in? %></p>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
 
   <div class="row">
@@ -18,16 +18,16 @@
         DKK <%= @property.price %>
       </p>
 
-      <%= link_to 'Edit', edit_property_path(@property), class: 'btn-primary box' %> 
+      <%= link_to 'Edit', edit_property_path(@property), class: 'btn-primary box' if user_signed_in? and current_user.id == @property.user_id %> 
       <%= link_to 'Delete', property_path(@property),
-      data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' %>
+      data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' if user_signed_in? and current_user.id == @property.user_id %>
     </div>
     <div class="col-md-6 col-sm-6">
 
       <p>
         <% @property_images.each do |p| %><br />
         <%= image_tag p.image_url(:thumb), class: 'image-border' %> 
-        <%= link_to "Delete", property_image_path(p), :method => :delete %><br />
+        <%= link_to "Delete", property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
       <% end %>
       </p>
 
@@ -36,8 +36,8 @@
         <br />
 
         <div class="links">
-          <span style="font-size:14px;background:#bbb;padding:14px;border-radius:5px;"><%= link_to_add_association 'ADD IMAGE', f, :property_images %></span>
-           <%= f.submit 'Upload', class: 'button' %>
+          <%= link_to_add_association 'ADD IMAGE', f, :property_images, class: 'add-image' if user_signed_in? and current_user.id == @property.user_id %>
+           <%= f.submit 'Upload', class: 'button' if user_signed_in? and current_user.id == @property.user_id %>
         </div>
       <% end %>
 

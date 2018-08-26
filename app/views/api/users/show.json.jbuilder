@@ -8,13 +8,13 @@ json.messages do
 				json.elements do
 					json.array! (@properties) do |property|
 						json.title "#{property.address}"
-						json.image_url "https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg"
-						json.subtitle "#{property.price}"
+						json.image_url "https://chatestate.s3.amazonaws.com#{property.image.url(:thumb)}"
+						json.subtitle "$#{property.price}"
 						json.buttons do
 							json.array! [*1] do
 								json.type "web_url"
 								json.url "http://chatestate.herokuapp.com/properties/#{property.id}"
-								json.title "Click here"
+								json.title "See details"
 							end
 						end
 					end

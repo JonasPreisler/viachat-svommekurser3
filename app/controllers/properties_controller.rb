@@ -1,72 +1,13 @@
 class PropertiesController < ApplicationController
   before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  layout 'guest', only: [:show]
 
   # GET /properties
   # GET /properties.json
   def index
   @property = Property.all
   @properties = Property.all
-    render json: {
-     "messages": [
-        {
-          "attachment":{
-            "type":"template",
-            "payload":{
-              "template_type":"generic",
-              "image_aspect_ratio":"square",
-              "elements":[
-                {
-                  "title":"#{property.address}",
-                  "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#{property.price}",
-                  "buttons":[
-                    {
-                      "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/properties/#{property.id}",
-                      "title":"Click here!"
-                    }
-                  ]
-                },{
-                  "title":"#{property.address}",
-                  "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#@{property.price}",
-                  "buttons":[
-                    {
-                      "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/properties/#{property.id}",
-                      "title":"Click here!"
-                    }
-                  ]
-                },{
-                  "title":"#{property.address}",
-                  "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#{property.price}",
-                  "buttons":[
-                    {
-                      "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/properties/#{property.id}",
-                      "title":"Click here!"
-                    }
-                  ]
-                },{
-                  "title":"#{property.address}",
-                  "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#{property.price}",
-                  "buttons":[
-                    {
-                      "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/properties/#{property.id}",
-                      "title":"Click here!"
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ]
-    }
   end
 
   # GET /properties/1
