@@ -25,10 +25,13 @@
 @font-face {
     font-family: 'poppins';
     src: asset_url('font/Poppins-Light.otf');
-    font-weight: 300;
-    font-style: normal;
+    src: asset_url('font/Poppins-Bold.otf');
 }
 
 body {
-	font-family: poppins;
+	font-weight: 300;
+}
+.fat {
+font-family: poppins-bold, poppins;
+font-size: 20px;
 }

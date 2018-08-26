@@ -144,8 +144,10 @@ label > input + span{
 
 /* PROPERTY FORM */
 
-.property-form {
-  padding: 60px !important;
+@media only screen and (min-width: 600px) {
+  .property-form {
+    padding: 60px !important;
+  }
 }
 
 input, button, select, textarea {
@@ -187,6 +189,7 @@ input, button, select, textarea {
 .image-border {
   border: 3px solid #fff;
   border-radius: 3px;
+  width: 100%;
 }
 .property-image {
   overflow: hidden;

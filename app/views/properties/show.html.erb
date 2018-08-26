@@ -1,21 +1,21 @@
 <p id="notice"><%= notice if user_signed_in? %></p>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
-
+  <center>
   <div class="row">
     <div class="col-md-6 col-sm-6 property">
       <p>
-        <strong>Address:</strong><br />
-        <%= @property.address %>
+        Address:<br />
+        <span class="fat"><%= @property.address %></span>
       </p>
 
       <p>
-        <strong>Description:</strong><br />
-        <%= @property.description %>
+        Price:<br />
+        <span class="fat">$ <%= number_with_delimiter(@property.price, :delimiter => ',') %></span>
       </p>
 
       <p>
-        <strong>Price:</strong><br />
-        DKK <%= @property.price %>
+        Description:<br />
+        <span class="fat"><%= @property.description %></span>
       </p>
 
       <%= link_to 'Edit', edit_property_path(@property), class: 'btn-primary box' if user_signed_in? and current_user.id == @property.user_id %> 
@@ -23,24 +23,27 @@
       data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' if user_signed_in? and current_user.id == @property.user_id %>
     </div>
     <div class="col-md-6 col-sm-6">
+      <center>
 
-      <p>
-        <% @property_images.each do |p| %><br />
-        <%= image_tag p.image_url(:thumb), class: 'image-border' %> 
-        <%= link_to "Delete", property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
-      <% end %>
-      </p>
+        <p>
+          <% @property_images.each do |p| %><br />
+          <%= image_tag p.image_url(:messenger), class: 'image-border' %> 
+          <%= link_to "Delete", property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
+        <% end %>
+        </p>
 
-      <%= simple_form_for(@property, :html => { :multipart => true }) do |f| %>
+        <%= simple_form_for(@property, :html => { :multipart => true }) do |f| %>
 
-        <br />
+          <br />
 
-        <div class="links">
-          <%= link_to_add_association 'ADD IMAGE', f, :property_images, class: 'add-image' if user_signed_in? and current_user.id == @property.user_id %>
-           <%= f.submit 'Upload', class: 'button' if user_signed_in? and current_user.id == @property.user_id %>
-        </div>
-      <% end %>
+          <div class="links">
+            <%= link_to_add_association 'ADD IMAGE', f, :property_images, class: 'add-image' if user_signed_in? and current_user.id == @property.user_id %>
+             <%= f.submit 'Upload', class: 'button' if user_signed_in? and current_user.id == @property.user_id %>
+          </div>
+        <% end %>
+      </center>
 
     </div>
   </div>
+  </center>
 </div>
