@@ -27,7 +27,7 @@
 
         <p>
           <% @property_images.each do |p| %><br />
-          <%= image_tag p.image_url(:messenger), class: 'image-border' %> 
+          <%= image_tag p.image_url(:view), class: 'image-border' %> 
           <%= link_to "Delete", property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
         <% end %>
         </p>
