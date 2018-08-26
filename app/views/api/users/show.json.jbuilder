@@ -11,9 +11,11 @@ json.messages do
 						json.image_url "https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg"
 						json.subtitle "#{property.price}"
 						json.buttons do
-							json.type "web_url"
-							json.url "http://chatestate.herokuapp.com/properties/#{property.id}"
-							json.title "Click here"
+							json.array! [*1] do
+								json.type "web_url"
+								json.url "http://chatestate.herokuapp.com/properties/#{property.id}"
+								json.title "Click here"
+							end
 						end
 					end
 				end
