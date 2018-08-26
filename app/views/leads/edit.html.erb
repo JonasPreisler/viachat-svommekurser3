@@ -34,7 +34,7 @@
           <label class="btn btn-primary box3" for="lead_slot_id_<%=sl.id%>">
             <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
             <%= sl.time.strftime('%H:%M') %><br />
-            <span class="weekday"><%= sl.time.strftime('%H:%M') %></span>
+            <span class="weekday">Today</span>
           </label>
         <% end %>
       <% end %>
@@ -46,7 +46,7 @@
           <label class="btn btn-primary box3" for="lead_slot_id_<%=sl.id%>">
             <%= f.radio_button :slot_id, sl.id, onclick: "$(this).closest('form').submit();" %>
             <%= sl.time.strftime('%H:%M') %><br />
-            <span class="weekday" style="margin-left: -6px;"><%= sl.time.strftime('%H:%M') %></span>
+            <span class="weekday" style="margin-left: -6px;">Tomorrow</span>
           </label>
         <% end %>
       <% end %>
