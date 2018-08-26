@@ -8,7 +8,7 @@ json.messages do
 				json.elements do
 					json.array! (@properties) do |property|
 						json.title "#{property.address}"
-						json.image_url "https://chatestate.s3.amazonaws.com#{property.image.url(:thumb)}"
+						json.image_url "#{property.image.url(:thumb)}"
 						json.subtitle "$#{property.price}"
 						json.buttons do
 							json.array! [*1] do
