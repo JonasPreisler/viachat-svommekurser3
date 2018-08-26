@@ -12,7 +12,6 @@
       <th>Time</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>City</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,7 +27,6 @@
         <td><%= lead.slot.time.strftime('%H:%M') if lead.slot_id? %></td>
         <td><%= lead.phone %></td>
         <td><%= lead.email %></td>
-        <td><%= lead.city %></td>
         <% end %>
       </tr>
     <% end %>
