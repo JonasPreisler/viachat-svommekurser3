@@ -1,32 +1,56 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
-  <h4><b>EDIT ACCOUNT</b></h4>
+  <h4><b><%= I18n.t "editaccount2" %></b></h4>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
-    <strong>Your secret:</strong> <%= @user.secret %><br />
 
-    <div class="form-inputs">
-      <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
+    <div class="mobileHide">
+      <strong><%= I18n.t "yoursecret" %>:</strong> <%= @user.secret %><br /><br />
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+      <div class="form-inputs">
+        <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
 
-      <%= f.input :password, placeholder: 'Password', label: false, autocomplete: "off", required: false %><br />
-      <%= f.input :password_confirmation, placeholder: 'Confirm Password', label: false, required: false %><br />
-      <%= f.input :current_password, placeholder: 'Current Password', label: false, required: true %>
-      <span style="color:#888787;font-size:12px;">We need your current password to confirm your changes.</span><br />
-      <br /><br />
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
+        <%= f.input :password, placeholder: I18n.t('password'), label: false, autocomplete: "off", required: false %><br />
+        <%= f.input :password_confirmation, placeholder: I18n.t('repeat-password'), label: false, required: false %><br />
+        <%= f.input :current_password, placeholder: I18n.t('current-password'), label: false, required: true %>
+        <span style="color:#888787;font-size:12px;"><%= I18n.t "currentsecretreason" %></span><br />
+        <br /><br />
+
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit I18n.t('updateaccount'), class: 'button' %><br /><br />
+      </div>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: 'button' %><br /><br />
+    <div class="desktopHide">
+      <strong><%= I18n.t "yoursecret" %>:</strong> <%= @user.secret %><br /><br />
+
+      <div class="form-inputs">
+        <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :password, placeholder: I18n.t('password'), label: false, autocomplete: "off", required: false %><br />
+        <%= f.input :password_confirmation, placeholder: I18n.t('repeat-password'), label: false, required: false %><br />
+        <%= f.input :current_password, placeholder: I18n.t('current-password'), label: false, required: true %>
+        <span style="color:#888787;font-size:12px;"><%= I18n.t "currentsecretreason" %></span><br />
+        <br /><br />
+
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit I18n.t('updateaccount'), class: 'button' %><br /><br />
     </div>
   <% end %>
 
-
-  <p><%= link_to "Cancel account.", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p><%= link_to I18n.t('cancelaccount'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </div>
 </center>

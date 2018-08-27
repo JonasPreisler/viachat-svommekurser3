@@ -4,23 +4,23 @@
   <div class="row">
     <div class="col-md-6 col-sm-6 property">
       <p>
-        Address:<br />
+        <%= I18n.t "address" %>:<br />
         <span class="fat"><%= @property.address %></span>
       </p>
 
       <p>
-        Price:<br />
-        <span class="fat">$ <%= number_with_delimiter(@property.price, :delimiter => ',') %></span>
+        <%= I18n.t "price" %>:<br />
+        <span class="fat"><%= I18n.t "currency" %> <%= number_with_delimiter(@property.price, :delimiter => ',') %></span>
       </p>
 
       <p>
-        Description:<br />
+        <%= I18n.t "description" %>:<br />
         <span class="fat"><%= @property.description %></span>
       </p>
 
-      <%= link_to 'Edit', edit_property_path(@property), class: 'btn-primary box' if user_signed_in? and current_user.id == @property.user_id %> 
-      <%= link_to 'Delete', property_path(@property),
-      data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-danger' if user_signed_in? and current_user.id == @property.user_id %>
+      <%= link_to I18n.t('edit2'), edit_property_path(@property), class: 'btn-primary box' if user_signed_in? and current_user.id == @property.user_id %> 
+      <%= link_to I18n.t('delete2'), property_path(@property),
+      data: {:confirm => I18n.t('confirm')}, :method => :delete, class: 'btn btn-danger' if user_signed_in? and current_user.id == @property.user_id %>
     </div>
     <div class="col-md-6 col-sm-6">
       <center>
@@ -28,7 +28,7 @@
         <p>
           <% @property_images.each do |p| %><br />
           <%= image_tag p.image_url(:view), class: 'image-border' %> 
-          <%= link_to "Delete", property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
+          <%= link_to I18n.t('delete3'), property_image_path(p), :method => :delete if user_signed_in? and current_user.id == @property.user_id %><br />
         <% end %>
         </p>
 
@@ -37,7 +37,8 @@
           <br />
 
           <div class="links">
-            <%= link_to_add_association 'ADD IMAGE', f, :property_images, class: 'add-image' if user_signed_in? and current_user.id == @property.user_id %>
+            <%= link_to_add_association I18n.t('addimage'), f, :property_images, class: 'add-image' if user_signed_in? and current_user.id == @property.user_id %>
+            <div class="mobileHide" style="padding-bottom: 20px;"> </div>
              <%= f.submit 'Upload', class: 'button' if user_signed_in? and current_user.id == @property.user_id %>
           </div>
         <% end %>

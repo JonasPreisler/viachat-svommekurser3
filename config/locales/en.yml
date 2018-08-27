@@ -1,7 +1,6 @@
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
-#
 # To use the locales, use `I18n.t`:
 #
 #     I18n.t 'hello'
@@ -30,4 +29,98 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  guests: "How many guests?"
+  today: "Today"
+  tomorrow: "Tomorrow"
+  table: "Choose table"
+  reserve: "Reserve"
+  redirect: "Redirecting to Messenger.com after"
+  seconds: "seconds"
+  reserveddate: "Date"
+  reservedtime: "Time"
+  reservedtable: "Table"
+  reservedguests: "Guests"
+  login: "Log in"
+  username: "Email"
+  password: "Password"
+  success: "Success"
+  repeat-password: "Repeat password"
+  current-password: "Current password"
+  secret-reason: "Your secret is to make sure that noone can send data to any random user_id."
+  uncompleted: "Uncompleted reservations"
+  secret: "Secret"
+  secret-description: "Send this secret from 3rd party"
+  logout: "__Log out__"
+  register: "Register"
+  currentsecretreason: "We need your current password to confirm your changes."
+  newreservation: "__New reservation__"
+  show: "__Show__"
+  edit: "__Edit__"
+  edit2: "Edit"
+  delete: "__Delete__"
+  delete2: "Delete"
+  delete3: "Delete picture"
+  back: "__Back__"
+  sure: "Are you sure?"
+  changedate: "__Change date__"
+  changetable: "__Change table__"
+  cancel: "__Cancel__"
+  name: "Name"
+  property: "Property"
+  properties: "__Properties__"
+  properties2: "Properties"
+  newproperty: "New property"
+  editproperty: "Edit property"
+  address: "Address"
+  datedate: "Date"
+  timetime: "Time"
+  phone: "Phone"
+  new: "New"
+  great: "Great"
+  viewingconfirmed: "You have now booked a viewing of"
+  viewingconfirm: "We will confirm with you in the morning of"
+  whattime: "What date and time do you wish to see the apartment"
+  your: "Your"
+  yours: "Your"
+  yoursecret: "Your secret"
+  editaccount: "__Edit account__"
+  editaccount2: "Edit account"
+  createaccount: "Create account"
+  updateaccount: "Update account konto"
+  cancelaccount: "Cancel account"
+  addproperty: "__Add property__"
+  noproperty: "Hey there! 🙂 You didn't add any properties yet."
+  description: "Description"
+  price: "Price"
+  currency: "$"
+  imagesfor: "Image for the 'Properties' page"
+  imagesfor2: "Images for Messenger"
+  addanotherimage: "ADD ANOTHER IMAGE"
+  addimage: "ADD IMAGE"
+  createproperty: "Create Property"
+  updateproperty: "Update Property"
+  newlead: "New lead"
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please fill out all the fields"
+  devise:
+    sessions:
+      user:
+        signed_in: "You are now logged in"
+        signed_out: "You are now logged out"
+    registrations:
+      user:
+        signed_up: "You are now signed up"
+  helpers:
+    submit:
+      slot:
+        update: "Reserve"
+        edit: "dasd"

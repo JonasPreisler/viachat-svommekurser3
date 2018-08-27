@@ -1,41 +1,78 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
-<h1>New Property</h1>
+<h1><%= I18n.t "newproperty" %></h1><br />
   <%= simple_form_for(@property, :html => { :multipart => true }) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <%= f.hidden_field :user_id, :value=> current_user.id  %>
 
-    <div class="form-inputs">
-      <%= f.input :address, placeholder: 'Address', label: false, class: "form-control" %><br />
-      <%= f.input :description, placeholder: 'Description', label: false %><br />
-      <br />
-      <div class="input-group" style="padding-left: 30%;">
-        <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3">$ </span>
-         <%= f.input :price, placeholder: 'Price', label: false %>
-      </div><br />
+    <div class="mobileHide">
+      <div class="form-inputs">
+        <%= f.input :address, placeholder: I18n.t('address'), label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: I18n.t('description'), label: false %><br />
+        <br />
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
+           <%= f.input :price, placeholder: I18n.t('price'), label: false %>
+        </div><br />
 
-      <strong>Image for the "Properties" page:</strong><br /><%= f.file_field :image %><br />
+        <strong><%= I18n.t "imagesfor" %>:</strong><br /><%= f.file_field :image %><br />
 
-      <strong>Images for the bot:</strong>
-
-
-      <div id="property_images">
-      <%= f.fields_for :property_images do |property_image| %>
-        <%= render 'property_image_fields', f: property_image %>
-      <% end %>
+        <strong><%= I18n.t "imagesfor2" %>:</strong>
 
 
-      <div class="links">
-        <span style="font-size:14px;background:#bbb;padding:14px;border-radius:5px;"><%= link_to_add_association 'ADD ANOTHER IMAGE', f, :property_images %></span>
+        <div id="property_images">
+        <%= f.fields_for :property_images do |property_image| %>
+          <%= render 'property_image_fields', f: property_image %>
+        </div>
+        <% end %>
+
+
+        <div class="links">
+          <span style="font-size:14px;background:#bbb;padding:14px;padding-left:50px;padding-right:50px;border-radius:5px;width:100%;"><%= link_to_add_association I18n.t('addanotherimage'), f, :property_images %></span>
+        </div>
+        <br />
       </div>
       <br />
-    </div>
-    <br />
 
-    <div class="form-actions">
-      <%= f.button :submit, class: 'button' %>
+      <div class="form-actions">
+        <%= f.submit I18n.t('createproperty'), class: 'button' %>
+      </div>
+    </div>
+
+    <div class="desktopHide">
+      <div class="form-inputs">
+        <%= f.input :address, placeholder: I18n.t('address'), label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: I18n.t('description'), label: false %><br />
+        <br />
+        <div class="input-group" style="padding-left: 30%;">
+          <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
+           <%= f.input :price, placeholder: I18n.t('price'), label: false %>
+        </div><br />
+
+        <strong><%= I18n.t "imagesfor" %>:</strong><br /><%= f.file_field :image %><br />
+
+        <strong><%= I18n.t "imagesfor2" %>:</strong>
+
+
+        <div id="property_images">
+        <%= f.fields_for :property_images do |property_image| %>
+          <%= render 'property_image_fields', f: property_image %>
+        </div>
+        <% end %>
+
+
+        <div class="links">
+          <span style="font-size:14px;background:#bbb;padding:14px;border-radius:5px;"><%= link_to_add_association I18n.t('addanotherimage'), f, :property_images %></span>
+        </div>
+        <br />
+      </div>
+      <br />
+
+      <div class="form-actions">
+        <%= f.submit I18n.t('createproperty'), class: 'button' %>
+      </div>
     </div>
   <% end %>
 

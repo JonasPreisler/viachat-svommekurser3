@@ -1,15 +1,23 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-6 col-sm-6">
-    <h1>Properties</h1>
+    <h1><%= I18n.t "properties2" %></h1>
   </div>
-  <div class="col-md-6 col-sm-6">
-    <%= link_to "Add property", new_property_path, class: 'btn-primary2 box shadow pull-right' %>
+  <div class="desktopHide">
+    <div class="col-md-6 col-sm-6">
+      <%= string_with_link(t('addproperty'), new_property_path, class: 'btn-primary2 box shadow pull-right') %>
+    </div>
+  </div>
+
+  <div class="mobileHide">
+    <div class="col-md-6 col-sm-6">
+      <%= string_with_link(t('addproperty'), new_property_path, class: 'btn-primary2 box shadow') %>
+    </div>
   </div>
 </div>
 
 <% unless current_user.properties.any? %>
-<div style="font-size:20px;text-align: center;padding-top:30px;">Hey there! 🙂 You didn't add any properties yet. </div>
+<div style="font-size:20px;text-align: center;padding-top:30px;"><%= I18n.t "noproperty" %> </div>
 <% else %>
 
 <br />
@@ -19,7 +27,7 @@
     <div class="col-md-3 col-sm-4">
       <div class="thumbnail">
         <% if property.image? %>
-          <%= link_to (image_tag property.image.url(:thumb)), property, class: 'property-image' %>
+          <%= link_to (image_tag property.image.url(:messenger)), property, class: 'property-image' %>
         <% else %>
           <%= link_to (image_tag '/thumbnail.png'), property, class: 'property-image' %>
         <% end %>

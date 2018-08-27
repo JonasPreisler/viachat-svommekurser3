@@ -1,0 +1,303 @@
+nb:
+  guests: "Hvor mange gjester?"
+  today: "Idag"
+  tomorrow: "Imorgen"
+  table: "Velg bord"
+  reserve: "Reservér"
+  redirect: "Omdirigerer til Messenger.com etter"
+  seconds: "sekunder"
+  reserveddate: "Dato"
+  reservedtime: "Tid"
+  reservedtable: "Bord"
+  reservedguests: "Gjester"
+  login: "Logg inn"
+  username: "email"
+  password: "Passord"
+  repeat-password: "Gjenta passord"
+  current-password: "Nåværende passord"
+  secret-reason: "Din hemmelighet er å sørge for at ingen kan sende data til et tilfeldig bruker-ID."
+  uncompleted: "Ufullstendige reservasjoner"
+  secret: "Hemmelighet"
+  secret-description: "Send denne hemmeligheten fra tredje part."
+  logout: "__Logg ut__"
+  newreservation: "__Ny reservasjon__"
+  show: "__Vis__"
+  edit: "__Redigér__"
+  edit2: "Redigér"
+  delete: "__Slett__"
+  delete2: "Slett"
+  delete3: "Slett bilde"
+  confirm: "Er du sikker?"
+  register: "Registrér"
+  currentsecretreason: "Vi trenger ditt nåværende passord for å bekrefte endringene dine."
+  back: "__Tilbake__"
+  changedate: "__Endre dato__"
+  changetable: "__Endre bord__"
+  cancel: "__Avbryt__"
+  name: "Navn"
+  property: "Eiendom"
+  properties: "__Eiendomme__"
+  properties2: "Eiendomme"
+  newproperty: "Ny eiendom"
+  editproperty: "Rediger eiendom"
+  datedate: "Dato"
+  timetime: "Tid"
+  phone: "Mobil"
+  new: "New"
+  great: "Flott"
+  viewingconfirmed: "Du har nå bestilt en visning av"
+  viewingconfirm: "Vi vil bekrefte med deg om morgenen"
+  whattime: "Hvilken dato og klokkeslett ønsker du å se"
+  your: "Din"
+  yours: "Din"
+  yoursecret: "Din hemmelighet"
+  editaccount: "__Rediger bruker__"
+  editaccount2: "Rediger bruker"
+  createaccount: "Actualizar cuenta"
+  updateaccount: "Oppdater konto"
+  cancelaccount: "Slett konto"
+  addproperty: "__Opprett ny eiendom__"
+  noproperty: "Hei der! 🙂 Du har ikke lagt til noen egenskaper enda."
+  address: "Adresse"
+  description: "Beskrivelse"
+  price: "Pris"
+  currency: "NOK"
+  imagesfor: "Bilde for siden 'Eiendomme'"
+  imagesfor2: "Bilder for Messenger"
+  addanotherimage: "LEGG TIL NYTT BILDE"
+  addimage: "LEGG TIL BILDE"
+  createproperty: "Opprett Eiendom"
+  updateproperty: "Oppdater Eiendom"
+  newlead: "Nytt lead"
+  simple_form:
+    "ja": 'Ja'
+    "nei": 'Nei'
+    required:
+      text: 'Nødvendig'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Vennligst fyll ut alle feltene"
+  devise:
+    sessions:
+      user:
+        signed_in: "Du er nå logget inn"
+        signed_out: "Du er nå logget ut"
+    registrations:
+      user:
+        signed_up: "Du er nå registrert"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Det oppstod feil: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Kan ikke slette registreringen, fordi 1 %{record} avhenger av denne.
+          has_many: Kan ikke slette registreringen, fordi %{record} avhenger av denne.
+  date:
+    abbr_day_names:
+    - søn
+    - man
+    - tir
+    - ons
+    - tor
+    - fre
+    - lør
+    abbr_month_names:
+    -
+    - jan
+    - feb
+    - mar
+    - apr
+    - mai
+    - jun
+    - jul
+    - aug
+    - sep
+    - okt
+    - nov
+    - des
+    day_names:
+    - søndag
+    - mandag
+    - tirsdag
+    - onsdag
+    - torsdag
+    - fredag
+    - lørdag
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - januar
+    - februar
+    - mars
+    - april
+    - mai
+    - juni
+    - juli
+    - august
+    - september
+    - oktober
+    - november
+    - desember
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: rundt 1 time
+        other: rundt %{count} timer
+      about_x_months:
+        one: rundt 1 måned
+        other: rundt %{count} måneder
+      about_x_years:
+        one: rundt 1 år
+        other: rundt %{count} år
+      almost_x_years:
+        one: nesten 1 år
+        other: nesten %{count} år
+      half_a_minute: et halvt minutt
+      less_than_x_minutes:
+        one: mindre enn 1 minutt
+        other: mindre enn %{count} minutter
+      less_than_x_seconds:
+        one: mindre enn 1 sekund
+        other: mindre enn %{count} sekunder
+      over_x_years:
+        one: over 1 år
+        other: over %{count} år
+      x_days:
+        one: 1 dag
+        other: "%{count} dager"
+      x_minutes:
+        one: 1 minutt
+        other: "%{count} minutter"
+      x_months:
+        one: 1 måned
+        other: "%{count} måneder"
+      x_years:
+        one: 1 år
+        other: "%{count} år"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
+    prompts:
+      day: dag
+      hour: time
+      minute: minutt
+      month: måned
+      second: sekund
+      year: år
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: må være akseptert
+      blank: kan ikke være blank
+      present: må være blank
+      confirmation: er ikke lik %{attribute}
+      empty: kan ikke være tom
+      equal_to: må være lik %{count}
+      even: må være partall
+      exclusion: er reservert
+      greater_than: må være større enn %{count}
+      greater_than_or_equal_to: må være større enn eller lik %{count}
+      inclusion: er ikke inkludert i listen
+      invalid: er ugyldig
+      less_than: må være mindre enn %{count}
+      less_than_or_equal_to: må være mindre enn eller lik %{count}
+      model_invalid: "Det oppstod feil: %{errors}"
+      not_a_number: er ikke et tall
+      not_an_integer: er ikke et heltall
+      odd: må være oddetall
+      required: må eksistere
+      taken: er allerede i bruk
+      too_long: er for lang (maksimum %{count} tegn)
+      too_short: er for kort (minimum %{count} tegn)
+      wrong_length: er av feil lengde (maksimum %{count} tegn)
+      other_than: kan ikke være nøyaktig %{count}
+    template:
+      body: 'Det oppstod problemer med følgende felt:'
+      header:
+        one: Kunne ikke lagre %{model} på grunn av én feil.
+        other: Kunne ikke lagre %{model} på grunn av %{count} feil.
+  helpers:
+    select:
+      prompt: Vennligst velg
+    submit:
+      create: Lag %{model}
+      submit: Lagre %{model}
+      update: Reservér
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: kr
+    format:
+      delimiter: " "
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: true
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: milliard
+            other: milliarder
+          million:
+            one: million
+            other: millioner
+          quadrillion:
+            one: billiard
+            other: billiarder
+          thousand: tusen
+          trillion:
+            one: billion
+            other: billioner
+          unit: ''
+      format:
+        delimiter: " "
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: kB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " og "
+      two_words_connector: " og "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%A, %e. %B %Y, %H:%M"
+      long: "%A, %e. %B %Y, %H:%M"
+      short: "%e. %B, %H:%M"
+    pm: ''

@@ -28,7 +28,7 @@ class PropertyImagesController < ApplicationController
 
     respond_to do |format|
       if @property_image.save
-        format.html { redirect_to @property_image, notice: 'Property image was successfully created.' }
+        format.html { redirect_to @property_image, notice: '👌 done' }
         format.json { render :show, status: :created, location: @property_image }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PropertyImagesController < ApplicationController
   def update
     respond_to do |format|
       if @property_image.update(property_image_params)
-        format.html { redirect_to @property_image.property, notice: 'Image was successfully updated.' }
+        format.html { redirect_to @property_image.property, notice: '👌 done' }
       end 
     end
   end
@@ -52,7 +52,7 @@ class PropertyImagesController < ApplicationController
   def destroy
     @property_image.destroy
     respond_to do |format|
-      format.html { redirect_to properties_path, notice: 'Property image was successfully destroyed.' }
+      format.html { redirect_to properties_path, notice: '👌 done' }
       format.json { head :no_content }
     end
   end

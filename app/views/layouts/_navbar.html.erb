@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -17,16 +16,29 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li style="color:#fff;padding:5px;">Your secret: <%= current_user.secret %><br />
-          Your user_id: <%= current_user.id %></li>
+        <li style="color:#fff;padding:5px;"><%= I18n.t "yoursecret" %>: <%= current_user.secret %><br />
+          <%= I18n.t "yours" %> user_id: <%= current_user.id %></li>
         <li><%= link_to 'Leads', leads_path, class: 'btn-primary box shadow'%></li>
-        <li><%= link_to 'Properties', properties_path, class: 'btn-primary box shadow'%></li>
-        <li><%= link_to 'Edit account', edit_user_registration_path, class: 'btn-primary box shadow'%></li>
-        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn-primary box shadow'%></li>
+        <li><%= string_with_link(t('properties'), properties_path, class: 'btn-primary box shadow') %>
+        <li><%= string_with_link(t('editaccount'), edit_user_registration_path, class: 'btn-primary box shadow') %>
+        <li><%= string_with_link(t('logout'), destroy_user_session_path, method: :delete, class: 'btn-primary box shadow') %></li>
         <% else %>
         <li><%= link_to 'Sign up', new_user_registration_path, class: 'btn-primary box shadow'%></li>
         <li><%= link_to 'Sign in', new_user_session_path, class: 'btn-primary box shadow'%></li>
         <% end %>
+        <div class="pull-right">
+        <button onclick="myFunction()" class="dropbtn lang" style="background: none;border: none;">LANG</button>
+          <div id="myDropdown" class="dropdown-content">
+            <center>
+              <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
+              <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
+              <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
+              <%= link_to_unless_current image_tag("/lang_da.png"), locale: "da" %>
+            </center>
+
+          </div>
+        </div>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

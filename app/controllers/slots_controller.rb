@@ -29,7 +29,7 @@ class SlotsController < ApplicationController
 
     respond_to do |format|
       if @slot.save
-        format.html { redirect_to root_path, notice: 'Slot was successfully created.' }
+        format.html { redirect_to root_path, notice: '👌 done' }
         format.json { render :show, status: :created, location: @slot }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class SlotsController < ApplicationController
   def destroy
     @slot.destroy
     respond_to do |format|
-      format.html { redirect_to slots_url, notice: 'Slot was successfully destroyed.' }
+      format.html { redirect_to slots_url, notice: '👌 done' }
       format.json { head :no_content }
     end
   end

@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  resources :property_images
-  resources :properties
-  resources :orders
-  resources :slots
-  devise_for :users
-  resources :users, only: [:show], :shallow => true do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :property_images
     resources :properties
+    resources :orders
+    resources :slots
+    devise_for :users
+    resources :users, only: [:show], :shallow => true do
+      resources :properties
+    end
+    resources :businesses
+    resources :leads
+    root to: "leads#index"
+    get '/:id/tid', to: 'leads#edit'
   end
-  resources :businesses
-  resources :leads
-  root to: "leads#index"
 
   namespace 'api', defaults: { format: :json } do
     resources :users
@@ -21,5 +24,4 @@ Rails.application.routes.draw do
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
     #get '/:user', to: 'properties#show'
   end
-  get '/:id/tid', to: 'leads#edit'
 end

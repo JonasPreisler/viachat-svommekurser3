@@ -1,9 +1,9 @@
 <div style="font-size:18px;text-align: center;padding-top:20px;">
 <p>
-  Great <%= @lead.first_name %>!
+  <%= I18n.t "great" %> <%= @lead.first_name %>!
 </p>
 <br />
-You have booked a showcasing <strong><%= @lead.address %></strong> at <strong><%= @lead.slot.date.strftime('%A, %b %y') %>, <%= @lead.slot.time.strftime('%I %p') %></strong>
+<%= I18n.t "viewingconfirmed" %> <strong><%= @lead.address %></strong> at <strong><%= @lead.slot.date.strftime('%A, %b %y') %>, <%= @lead.slot.time.strftime('%I %p') %></strong>
 
 <br /><br />
 We will confirm with you in the morning of <strong><%= @lead.slot.date.strftime('%A %d/%m') %></strong>.

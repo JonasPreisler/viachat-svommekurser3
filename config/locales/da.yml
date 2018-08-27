@@ -1,0 +1,126 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+da:
+  guests: "How many guests?"
+  today: "Today"
+  tomorrow: "Tomorrow"
+  table: "Choose table"
+  reserve: "Reserve"
+  redirect: "Redirecting to Messenger.com after"
+  seconds: "seconds"
+  reserveddate: "Date"
+  reservedtime: "Time"
+  reservedtable: "Table"
+  reservedguests: "Guests"
+  login: "Log ind"
+  username: "Email"
+  password: "Kodeord"
+  success: "Success"
+  repeat-password: "Gentag kodeord"
+  current-password: "Nuværende kodeord"
+  secret-reason: "Din hemmelighed er til for at forsikre, at ingen kan sende data til et hvilket som helst user_id."
+  uncompleted: "Ikke færdiggjorte reservationer"
+  secret: "Hemmelighed"
+  secret-description: "Send denne hemmelighed fra tredjepart"
+  logout: "__Log ud__"
+  register: "Registrér"
+  currentsecretreason: "Vi skal bruge dit nuværende kodeord for at bekræfte ændringerne."
+  newreservation: "__New reservation__"
+  show: "__Vis__"
+  edit: "__Redigér__"
+  edit2: "Redigér"
+  delete: "__Sler__"
+  delete2: "Slet"
+  delete3: "Slet billede"
+  back: "__Tilbage__"
+  sure: "Er du sikker?"
+  changedate: "__Skift dato__"
+  changetable: "__Skift bord__"
+  cancel: "__Annullér__"
+  name: "Navn"
+  property: "Ejendom"
+  properties: "__Ejendomme__"
+  properties2: "Ejendomme"
+  newproperty: "Ny ejendom"
+  editproperty: "Redigér ejendom"
+  address: "Adresse"
+  datedate: "Dato"
+  timetime: "Tid"
+  phone: "Mobil"
+  new: "Ny"
+  great: "Fantastisk"
+  viewingconfirmed: "Du har booket en fremvisning af"
+  viewingconfirm: "Vi bekræfter med dig om morgenen d."
+  whattime: "Hvilken dato og tid vil du se ejendommen"
+  your: "Din"
+  yours: "Dit"
+  yoursecret: "Din hemmelighed"
+  editaccount: "__Redigér konto__"
+  editaccount2: "Redigér konto"
+  createaccount: "Opret konto"
+  updateaccount: "Opdatér konto"
+  cancelaccount: "Slet konto"
+  addproperty: "__Tilføj ejendom__"
+  noproperty: "Hey! 🙂 Du har ikke tilføjet nogle ejendomme endnu."
+  description: "Beskrivelse"
+  price: "Pris"
+  currency: "DKK"
+  imagesfor: "Billede for 'Ejendomme' siden"
+  imagesfor2: "Billeder for Messenger"
+  addanotherimage: "TILFØJ NYT BILLEDE"
+  addimage: "TILFØJ BILLEDE"
+  createproperty: "Tilføj Ejendom"
+  updateproperty: "Opdatér Ejendom"
+  newlead: "Nyt lead"
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Please fill out all the fields"
+  devise:
+    sessions:
+      user:
+        signed_in: "You are now logged in"
+        signed_out: "You are now logged out"
+    registrations:
+      user:
+        signed_up: "You are now signed up"
+  helpers:
+    submit:
+      slot:
+        update: "Reserve"
+        edit: "dasd"
