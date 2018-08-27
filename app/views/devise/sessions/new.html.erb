@@ -1,10 +1,10 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="property-form">
+	
+	<h4><b><%= I18n.t "login" %></b></h4>
 	 <%- flash.each do |name, msg| -%>
 	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 	  <%- end -%>  
-	
-	<h4><b><%= I18n.t "login" %></b></h4>
 
 	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
