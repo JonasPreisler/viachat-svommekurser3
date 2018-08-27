@@ -88,6 +88,7 @@ da:
   createaccount: "Opret konto"
   updateaccount: "Opdatér konto"
   cancelaccount: "Slet konto"
+  confirmpassword: "Bekræft kodeord"
   addproperty: "__Tilføj ejendom__"
   noproperty: "Hey! 🙂 Du har ikke tilføjet nogle ejendomme endnu."
   description: "Beskrivelse"
@@ -100,6 +101,12 @@ da:
   createproperty: "Tilføj Ejendom"
   updateproperty: "Opdatér Ejendom"
   newlead: "Nyt lead"
+  forgotpassword: "Glemt kodeord?"
+  confirmationinstructions: "Har du ikke modtaget bekræftelses instruktioner?"
+  unlockinstructions: "Har du ikke modtaget oplåsningsinstruktioner?"
+  signup: "Registrér"
+  mincharacters: "Minimum 6 karakterer"
+  lang: "Sprog"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -114,11 +121,17 @@ da:
   devise:
     sessions:
       user:
-        signed_in: "You are now logged in"
-        signed_out: "You are now logged out"
+        signed_in: "Du er nu logget ind"
+        signed_out: "Du er nu logget ud"
     registrations:
       user:
-        signed_up: "You are now signed up"
+        signed_up: "Du er nu registreret"
+    failure:
+      user:
+        invalid: "Forkert email eller kodeord"
+    failure:
+      user:
+        invalid: "Feil e-post eller passord"
   helpers:
     submit:
       slot:

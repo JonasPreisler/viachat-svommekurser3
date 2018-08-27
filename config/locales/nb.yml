@@ -28,7 +28,7 @@ nb:
   delete2: "Slett"
   delete3: "Slett bilde"
   confirm: "Er du sikker?"
-  register: "Registrér"
+  register: "Registrer"
   currentsecretreason: "Vi trenger ditt nåværende passord for å bekrefte endringene dine."
   back: "__Tilbake__"
   changedate: "__Endre dato__"
@@ -53,9 +53,10 @@ nb:
   yoursecret: "Din hemmelighet"
   editaccount: "__Rediger bruker__"
   editaccount2: "Rediger bruker"
-  createaccount: "Actualizar cuenta"
+  createaccount: "Opprett konto"
   updateaccount: "Oppdater konto"
   cancelaccount: "Slett konto"
+  confirmpassword: "Bekreft passord"
   addproperty: "__Opprett ny eiendom__"
   noproperty: "Hei der! 🙂 Du har ikke lagt til noen egenskaper enda."
   address: "Adresse"
@@ -69,6 +70,14 @@ nb:
   createproperty: "Opprett Eiendom"
   updateproperty: "Oppdater Eiendom"
   newlead: "Nytt lead"
+  signup: "Opret konto"
+  forgotpassword: "Glemt passord?"
+  confirmationinstructions: "Mottok ikke bekreftelsesinstruksjoner?"
+  unlockinstructions: "Mottok ikke opplåsningsanvisninger?"
+  signup: "Meld deg på"
+  signin: "Logg inn"
+  mincharacters: "Minst 6 tegn"
+  lang: "Språk"
   simple_form:
     "ja": 'Ja'
     "nei": 'Nei'
@@ -88,6 +97,9 @@ nb:
     registrations:
       user:
         signed_up: "Du er nå registrert"
+    failure:
+      user:
+        invalid: "Feil e-post eller passord"
   activerecord:
     errors:
       messages:

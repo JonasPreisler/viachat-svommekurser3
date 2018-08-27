@@ -57,6 +57,7 @@ es:
   createaccount: "Crear una cuenta"
   updateaccount: "Actualizar cuenta"
   cancelaccount: "Cancelar cuenta"
+  confirmpassword: "Confirmar contraseña"
   addproperty: "__Agregar propiedad__"
   noproperty: "¡Hola! 🙂 No agregó ninguna propiedad todavía."
   description: "Descripción"
@@ -69,6 +70,12 @@ es:
   createproperty: "Crear Propiedad"
   updateproperty: "Actualizar propiedad"
   newlead: "Nuevo lead"
+  forgotpassword: "¿Se te olvidó tu contraseña?"
+  confirmationinstructions: "¿No recibió las instrucciones de confirmación?"
+  unlockinstructions: "¿No recibió instrucciones de desbloqueo?"
+  signup: "Regístrate"
+  mincharacters: "Mínimo 6 caracteres"
+  lang: "Idioma"
   simple_form:
     "si": 'Si'
     "no": 'No'
@@ -88,6 +95,9 @@ es:
     registrations:
       user:
         signed_up: "Ahora estás registrado"
+    failure:
+      user:
+        invalid: "Correo o contraseña equivocada"
   helpers:
     submit:
       user:

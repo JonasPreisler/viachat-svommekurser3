@@ -88,6 +88,7 @@ en:
   createaccount: "Create account"
   updateaccount: "Update account konto"
   cancelaccount: "Cancel account"
+  confirmpassword: "Confirm password"
   addproperty: "__Add property__"
   noproperty: "Hey there! 🙂 You didn't add any properties yet."
   description: "Description"
@@ -100,6 +101,12 @@ en:
   createproperty: "Create Property"
   updateproperty: "Update Property"
   newlead: "New lead"
+  forgotpassword: ""
+  confirmationinstructions: "Didn't receive confirmation instructions?"
+  unlockinstructions: "Didn't receive unlock instructions?"
+  signup: "Sign Up"
+  mincharacters: "Minimum 6 characters"
+  lang: "Lang"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -119,6 +126,9 @@ en:
     registrations:
       user:
         signed_up: "You are now signed up"
+    failure:
+      user:
+        invalid: "Wrong email or password"
   helpers:
     submit:
       slot:

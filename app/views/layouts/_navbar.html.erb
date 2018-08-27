@@ -23,11 +23,11 @@
         <li><%= string_with_link(t('editaccount'), edit_user_registration_path, class: 'btn-primary box shadow') %>
         <li><%= string_with_link(t('logout'), destroy_user_session_path, method: :delete, class: 'btn-primary box shadow') %></li>
         <% else %>
-        <li><%= link_to 'Sign up', new_user_registration_path, class: 'btn-primary box shadow'%></li>
-        <li><%= link_to 'Sign in', new_user_session_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to I18n.t('signup'), new_user_registration_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to I18n.t('login'), new_user_session_path, class: 'btn-primary box shadow'%></li>
         <% end %>
         <div class="pull-right">
-        <button onclick="myFunction()" class="dropbtn lang" style="background: none;border: none;">LANG</button>
+        <button onclick="myFunction()" class="dropbtn lang" style="background: none;border: none;"><%= I18n.t "lang" %></button>
           <div id="myDropdown" class="dropdown-content">
             <center>
               <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
