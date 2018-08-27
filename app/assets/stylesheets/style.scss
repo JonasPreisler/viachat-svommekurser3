@@ -156,7 +156,7 @@ label > input + span{
   }
 }
 
-input, button, select, textarea {
+input, select, textarea {
   padding: 8px;
   width: 40%;
 }
@@ -307,5 +307,5 @@ input, button, select, textarea {
 /* END OF DESKTOP RESPONSIVENESS */
 
 .navbar-default .navbar-toggle .icon-bar {
-  color: #fff;
+  background: #fff !important;
 }
