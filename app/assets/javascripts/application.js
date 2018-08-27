@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require jquery-ui/effect-highlight
 //= require activestorage
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.easy-autocomplete
 //= require chosen-jquery
