@@ -317,8 +317,33 @@ input, select, textarea {
   height: 375px;
   background: #E8F1EC;
 }
+.header-top-mobile {
+  background-size: cover;
+  background: #E8F1EC;
+}
 .header-text {
   color: #444;
   font-size: 45px;
-  padding-top: 40px;
+  padding-top: 70px;
+}
+.header-text-2 {
+  color: #444;
+  font-size: 45px;
+}
+
+@media only screen and (max-width: 900px) {
+    desktopHide {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    mobileHide {
+        display: none;
+        visibility: hidden;
+    }
+}
+.mobile-pic {
+  width: 100%;
 }
