@@ -4,7 +4,7 @@
   margin-top: 2px;
 }
 .container-fluid {
-  background: linear-gradient(to bottom right, #606fee, #60b6ee);
+  background: #63CFDC;
 }
 .body {
 	background-color: #eaeaea !important;
@@ -55,7 +55,7 @@
 .btn-primary {
 	margin: 10px;
 	height: 50%;
-	color: #606fee !important;
+	color: #45909a !important;
 	background: #fff !important;
 	border: none !important;
   padding-left: 10px !important;
@@ -176,7 +176,7 @@ input, select, textarea {
   margin: 10px;
   height: 50%;
   color: #fff !important;
-  background: linear-gradient(to bottom right, #606fee, #60b6ee);
+  background: linear-gradient(to bottom right, #63CFDC, #63dcad);
   border: none !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -208,7 +208,7 @@ input, select, textarea {
 }
 
 .btn-green {
-  background-color: #8FC24C;
+  background-color: #63CFDC;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
@@ -216,7 +216,7 @@ input, select, textarea {
   color: #fff !important;
 }
 .btn-red {
-  background-color: #c9302c;
+  background-color: #dc7063;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
@@ -227,7 +227,6 @@ input, select, textarea {
   }
   border: none;
 }
-
 .add-image {
   font-size:14px;
   background:#bbb;
@@ -308,4 +307,18 @@ input, select, textarea {
 
 .navbar-default .navbar-toggle .icon-bar {
   background: #fff !important;
+}
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+.header-top {
+  background-size: cover;
+  height: 375px;
+  background: #E8F1EC;
+}
+.header-text {
+  color: #444;
+  font-size: 45px;
+  padding-top: 40px;
 }

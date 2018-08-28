@@ -20,7 +20,7 @@
 
       <%= link_to I18n.t('edit2'), edit_property_path(@property), class: 'btn-primary box' if user_signed_in? and current_user.id == @property.user_id %> 
       <%= link_to I18n.t('delete2'), property_path(@property),
-      data: {:confirm => I18n.t('confirm')}, :method => :delete, class: 'btn btn-danger' if user_signed_in? and current_user.id == @property.user_id %>
+      data: {:confirm => I18n.t('confirm')}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @property.user_id %>
     </div>
     <div class="col-md-6 col-sm-6">
       <center>

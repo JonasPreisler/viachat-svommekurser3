@@ -24,8 +24,7 @@
 
 @font-face {
     font-family: 'poppins';
-    src: asset_url('font/Poppins-Light.otf');
-    src: asset_url('font/Poppins-Bold.otf');
+    src: asset_url('font/Poppins-Light.otf'), ('font/Poppins-Bold.otf'), ('font/Poppins-Black.otf');
 }
 
 body {
@@ -36,5 +35,9 @@ font-family: poppins-bold, poppins;
 font-size: 20px;
 }
 a {
-	color: #606fee;
+	color: #45909a;
+}
+h1 {
+  font-size: 34px;
+  font-family: poppins black, poppins;
 }
