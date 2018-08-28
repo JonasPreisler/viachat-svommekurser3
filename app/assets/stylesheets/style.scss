@@ -330,7 +330,6 @@ input, select, textarea {
   color: #444;
   font-size: 45px;
 }
-
 @media only screen and (max-width: 900px) {
     desktopHide {
         display: none;
@@ -346,4 +345,23 @@ input, select, textarea {
 }
 .mobile-pic {
   width: 100%;
+}
+.big-btn {
+  margin: 10px;
+  color: #fff !important;
+  border-radius: 4px;
+  font-size: 26px;
+  font-family: poppins;
+  background: #dc7063 !important;
+  border: none !important;
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:hover {
+    text-decoration: none !important;
+    opacity: 0.8 !important;
+  }
 }
