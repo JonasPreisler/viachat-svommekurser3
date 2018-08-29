@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_08_29_110805) do
     t.bigint "property_id"
     t.string "deadline"
     t.string "purpose"
-    t.string "type"
+    t.string "category"
     t.string "price_filter"
     t.string "budget"
     t.string "area"
