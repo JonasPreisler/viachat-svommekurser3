@@ -107,6 +107,19 @@ da:
   signup: "Registrér"
   mincharacters: "Minimum 6 karakterer"
   lang: "Sprog"
+  landing1: "Vi bygger dig en"
+  landing2: "unfair"
+  landing3: "fordel"
+  landing4: "Med magien fra Facebook Messenger"
+  landing5: "Fordelen"
+  landing6: "kaldes"
+  landing7: "Mixet med social media... kan du ikke blive mere farlig!"
+  landing8: "Vi sender leads"
+  landing9: "Du lukker"
+  landing10: "aftaler"
+  landing11: "Det er dét. Vi gør det vi er bedst til, og du gør det samme"
+  landing12: "Der er for mange sløve marketing bureauer i verden"
+
   simple_form:
     "yes": 'Yes'
     "no": 'No'

@@ -76,6 +76,19 @@ es:
   signup: "Regístrate"
   mincharacters: "Mínimo 6 caracteres"
   lang: "Idioma"
+  landing1: "Te construiremos un"
+  landing2: "injusto"
+  landing3: "ventaja"
+  landing4: "Con la magia de Facebook Messenger"
+  landing5: "Esa ventaja"
+  landing6: "se llama"
+  landing7: "Mezclado con las redes sociales ... ¡no podrías volverse más peligroso!"
+  landing8: "Enviamos leads"
+  landing9: "cierras"
+  landing10: "ofertas"
+  landing11: "Eso es todo. Hacemos lo que mejor hacemos, y tú haces lo mismo"
+  landing12: "Hay demasiadas agencias a medias en este mundo"
+
   simple_form:
     "si": 'Si'
     "no": 'No'

@@ -78,6 +78,19 @@ nb:
   signin: "Logg inn"
   mincharacters: "Minst 6 tegn"
   lang: "Språk"
+  landing1: "Vi bygger deg en"
+  landing2: "unfair"
+  landing3: "fordel"
+  landing4: "Med magien til Facebook Messenger"
+  landing5: "Den fordelen"
+  landing6: "heter"
+  landing7: "Blandet med sosiale medier ... du kunne ikke bli noe mer farlig!"
+  landing8: "Vi sender leads"
+  landing9: "Du lukker"
+  landing10: "avtaler"
+  landing11: "Det er det. Vi gjør det vi er best på, og du gjør det samme"
+  landing12: "Det er for mange halvkalt byråer i denne verden"
+
   simple_form:
     "ja": 'Ja'
     "nei": 'Nei'
