@@ -13,7 +13,7 @@ json.messages do
 						json.buttons do
 							json.array! [*1] do
 								json.type "web_url"
-								json.url "http://chatestate.herokuapp.com/properties/#{property.id}"
+								json.url "http://chatestate.herokuapp.com/properties/#{property.id}?v=%20"
 								json.title "See details"
 							end
 						end

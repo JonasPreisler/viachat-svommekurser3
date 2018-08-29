@@ -43,7 +43,7 @@ module Api
                       "buttons":[
                         {
                           "type":"web_url",
-                          "url":"http://chatestate.herokuapp.com/#{@lead.id}/tid",
+                          "url":"http://chatestate.herokuapp.com/#{@lead.id}/tid?v=%20",
                           "title":"Select time/date!"
                         }
                       ]
