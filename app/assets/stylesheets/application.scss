@@ -22,27 +22,35 @@
 @import "bootstrap";
 
 
+
 @font-face {
-    font-family: 'poppins';
-    src: asset_url('font/Poppins-Light.otf'), ('font/Poppins-Bold.otf'), ('font/Poppins-Black.otf');
+    font-family: 'poppinsextralight';
+    src: asset_url('poppins-extralight-webfont.woff2') format('woff2'),
+         asset_url('poppins-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppinsblack';
+    src: asset_url('poppins-black-webfont.woff2') format('woff2'),
+         asset_url('poppins-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
 	font-weight: 300;
-}
-.fat {
-font-family: poppins-bold, poppins;
-font-size: 20px;
 }
 a {
 	color: #45909a;
 }
 h1 {
   font-size: 34px;
-  font-family: poppins black, poppins;
+  font-family: poppinsblack;
 }
 h2 {
-  font-family: poppins black, poppins;
+  font-family: poppinsblack;
   color: #444;
   font-size: 35px;
 }
