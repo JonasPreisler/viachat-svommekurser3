@@ -365,3 +365,22 @@ input, select, textarea {
     opacity: 0.8 !important;
   }
 }
+.big-btn2 {
+  margin: 10px;
+  color: #fff !important;
+  border-radius: 4px;
+  font-size: 26px;
+  font-family: poppins;
+  background: #dc7063 !important;
+  border: none !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:hover {
+    text-decoration: none !important;
+    opacity: 0.8 !important;
+  }
+}
