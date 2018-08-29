@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_185728) do
+ActiveRecord::Schema.define(version: 2018_08_29_110805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,13 @@ ActiveRecord::Schema.define(version: 2018_08_24_185728) do
     t.string "secret"
     t.bigint "user_id"
     t.bigint "property_id"
+    t.string "deadline"
+    t.string "purpose"
+    t.string "type"
+    t.string "price_filter"
+    t.string "budget"
+    t.string "area"
+    t.string "pet"
     t.index ["property_id"], name: "index_leads_on_property_id"
     t.index ["slot_id"], name: "index_leads_on_slot_id"
     t.index ["user_id"], name: "index_leads_on_user_id"

@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:index, :destroy]
+  before_action :require_login, only: [:index, :emner, :destroy]
   layout 'mobile', only: [:show, :edit]
 
   # GET /leads
@@ -23,6 +23,10 @@ class LeadsController < ApplicationController
 
   # GET /leads/1/edit
   def edit
+  end
+
+  def emner
+    @leads = Lead.all
   end
 
   # POST /leads
@@ -83,7 +87,7 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-    params.fetch(:lead).permit(:user_id, :first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :property, :timeanddate, :email, :slot_id, :time, :date, :secret, :property_id, :phone, :'first name', :'last name')
+    params.fetch(:lead).permit(:user_id, :first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :property, :timeanddate, :email, :slot_id, :time, :date, :secret, :property_id, :phone, :'first name', :'last name', :deadline, :purpose, :type, :price_filter, :budget, :area, :pet)
     end
 
     def require_login
