@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:index, :emner, :destroy]
+  before_action :require_login, only: [:index, :destroy]
   layout 'mobile', only: [:show, :edit]
 
   # GET /leads
