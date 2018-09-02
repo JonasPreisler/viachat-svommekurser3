@@ -10,8 +10,7 @@
         <th><%= I18n.t "name" %></th>
         <th>Email</th>
         <th>Tidsrum</th>
-        <th>Purpose</th>
-        <th>Price_filter</th>
+        <th>Formål</th>
         <th>Budget</th>
         <th>Område</th>
         <th>Kæledyr</th>
@@ -22,13 +21,12 @@
     <tbody>
       <% @leads.each do |lead| %>
         <tr>
-          <% if current_user.secret == lead.secret and current_user.id == lead.user_id %>
+          <% if lead.user_id == 10 %>
           <td><%= lead.id %></td>
           <td>Skjult</td>
           <td>Skjult</td>
           <td><%= lead.deadline %></td>
           <td><%= lead.purpose %></td>
-          <td><%= lead.price_filter %></td>
           <td><%= lead.budget %></td>
           <td><%= lead.area %></td>
           <td><%= lead.pet %></td>
@@ -45,9 +43,13 @@
     <thead>
       <tr>
         <th><%= I18n.t "name" %></th>
-        <th><%= I18n.t "property" %></th>
-        <th><%= I18n.t "datedate" %></th>
-        <th><%= I18n.t "timetime" %></th>
+        <th>Email</th>
+        <th>Tidsrum</th>
+        <th>Formål</th>
+        <th>Budget</th>
+        <th>Område</th>
+        <th>Kæledyr</th>
+
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -55,11 +57,14 @@
     <tbody>
       <% @leads.each do |lead| %>
         <tr>
-          <% if current_user.secret == lead.secret and current_user.id == lead.user_id %>
-          <td><%= lead.first_name %> <%= lead.last_name %></td>
-          <td><%= lead.property %></td>
-          <td><%= lead.slot.date.strftime('%A, %b %y') if lead.slot_id? %></td>
-          <td><%= lead.slot.time.strftime('%H:%M') if lead.slot_id? %></td>
+          <% if lead.user_id == 10 %>
+          <td>Skjult</td>
+          <td>Skjult</td>
+          <td><%= lead.deadline %></td>
+          <td><%= lead.purpose %></td>
+          <td><%= lead.budget %></td>
+          <td><%= lead.area %></td>
+          <td><%= lead.pet %></td>
           <% end %>
         </tr>
       <% end %>
@@ -68,5 +73,3 @@
 </div>
 
 <br>
-
-<%= link_to I18n.t('newlead'), new_lead_path %>
