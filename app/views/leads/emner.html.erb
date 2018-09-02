@@ -28,7 +28,7 @@
           <td><%= lead.deadline %></td>
           <td><%= lead.purpose %></td>
           <td><%= lead.budget %></td>
-          <td><%= lead.cityarea %></td>
+          <td><%= lead.cityarea if lead.cityarea? %></td>
           <td><%= lead.area %></td>
           <td><%= lead.pet %></td>
           <% end %>
