@@ -13,6 +13,7 @@
         <th>Formål</th>
         <th>Budget</th>
         <th>Område</th>
+        <th>Værelser</th>
         <th>Kæledyr</th>
         <th colspan="3"></th>
       </tr>
@@ -30,6 +31,7 @@
           <td><%= lead.budget %></td>
           <td><%= lead.cityarea if lead.cityarea? %></td>
           <td><%= lead.area %></td>
+          <td><%= lead.rooms if lead.rooms? %></td>
           <td><%= lead.pet %></td>
           <% end %>
         </tr>
@@ -50,6 +52,7 @@
         <th>Budget</th>
         <th>Bydel</th>
         <th>Område</th>
+        <th>Værelser</th>
         <th>Kæledyr</th>
 
         <th colspan="3"></th>
@@ -66,6 +69,7 @@
           <td><%= lead.purpose %></td>
           <td><%= lead.budget %></td>
           <td><%= lead.cityarea if lead.cityarea? %></td>
+          <td><%= lead.rooms if lead.rooms? %></td>
           <td><%= lead.area %></td>
           <td><%= lead.pet %></td>
           <% end %>
