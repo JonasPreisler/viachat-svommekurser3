@@ -18,7 +18,6 @@
         <li style="color:#fff;padding:5px;"><%= I18n.t "yoursecret" %>: <%= current_user.secret %><br />
           <%= I18n.t "yours" %> user_id: <%= current_user.id %></li>
         <li><%= link_to 'Leads', leads_path, class: 'btn-primary box shadow'%></li>
-        <li><%= string_with_link(t('properties'), properties_path, class: 'btn-primary box shadow') %>
         <li><%= string_with_link(t('editaccount'), edit_user_registration_path, class: 'btn-primary box shadow') %>
         <li><%= string_with_link(t('logout'), destroy_user_session_path, method: :delete, class: 'btn-primary box shadow') %></li>
         <% else %>
