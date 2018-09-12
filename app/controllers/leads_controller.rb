@@ -25,7 +25,7 @@ class LeadsController < ApplicationController
   def edit
   end
 
-  def leads
+  def nyeleads
     @leads = Lead.all
   end
 
