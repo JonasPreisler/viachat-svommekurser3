@@ -87,7 +87,7 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-    params.fetch(:lead).permit(:user_id, :first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :property, :timeanddate, :email, :slot_id, :time, :date, :secret, :property_id, :phone, :'first name', :'last name', :category, :property_type, :deadline, :purpose, :price_filter, :budget, :area, :pet, :cityarea, :rooms)
+    params.fetch(:lead).permit(:user_id, :first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :property, :timeanddate, :email, :slot_id, :time, :date, :secret, :property_id, :phone, :'first name', :'last name', :category, :property_type, :deadline, :purpose, :price_filter, :budget, :area, :pet, :cityarea, :rooms, :forsikring_valg)
     end
 
     def require_login
