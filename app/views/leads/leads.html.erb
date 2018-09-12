@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leads</h1>
+
+<div class="desktopHide">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th><%= I18n.t "name" %></th>
+        <th><%= I18n.t "forsikring" %></th>
+        <th><%= I18n.t "phone" %></th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @leads.each do |lead| %>
+        <tr>
+          <% if lead.user_id == 1 %>
+            <td><%= lead.id %></td>
+            <td><%= lead.first_name %> <%= lead.last_name %></td>
+            <td><%= lead.forsikring_valg %></td>
+            <td><%= lead.phone %></td>
+            <td><%= lead.email %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="mobileHide">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= I18n.t "name" %></th>
+        <th><%= I18n.t "property" %></th>
+        <th><%= I18n.t "datedate" %></th>
+        <th><%= I18n.t "timetime" %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @leads.each do |lead| %>
+        <tr>
+          <% if lead.user_id == 1 %>
+            <td><%= lead.first_name %> <%= lead.last_name %></td>
+            <td><%= lead.property %></td>
+            <td><%= lead.slot.date.strftime('%A, %b %y') if lead.slot_id? %></td>
+            <td><%= lead.slot.time.strftime('%H:%M') if lead.slot_id? %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>

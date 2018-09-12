@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :businesses
     resources :leads
     root to: "leads#index"
-    get '/emner', to: 'leads#emner'
+    get '/leads', to: 'leads#leads'
     get '/:id/tid', to: 'leads#edit'
   end
 
