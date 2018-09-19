@@ -23,6 +23,11 @@
         <%= @product.product_link %>
       </p>
 
+      <p>
+        <strong>Nummer:</strong><br />
+        <%= @product.nummer %>
+      </p>
+
       <%= link_to I18n.t('edit2'), edit_product_path(@product), class: 'btn-primary box' if user_signed_in? and current_user.id == @product.user_id %> 
       <%= link_to I18n.t('delete2'), product_path(@product),
       data: {:confirm => I18n.t('confirm')}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @product.user_id %>

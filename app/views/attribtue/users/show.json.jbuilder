@@ -1,4 +1,5 @@
-json.messages do
+json.set_attributes do
+	produkt_navn "#{product.title if product.title} #{product.nummer if product.nummer }"
 	json.array! [*1] do
 		json.attachment do
 			json.type "template"
@@ -20,12 +21,12 @@ json.messages do
 							end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["mobilepay"]
+					            json.block_names "mobilepay"
 					            json.title "MobilePay"
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["overforsel"]
+					            json.block_names "overforsel"
 					            json.title "Overførsel"
 					        end
 						end

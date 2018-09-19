@@ -24,4 +24,10 @@ Rails.application.routes.draw do
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
     #get '/:user', to: 'products#show'
   end
+
+  namespace 'attribute', defaults: { format: :json } do
+    resources :users
+    resources :products
+  end
+
 end
