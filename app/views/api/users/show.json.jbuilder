@@ -9,13 +9,16 @@ json.messages do
 					json.array! (@products) do |product|
 						json.title "#{product.title}"
 						json.image_url "#{product.image.url(:messenger)}"
-						json.subtitle "$#{product.price}"
+						json.subtitle "DKK #{product.price}"
 						json.buttons do
 							json.array! [*1] do
 								json.type "web_url"
 								json.url "#{product.product_link}?v=%20"
 								json.title "See detaljer"
 							end
+				            json.type "show_block",
+				            json.block_names ["mobilepay"],
+				            json.title "Betal med MobilePay"
 						end
 					end
 				end
