@@ -25,7 +25,7 @@ json.messages do
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names "bankoverførsel"
+					            json.block_names "bankoverforsel"
 					            json.title "Bankoverførsel"
 					        end
 						end
