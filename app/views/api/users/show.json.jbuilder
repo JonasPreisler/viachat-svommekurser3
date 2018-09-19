@@ -11,14 +11,23 @@ json.messages do
 						json.image_url "#{product.image.url(:messenger)}"
 						json.subtitle "DKK #{product.price}"
 						json.buttons do
+							if product.product_link?
+								json.array! [*1] do
+									json.type "web_url"
+									json.url "#{product.product_link}?v=%20"
+									json.title "Se detaljer"
+								end
+							end
 							json.array! [*1] do
-								json.type "web_url"
-								json.url "#{product.product_link}?v=%20"
-								json.title "See detaljer"
 					            json.type "show_block"
 					            json.block_names "mobilepay"
 					            json.title "Betal med MobilePay"
-							end
+					        end
+							json.array! [*1] do
+					            json.type "show_block"
+					            json.block_names "bankoverførsel"
+					            json.title "Bankoverførsel"
+					        end
 						end
 					end
 				end
