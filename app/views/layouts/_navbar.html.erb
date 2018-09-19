@@ -17,25 +17,14 @@
         <% if user_signed_in? %>
         <li style="color:#fff;padding:5px;"><%= I18n.t "yoursecret" %>: <%= current_user.secret %><br />
           <%= I18n.t "yours" %> user_id: <%= current_user.id %></li>
-        <li><%= link_to 'Leads', leads_path, class: 'btn-primary box shadow'%></li>
-        <li><%= string_with_link(t('editaccount'), edit_user_registration_path, class: 'btn-primary box shadow') %>
-        <li><%= string_with_link(t('logout'), destroy_user_session_path, method: :delete, class: 'btn-primary box shadow') %></li>
+        <li><%= link_to 'Produkter', products_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Konto', edit_user_registration_path, class: 'btn-primary box shadow' %>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn-primary box shadow' %></li>
         <% else %>
-        <li><%= link_to I18n.t('signup'), new_user_registration_path, class: 'btn-primary box shadow'%></li>
-        <li><%= link_to I18n.t('login'), new_user_session_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Registrér', new_user_registration_path, class: 'btn-primary box shadow'%></li>
+        <li><%= link_to 'Log ind', new_user_session_path, class: 'btn-primary box shadow'%></li>
         <% end %>
-        <div class="pull-right" style="padding-right: 20px;">
-        <button onclick="myFunction()" class="dropbtn lang" style="background: none;border: none;"><%= I18n.t "lang" %></button>
-          <div id="myDropdown" class="dropdown-content">
-            <center>
-              <%= link_to_unless_current image_tag("/lang_en.png"), locale: "en" %>
-              <%= link_to_unless_current image_tag("/lang_nb.png"), locale: "nb" %>
-              <%= link_to_unless_current image_tag("/lang_es.png"), locale: "es" %>
-              <%= link_to_unless_current image_tag("/lang_da.png"), locale: "da" %>
-            </center>
 
-          </div>
-        </div>
 
       </ul>
     </div><!-- /.navbar-collapse -->

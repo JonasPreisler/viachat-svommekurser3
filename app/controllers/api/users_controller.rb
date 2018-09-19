@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @properties = @user.properties.all
+    @products = @user.products.all
     @user = User.first
     render :show
   end

@@ -1,29 +1,27 @@
 Rails.application.routes.draw do
   root to: 'pages#landing'
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    resources :property_images
-    resources :properties
-    resources :orders
-    resources :slots
-    devise_for :users
-    resources :users, only: [:show], :shallow => true do
-      resources :properties
-    end
-    resources :businesses
-    resources :leads
-    root to: "leads#index"
-    get '/nyeleads', to: 'leads#nyeleads'
-    get '/:id/tid', to: 'leads#edit'
+  resources :product_images
+  resources :products
+  resources :orders
+  resources :slots
+  devise_for :users
+  resources :users, only: [:show], :shallow => true do
+    resources :products
   end
+  resources :businesses
+  resources :leads
+  root to: "leads#index"
+  get '/nyeleads', to: 'leads#nyeleads'
+  get '/:id/tid', to: 'leads#edit'
 
   namespace 'api', defaults: { format: :json } do
     resources :users
     #scope "/:id", :as => "user" do
-    #  resources :properties
+    #  resources :products
     #end
     resources :leads
-    resources :properties
+    resources :products
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
-    #get '/:user', to: 'properties#show'
+    #get '/:user', to: 'products#show'
   end
 end

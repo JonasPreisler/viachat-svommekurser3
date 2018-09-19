@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def show
-    @properties = @user.properties.all
+    @products = @user.products.all
     render json: {
      "messages": [
         {
@@ -16,25 +16,25 @@ class UsersController < ApplicationController
               "image_aspect_ratio":"square",
               "elements":[
                 {
-                  "title":"#{@user.properties.first.address}",
+                  "title":"#{@user.products.first.address}",
                   "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#{@user.properties.first.price}",
+                  "subtitle":"#{@user.products.first.price}",
                   "buttons":[
                     {
                       "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/users/#{@user.properties.first.id}",
+                      "url":"http://chatestate.herokuapp.com/users/#{@user.products.first.id}",
                       "title":"Click here!"
                     }
                   ]
                 },
                 {
-                  "title":"#{@user.properties.first.address}",
+                  "title":"#{@user.products.first.address}",
                   "image_url":"https://thumb7.shutterstock.com/display_pic_with_logo/109564/436440067/stock-vector-human-resources-management-select-employee-recruitment-concept-of-human-resources-management-cv-436440067.jpg",
-                  "subtitle":"#{@user.properties.first.price}",
+                  "subtitle":"#{@user.products.first.price}",
                   "buttons":[
                     {
                       "type":"web_url",
-                      "url":"http://chatestate.herokuapp.com/users/#{@user.properties.first.id}",
+                      "url":"http://chatestate.herokuapp.com/users/#{@user.products.first.id}",
                       "title":"Click here!"
                     }
                   ]
@@ -108,7 +108,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:property_id)
+      params.require(:user).permit(:product_id)
     end
 
     def require_login

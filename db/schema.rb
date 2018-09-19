@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_083706) do
+ActiveRecord::Schema.define(version: 2018_08_24_185728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2018_09_12_083706) do
     t.string "last user freeform input"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "property"
+    t.string "product"
     t.string "timeanddate"
     t.string "phone"
     t.string "email"
@@ -76,19 +76,8 @@ ActiveRecord::Schema.define(version: 2018_09_12_083706) do
     t.bigint "slot_id"
     t.string "secret"
     t.bigint "user_id"
-    t.bigint "property_id"
-    t.string "deadline"
-    t.string "purpose"
-    t.string "category"
-    t.string "property_type"
-    t.string "price_filter"
-    t.string "budget"
-    t.string "area"
-    t.string "pet"
-    t.string "cityarea"
-    t.string "rooms"
-    t.string "forsikring_valg"
-    t.index ["property_id"], name: "index_leads_on_property_id"
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_leads_on_product_id"
     t.index ["slot_id"], name: "index_leads_on_slot_id"
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
@@ -120,24 +109,25 @@ ActiveRecord::Schema.define(version: 2018_09_12_083706) do
     t.index ["lead_id"], name: "index_orders_on_lead_id"
   end
 
-  create_table "properties", force: :cascade do |t|
-    t.string "address"
+  create_table "product_images", force: :cascade do |t|
+    t.integer "product_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
     t.string "image"
     t.text "description"
     t.string "price"
+    t.string "product_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "property_image_id"
-    t.index ["property_image_id"], name: "index_properties_on_property_image_id"
-    t.index ["user_id"], name: "index_properties_on_user_id"
-  end
-
-  create_table "property_images", force: :cascade do |t|
-    t.integer "property_id"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "product_image_id"
+    t.index ["product_image_id"], name: "index_products_on_product_image_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "slots", force: :cascade do |t|
@@ -168,11 +158,11 @@ ActiveRecord::Schema.define(version: 2018_09_12_083706) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "leads", "properties"
+  add_foreign_key "leads", "products"
   add_foreign_key "leads", "slots"
   add_foreign_key "leads", "users"
   add_foreign_key "orders", "businesses"
-  add_foreign_key "properties", "property_images"
-  add_foreign_key "properties", "users"
+  add_foreign_key "products", "product_images"
+  add_foreign_key "products", "users"
   add_foreign_key "slots", "leads"
 end

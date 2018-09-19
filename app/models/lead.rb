@@ -9,8 +9,8 @@ class Lead < ApplicationRecord
 	belongs_to :slot, optional: :true
 	belongs_to :user
 
-    def properties_objects
-      Property.where(id: self.properties.reject(&:empty?)).map(&:address).join(",")
+    def products_objects
+      Product.where(id: self.products.reject(&:empty?)).map(&:address).join(",")
     end
 
 end

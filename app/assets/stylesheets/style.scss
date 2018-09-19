@@ -4,7 +4,7 @@
   margin-top: 2px;
 }
 .container-fluid {
-  background: #017e63;
+  background: #57a0b8;
 }
 .body {
 	background-color: #eaeaea !important;
@@ -151,7 +151,7 @@ label > input + span{
 /* PROPERTY FORM */
 
 @media only screen and (min-width: 600px) {
-  .property-form {
+  .product-form {
     padding: 60px !important;
   }
 }
@@ -176,7 +176,7 @@ input, select, textarea {
   margin: 10px;
   height: 50%;
   color: #fff !important;
-  background: linear-gradient(to bottom right, #017e63, #015b7e);
+  background: linear-gradient(to bottom right, #57a0b8, #015b7e);
   border: none !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -189,7 +189,7 @@ input, select, textarea {
 
 /* PROPERTY SHOW */
 
-.property {
+.product {
   font-size: 18px; 
 }
 .image-border {
@@ -197,18 +197,18 @@ input, select, textarea {
   border-radius: 3px;
   width: 100%;
 }
-.property-image {
+.product-image {
   overflow: hidden;
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
-.property-image:hover {
+.product-image:hover {
   opacity: .5;
 }
 
 .btn-green {
-  background-color: #017e63;
+  background-color: #57a0b8;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
