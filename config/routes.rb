@@ -25,9 +25,5 @@ Rails.application.routes.draw do
     #get '/:user', to: 'products#show'
   end
 
-  namespace 'attribute', defaults: { format: :json } do
-    resources :users
-    resources :products
-  end
 
 end
