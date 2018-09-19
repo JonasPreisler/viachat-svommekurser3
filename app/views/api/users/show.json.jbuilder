@@ -15,8 +15,8 @@ json.messages do
 								json.type "web_url"
 								json.url "#{product.product_link}?v=%20"
 								json.title "See detaljer"
-					            json.type "show_block",
-					            json.block_names ["mobilepay"],
+					            json.type "show_block"
+					            json.block_names "mobilepay"
 					            json.title "Betal med MobilePay"
 							end
 						end
