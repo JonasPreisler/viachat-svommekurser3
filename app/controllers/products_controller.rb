@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
   @product = Product.all
-  @products = Product.all.limit(10)
-  @products_2 = Product.all.offset(10).limit(10)
+  @products = current_user.products.all.limit(10)
+  @products_2 = current_user.products.all.offset(10).limit(10)
   end
 
   # GET /products/1

@@ -8,7 +8,7 @@ class Api::Product15::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.offset(15).first
+    @products = @user.products.offset(14).first
     @user = User.first
     render :show
   end
