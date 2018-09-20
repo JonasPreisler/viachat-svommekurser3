@@ -10,7 +10,7 @@
     <div class="mobileHide">
       <div class="form-inputs">
         <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
-        <%= f.input :product_link, placeholder: 'Produkt link', label: false, class: "form-control" %><br />
+        <%= f.input :product_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
         <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
         <%= f.input :description, placeholder: 'Beskrivelse', label: false %><br />
         <br />
@@ -18,17 +18,6 @@
           <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
            <%= f.input :price, placeholder: 'pris', label: false %>
         </div><br />
-
-        <strong>Billede for produkt siden:</strong><br /><%= f.file_field :image %><br />
-
-        <strong>Billede for Messenger:</strong>
-
-
-        <div id="product_images">
-        <%= f.fields_for :product_images do |product_image| %>
-          <%= render 'product_image_fields', f: product_image %>
-        </div>
-        <% end %>
 
 
         <br />
@@ -43,7 +32,8 @@
     <div class="desktopHide">
       <div class="form-inputs">
         <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
-        <%= f.input :product_link, placeholder: 'Produkt link', label: false, class: "form-control" %><br />
+        <%= f.input :product_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
+        <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
         <%= f.input :description, placeholder: 'Beskrivelse', label: false %><br />
         <br />
         <div class="input-group" style="padding-left: 30%;">
@@ -53,14 +43,7 @@
 
         <strong>Billede for produkt siden:</strong><br /><%= f.file_field :image %><br />
 
-        <strong>Billede for Messenger:</strong>
 
-
-        <div id="product_images">
-        <%= f.fields_for :product_images do |product_image| %>
-          <%= render 'product_image_fields', f: product_image %>
-        </div>
-        <% end %>
 
 
         <br />

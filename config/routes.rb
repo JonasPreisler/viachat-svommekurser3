@@ -26,4 +26,9 @@ Rails.application.routes.draw do
   end
 
 
+  namespace 'api2', defaults: { format: :json } do
+    resources :users
+    resources :products
+  end
+
 end
