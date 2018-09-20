@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def show
     @products = @user.products.all
+    @products_2 = @user.products.all
     render json: {
      "messages": [
         {

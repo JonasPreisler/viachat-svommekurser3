@@ -23,12 +23,11 @@ Rails.application.routes.draw do
     resources :products
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
     #get '/:user', to: 'products#show'
+
+    namespace 'more', defaults: { format: :json } do
+      resources :users
+      resources :products
+    end
+
   end
-
-
-  namespace 'api2', defaults: { format: :json } do
-    resources :users
-    resources :products
-  end
-
 end
