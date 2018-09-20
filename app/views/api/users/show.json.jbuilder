@@ -43,8 +43,10 @@ if @products.count > 10
 		json.array! [*1] do
 			json.text "Se flere nyheder:"
 			json.quick_replies do
-				json.title "Flere nyheder"
-				json.block_names ["nyheder_2"]
+				json.array! [*1] do
+					json.title "Flere nyheder"
+					json.block_names ["nyheder_2"]
+				end
 			end
 		end
 	end
