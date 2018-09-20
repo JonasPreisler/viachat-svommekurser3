@@ -20,13 +20,8 @@ json.messages do
 							end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["mobilepay"]
-					            json.title "MobilePay"
-					        end
-							json.array! [*1] do
-					            json.type "show_block"
-					            json.block_names ["overforsel"]
-					            json.title "Overførsel"
+					            json.block_names ["bestil"]
+					            json.title "Bestil"
 					        end
 						end
 					end
