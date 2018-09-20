@@ -44,13 +44,6 @@
 
         <%= simple_form_for(@product, :html => { :multipart => true }) do |f| %>
 
-          <br />
-
-          <div class="links">
-            <%= link_to_add_association I18n.t('addimage'), f, :product_images, class: 'add-image' if user_signed_in? and current_user.id == @product.user_id %>
-            <div class="mobileHide" style="padding-bottom: 20px;"> </div>
-             <%= f.submit 'Upload', class: 'button' if user_signed_in? and current_user.id == @product.user_id %>
-          </div>
         <% end %>
       </center>
 
