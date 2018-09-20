@@ -29,5 +29,69 @@ Rails.application.routes.draw do
       resources :products
     end
 
+    namespace 'product1' do
+      resources :users
+    end
+    namespace 'product2' do
+      resources :users
+    end
+    namespace 'product2', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product3', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product4', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product5', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product6', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product7', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product8', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product9', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product10', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product11', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product12', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product13', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product14', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product15', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product16', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product17', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product18', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product19', defaults: { format: :json } do
+      resources :users
+    end
+    namespace 'product20', defaults: { format: :json } do
+      resources :users
+    end
+
   end
 end

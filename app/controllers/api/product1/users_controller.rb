@@ -1,7 +1,6 @@
-class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:product_1, :show, :edit, :update, :destroy]
+class Api::Product1::UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
-
 
   def index
     @user = User.all
@@ -9,10 +8,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.all
+    @products = @user.products.offset(1).first
     @user = User.first
     render :show
-  end 
+  end
+
   # GET /users/new
   def new
     @user = User.new
