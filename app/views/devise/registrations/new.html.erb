@@ -1,23 +1,23 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="product-form">
-  <h4><b><%= I18n.t "register" %></b></h4>
+  <h4><b>Registrér</b></h4>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
-      <%= f.input :secret, placeholder: I18n.t('secret'), label: false, required: true, autofocus: true %>
-      <span style="color:#888787;font-size:12px;"><%= I18n.t "secret-reason" %></span>
+      <%= f.input :secret, placeholder: 'Hemmelighed', label: false, required: true, autofocus: true %>
+      <span style="color:#888787;font-size:12px;">Din hemmelighed er for at forsikre, at ingen andre kan sende data til hvilket som helst bruger ID.</span>
       <br /><br />
-      <%= f.input :password, placeholder: I18n.t('password'), label: false, required: true %>
-      <span style="color:#888787;font-size:12px;"><%= I18n.t "mincharacters" %></span>
+      <%= f.input :password, placeholder: 'Kodeord', label: false, required: true %>
+      <span style="color:#888787;font-size:12px;">Minimum 6 karakterer.</span>
       <br /><br />
-      <%= f.input :password_confirmation, placeholder: I18n.t('confirmpassword'), label: false, required: true %><br />
+      <%= f.input :password_confirmation, placeholder: 'Bekræft kodeord', label: false, required: true %><br />
     </div>
 
     <div class="form-actions">
-      <%= f.submit I18n.t('createaccount'), class: 'button' %><br /><br />
+      <%= f.submit 'Opret konto', class: 'button' %><br /><br />
 
     </div>
   <% end %>

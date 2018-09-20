@@ -43,6 +43,7 @@
 .box:hover {
   -webkit-transform: scale(1.01, 1.01);
   transform: scale(1.05, 1.01);
+  text-decoration: none
 }
 
 .box:hover::after {

@@ -15,11 +15,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li style="color:#fff;padding:5px;"><%= I18n.t "yoursecret" %>: <%= current_user.secret %><br />
-          <%= I18n.t "yours" %> user_id: <%= current_user.id %></li>
+        <li style="color:#fff;padding:5px;">Din hemmelighed: <%= current_user.secret %><br />
+          Dit user_id: <%= current_user.id %></li>
         <li><%= link_to 'Produkter', products_path, class: 'btn-primary box shadow'%></li>
         <li><%= link_to 'Konto', edit_user_registration_path, class: 'btn-primary box shadow' %>
-        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn-primary box shadow' %></li>
+        <li><%= link_to 'Log ud', destroy_user_session_path, method: :delete, class: 'btn-primary box shadow' %></li>
         <% else %>
         <li><%= link_to 'Registrér', new_user_registration_path, class: 'btn-primary box shadow'%></li>
         <li><%= link_to 'Log ind', new_user_session_path, class: 'btn-primary box shadow'%></li>
