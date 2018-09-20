@@ -15,7 +15,7 @@ json.messages do
 								json.array! [*1] do
 									json.type "web_url"
 									json.url "#{product.product_link}?v=%20"
-									json.title "Se detaljer"
+									json.title "Hjemmeside"
 								end
 							end
 							json.array! [*1] do
