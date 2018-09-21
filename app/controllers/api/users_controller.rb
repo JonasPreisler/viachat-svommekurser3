@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.all
+    @products = @user.products.all.limit(10)
     @user = User.first
     render :show
   end 

@@ -90,7 +90,7 @@ en:
   cancelaccount: "Cancel account"
   confirmpassword: "Confirm password"
   addproduct: "__Add product__"
-  noproduct: "Hey there! 🙂 You didn't add any products yet."
+  noproduct: "Hey! 🙂 Tilføj dit første produkt."
   description: "Description"
   price: "Price"
   currency: "$"

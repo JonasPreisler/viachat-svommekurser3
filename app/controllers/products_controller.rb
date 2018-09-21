@@ -6,8 +6,8 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-  @product = Product.all
-  @products = current_user.products.all.limit(10)
+  @product = Product.all.order(sorting: :desc)
+  @products = current_user.products.all.limit(10).order('sorting ASC')
   @products_2 = current_user.products.all.offset(10).limit(10)
   end
 
@@ -75,12 +75,12 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:user_id, :image, :title, :product_link, :description, :nummer, :price, :product_image_id, product_images_attributes: [:id, :image, :product_id, :destroy])
+      params.require(:product).permit(:user_id, :image, :title, :product_link, :description, :sorting, :nummer, :price, :product_image_id, product_images_attributes: [:id, :image, :product_id, :destroy])
     end
 
     def require_login
       unless current_user
-        flash[:notice] = "You must log in."
+        flash[:notice] = "Du skal først logge på."
         redirect_to new_user_session_path
       end
     end
