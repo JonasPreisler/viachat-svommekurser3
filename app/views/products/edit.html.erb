@@ -1,6 +1,6 @@
 <center>
-<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="product-form">
-<h1><%= I18n.t "editproduct" %></h1><br />
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="product-form">
+<h1>Nyt produkt</h1><br />
   <%= simple_form_for(@product, :html => { :multipart => true }) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -9,24 +9,16 @@
 
     <div class="mobileHide">
       <div class="form-inputs">
-        <%= f.input :title, placeholder: 'Title', label: false, class: "form-control" %><br />
-        <%= f.input :description, placeholder: I18n.t('description'), label: false %><br />
+        <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
+        <%= f.input :product_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
+        <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
+        <br />
+        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
         <br />
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
-           <%= f.input :price, placeholder: I18n.t('price'), label: false %>
+           <%= f.input :price, placeholder: 'pris', label: false %>
         </div><br />
-
-        <strong><%= I18n.t "imagesfor" %>:</strong><br /><%= f.file_field :image %><br />
-
-        <strong><%= I18n.t "imagesfor2" %>:</strong>
-
-
-        <div id="product_images">
-        <%= f.fields_for :product_images do |product_image| %>
-          <%= render 'product_image_fields', f: product_image %>
-        </div>
-        <% end %>
 
 
         <br />
@@ -34,15 +26,16 @@
       <br />
 
       <div class="form-actions">
-        <%= f.submit I18n.t('createproduct'), class: 'button' %>
+        <%= f.submit 'Opret produkt', class: 'button' %>
       </div>
     </div>
 
     <div class="desktopHide">
       <div class="form-inputs">
         <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
-        <%= f.input :description, placeholder: I18n.t('description'), label: false %><br />
-        <br />
+        <%= f.input :product_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
+        <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
+        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
         <div class="input-group" style="padding-left: 30%;">
           <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3">DKK </span>
            <%= f.input :price, placeholder: 'Pris', label: false %>
@@ -50,14 +43,7 @@
 
         <strong>Billede for produkt siden:</strong><br /><%= f.file_field :image %><br />
 
-        <strong>Billede for Messenger:</strong>
 
-
-        <div id="product_images">
-        <%= f.fields_for :product_images do |product_image| %>
-          <%= render 'product_image_fields', f: product_image %>
-        </div>
-        <% end %>
 
 
         <br />
@@ -65,7 +51,7 @@
       <br />
 
       <div class="form-actions">
-        <%= f.submit I18n.t('updateproduct'), class: 'button' %>
+        <%= f.submit 'Opret produkt', class: 'button' %>
       </div>
     </div>
   <% end %>
