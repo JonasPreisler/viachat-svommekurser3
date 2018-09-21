@@ -8,7 +8,7 @@ class Api::Product2::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.offset(1).first
+    @products = @user.products.find_by_sorting(2)
     @user = User.first
     render :show
   end
@@ -106,6 +106,6 @@ class Api::Product2::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.permit(:first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :user, :timeanddate, :email, :slot_id, :secret)
+      params.permit(:first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :user, :timeanddate, :email, :slot_id, :secret, products_attributes: [:sorting])
   end
 end
