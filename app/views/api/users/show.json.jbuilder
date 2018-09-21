@@ -6,7 +6,7 @@ json.messages do
 				json.template_type "generic"
 				json.image_aspect_ratio "square"
 				json.elements do
-					json.array! (@products).each_with_index do |product, i|
+					json.array! (@products).limit(10) do |product|
 						json.title "#{product.title}"
 						json.image_url "#{product.image.url(:messenger) if product.image}"
 						json.subtitle "DKK #{product.price if product.price}"

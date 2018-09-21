@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.all.limit(10).order('sorting ASC')
+    @products = @user.products.all.order('sorting ASC')
     @user = User.first
     render :show
   end 
