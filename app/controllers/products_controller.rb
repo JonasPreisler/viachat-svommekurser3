@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   def index
   @product = Product.all.order(sorting: :desc)
   @products = current_user.products.all.limit(10).order('sorting ASC')
-  @products_2 = current_user.products.all.offset(10).limit(10)
+  @products_2 = current_user.products.all.offset(10).limit(10).order('sorting ASC')
   end
 
   # GET /products/1
