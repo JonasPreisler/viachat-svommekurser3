@@ -20,7 +20,7 @@ json.messages do
 							end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["bestil"]
+					            json.block_names ["produkt_#{product.sorting if product.sorting"]
 					            json.title "Bestil"
 					        end
 						end
