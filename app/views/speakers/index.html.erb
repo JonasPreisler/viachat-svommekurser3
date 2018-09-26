@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6 col-sm-6">
+    <h1>Speakers</h1>
+  </div>
+  <div class="desktopHide">
+    <div class="col-md-6 col-sm-6">
+      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 box shadow pull-right' %>
+    </div>
+  </div>
+
+  <div class="mobileHide">
+    <div class="col-md-6 col-sm-6">
+      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 box shadow' %>
+    </div>
+  </div>
+</div>
+
+<% unless current_user.speakers.any? %>
+<div style="font-size:20px;text-align: center;padding-top:30px;"><%= I18n.t "nospeaker" %> </div>
+<% else %>
+
+<br />
+<hr>
+<div class="row">
+<center><h2>1. række</h2></center>
+<br />
+
+<% @speakers.each do |speaker| %>
+  <% if current_user.id == speaker.user_id %>
+    <div class="col-md-3 col-sm-4">
+      <div class="thumbnail">
+        <% if speaker.image? %>
+          <%= link_to (image_tag speaker.image.url(:messenger)), speaker, class: 'speaker-image' %>
+        <% else %>
+          <%= link_to (image_tag '/thumbnail.png'), speaker, class: 'speaker-image' %>
+        <% end %>
+        <div class="caption">
+          <div class="row">
+            <div class="col-sm-6 col-sm-4 col-xs-6">
+              <h4 style="font-size:16px;padding-top: 10px;"><%= speaker.sorting %> - <%= link_to speaker.title, speaker %></h4>
+            </div>
+            <div class="col-sm-6 col-sm-4 col-xs-6">
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+            <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
+            <%= link_to "Ændre", edit_speaker_path(speaker), class: 'btn-green box' %>
+          <%= link_to 'Slet', speaker_path(speaker),
+          data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
+          <%#div class="col-xs-8 col-sm-6">
+            <% &#9889; rating %>
+          <%#/div>
+          <%#div class="col-xs-4 col-sm-6"%>
+        </div>
+          <%#/div%>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<% if @speakers_2.any? %>
+  <hr>
+  <div class="row">
+  <center><h2>2. række</h2></center>
+  <br />
+  <% @speakers_2.order('sorting ASC').each do |speaker| %>
+    <% if current_user.id == speaker.user_id %>
+      <div class="col-md-3 col-sm-4">
+        <div class="thumbnail">
+          <% if speaker.image? %>
+            <%= link_to (image_tag speaker.image.url(:messenger)), speaker, class: 'speaker-image' %>
+          <% else %>
+            <%= link_to (image_tag '/thumbnail.png'), speaker, class: 'speaker-image' %>
+          <% end %>
+          <div class="caption">
+            <div class="row">
+              <div class="col-sm-6 col-sm-4 col-xs-6">
+                <h4 style="font-size:16px;padding-top: 10px;"><%= speaker.sorting %> - <%= link_to speaker.title, speaker %></h4>
+              </div>
+              <div class="col-sm-6 col-sm-4 col-xs-6">
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+              <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
+              <%= link_to "Ændre", edit_speaker_path(speaker), class: 'btn-green box' %>
+            <%= link_to 'Slet', speaker_path(speaker),
+            data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
+            <%#div class="col-xs-8 col-sm-6">
+              <% &#9889; rating %>
+            <%#/div>
+            <%#div class="col-xs-4 col-sm-6"%>
+          </div>
+            <%#/div%>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+<% end %>
+<br />
+<% end %>

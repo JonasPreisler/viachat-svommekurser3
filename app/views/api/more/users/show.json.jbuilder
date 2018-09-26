@@ -6,21 +6,21 @@ json.messages do
 				json.template_type "generic"
 				json.image_aspect_ratio "square"
 				json.elements do
-					json.array! (@products_2) do |product|
-						json.title "#{product.title}"
-						json.image_url "#{product.image.url(:messenger)}"
-						json.subtitle "DKK #{product.price}"
+					json.array! (@speakers_2) do |speaker|
+						json.title "#{speaker.title}"
+						json.image_url "#{speaker.image.url(:messenger)}"
+						json.subtitle "DKK #{speaker.price}"
 						json.buttons do
-							if product.product_link?
+							if speaker.speaker_link?
 								json.array! [*1] do
 									json.type "web_url"
-									json.url "#{product.product_link}?v=%20"
+									json.url "#{speaker.speaker_link}?v=%20"
 									json.title "Hjemmeside"
 								end
 							end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["produkt_#{product.sorting if product.sorting}"]
+					            json.block_names ["produkt_#{speaker.sorting if speaker.sorting}"]
 					            json.title "Bestil"
 					        end
 						end

@@ -9,7 +9,7 @@ class Api::More::UsersController < ApplicationController
   end
 
   def show
-    @products_2 = @user.products.all.offset(10).order('sorting ASC')
+    @speakers_2 = @user.speakers.all.offset(10).order('sorting ASC')
     @user = User.first
     render :show
   end

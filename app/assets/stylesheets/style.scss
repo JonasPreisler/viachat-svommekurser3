@@ -1,44 +1,33 @@
+.whitebg {
+  background: #fff;
+  position: relative
+}
+.landingpic {
+  float: right
+}
 .logo {
 	height: 50px;
 	padding: 4px;
   margin-top: 2px;
 }
 .container-fluid {
-  background: #57a0b8;
-}
-.body {
-	background-color: #eaeaea !important;
+  background: #fff;
 }
 #footer {
     clear: both;
     position: relative;
     height: 3em;
-  height: 60px;
+    height: 60px;
 }
 .box {
   position: relative;
   display: inline-block;
-  border-radius: 7px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 25px;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.box::after {
-  content: "";
-  border-radius: 5px;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
 
 .box:hover {
   -webkit-transform: scale(1.01, 1.01);
@@ -56,13 +45,17 @@
 .btn-primary {
 	margin: 10px;
 	height: 50%;
-	color: #00644f !important;
-	background: #fff !important;
+	color: #fff !important;
+	background: #0052CC !important;
 	border: none !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  border-radius: 25px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  &:hover {
+  background: #172b4d !important
+  }
 }
 .logoindex {
   width: 150px;
@@ -152,7 +145,7 @@ label > input + span{
 /* PROPERTY FORM */
 
 @media only screen and (min-width: 600px) {
-  .product-form {
+  .speaker-form {
     padding: 60px !important;
   }
 }
@@ -177,7 +170,7 @@ input, select, textarea {
   margin: 10px;
   height: 50%;
   color: #fff !important;
-  background: linear-gradient(to bottom right, #57a0b8, #015b7e);
+  background: linear-gradient(to bottom right, #0052CC, #00b8cc);
   border: none !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -190,7 +183,7 @@ input, select, textarea {
 
 /* PROPERTY SHOW */
 
-.product {
+.speaker {
   font-size: 18px; 
 }
 .image-border {
@@ -198,18 +191,18 @@ input, select, textarea {
   border-radius: 3px;
   width: 100%;
 }
-.product-image {
+.speaker-image {
   overflow: hidden;
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
-.product-image:hover {
+.speaker-image:hover {
   opacity: .5;
 }
 
 .btn-green {
-  background-color: #57a0b8;
+  background-color: #0052CC;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
@@ -305,21 +298,15 @@ input, select, textarea {
   }
 }
 /* END OF DESKTOP RESPONSIVENESS */
-
-.navbar-default .navbar-toggle .icon-bar {
-  background: #fff !important;
-}
 .navbar {
   margin-bottom: 0 !important;
 }
 
 .header-top {
   background-size: cover;
-  background: #e5f2ef;
 }
 .header-top-mobile {
   background-size: cover;
-  background: #e5f2ef;
 }
 .header-text {
   color: #444;

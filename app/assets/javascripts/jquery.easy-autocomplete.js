@@ -34,7 +34,7 @@ var EasyAutocomplete = (function(scope){
 
 			ajaxCallback: function() {},
 
-			matchResponseProduct: false,
+			matchResponseSpeaker: false,
 
 			list: {
 				sort: {
@@ -123,8 +123,8 @@ var EasyAutocomplete = (function(scope){
 		
 		var externalObjects = ["ajaxSettings", "template"];
 
-		this.get = function(productName) {
-			return defaults[productName];
+		this.get = function(speakerName) {
+			return defaults[speakerName];
 		};
 
 		this.equals = function(name, value) {
@@ -137,24 +137,24 @@ var EasyAutocomplete = (function(scope){
 			return false;
 		};
 
-		this.checkDataUrlProducts = function() {
+		this.checkDataUrlSpeakers = function() {
 			if (defaults.url === "list-required" && defaults.data === "list-required") {
 				return false;
 			}
 			return true;
 		};
-		this.checkRequiredProducts = function() {
-			for (var productName in defaults) {
-				if (defaults[productName] === "required") {
-					logger.error("Option " + productName + " must be defined");
+		this.checkRequiredSpeakers = function() {
+			for (var speakerName in defaults) {
+				if (defaults[speakerName] === "required") {
+					logger.error("Option " + speakerName + " must be defined");
 					return false;
 				}
 			}
 			return true;
 		};
 
-		this.printProductsThatDoesntExist = function(consol, optionsToCheck) {
-			printProductsThatDoesntExist(consol, optionsToCheck);
+		this.printSpeakersThatDoesntExist = function(consol, optionsToCheck) {
+			printSpeakersThatDoesntExist(consol, optionsToCheck);
 		};
 
 
@@ -163,7 +163,7 @@ var EasyAutocomplete = (function(scope){
 		mergeOptions();
 
 		if (defaults.loggerEnabled === true) {
-			printProductsThatDoesntExist(console, options);	
+			printSpeakersThatDoesntExist(console, options);	
 		}
 
 		addAjaxSettings();
@@ -225,10 +225,10 @@ var EasyAutocomplete = (function(scope){
 
 					var category = options.categories[i];
 
-					for (var product in defaults.categories[0]) {
+					for (var speaker in defaults.categories[0]) {
 
-						if (category[product] === undefined) {
-							category[product] = defaults.categories[0][product];
+						if (category[speaker] === undefined) {
+							category[speaker] = defaults.categories[0][speaker];
 						}
 					}
 
@@ -246,14 +246,14 @@ var EasyAutocomplete = (function(scope){
 			function mergeObjects(source, target) {
 				var mergedObject = source || {};
 
-				for (var productName in source) {
-					if (target[productName] !== undefined && target[productName] !== null) {
+				for (var speakerName in source) {
+					if (target[speakerName] !== undefined && target[speakerName] !== null) {
 
-						if (typeof target[productName] !== "object" || 
-								target[productName] instanceof Array) {
-							mergedObject[productName] = target[productName];
+						if (typeof target[speakerName] !== "object" || 
+								target[speakerName] instanceof Array) {
+							mergedObject[speakerName] = target[speakerName];
 						} else {
-							mergeObjects(source[productName], target[productName]);
+							mergeObjects(source[speakerName], target[speakerName]);
 						}
 					}
 				}
@@ -328,18 +328,18 @@ var EasyAutocomplete = (function(scope){
 				return false;
 			}
 		}
-		function printProductsThatDoesntExist(consol, optionsToCheck) {
+		function printSpeakersThatDoesntExist(consol, optionsToCheck) {
 			
-			checkProductsIfExist(defaults, optionsToCheck);
+			checkSpeakersIfExist(defaults, optionsToCheck);
 
-			function checkProductsIfExist(source, target) {
-				for(var product in target) {
-					if (source[product] === undefined) {
-						consol.log("Product '" + product + "' does not exist in EasyAutocomplete options API.");		
+			function checkSpeakersIfExist(source, target) {
+				for(var speaker in target) {
+					if (source[speaker] === undefined) {
+						consol.log("Speaker '" + speaker + "' does not exist in EasyAutocomplete options API.");		
 					}
 
-					if (typeof source[product] === "object" && $.inArray(product, externalObjects) === -1) {
-						checkProductsIfExist(source[product], target[product]);
+					if (typeof source[speaker] === "object" && $.inArray(speaker, externalObjects) === -1) {
+						checkSpeakersIfExist(source[speaker], target[speaker]);
 					}
 				}	
 			}
@@ -385,8 +385,8 @@ var EasyAutocomplete = (function(scope){
 			WRAPPER_CSS_CLASS: "easy-autocomplete"
 		};
 
-		this.getValue = function(productName) {
-			return constants[productName];
+		this.getValue = function(speakerName) {
+			return constants[speakerName];
 		};
 
 	};
@@ -952,13 +952,13 @@ var EasyAutocomplete = (function(scope) {
 				return;
 			}
 
-			if (!config.checkDataUrlProducts()) {
+			if (!config.checkDataUrlSpeakers()) {
 				logger.error("One of options variables 'data' or 'url' must be defined.");
 				return;
 			}
 
-			if (!config.checkRequiredProducts()) {
-				logger.error("Will not work without mentioned products.");
+			if (!config.checkRequiredSpeakers()) {
+				logger.error("Will not work without mentioned speakers.");
 				return;
 			}
 
@@ -1413,13 +1413,13 @@ var EasyAutocomplete = (function(scope) {
 
 						function checkInputPhraseMatchResponse(inputPhrase, data) {
 
-							if (config.get("matchResponseProduct") !== false) {
-								if (typeof config.get("matchResponseProduct") === "string") {
-									return (data[config.get("matchResponseProduct")] === inputPhrase);
+							if (config.get("matchResponseSpeaker") !== false) {
+								if (typeof config.get("matchResponseSpeaker") === "string") {
+									return (data[config.get("matchResponseSpeaker")] === inputPhrase);
 								}
 
-								if (typeof config.get("matchResponseProduct") === "function") {
-									return (config.get("matchResponseProduct")(data) === inputPhrase);
+								if (typeof config.get("matchResponseSpeaker") === "function") {
+									return (config.get("matchResponseSpeaker")(data) === inputPhrase);
 								}
 
 								return true;

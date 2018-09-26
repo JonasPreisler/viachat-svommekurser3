@@ -1,0 +1,2 @@
+module SpeakerImagesHelper
+end

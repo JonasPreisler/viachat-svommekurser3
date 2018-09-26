@@ -1,0 +1,49 @@
+<p id="notice"><%= notice if user_signed_in? %></p>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 speaker">
+      <p>
+        <strong>Titel:</strong><br />
+        <%= @speaker.title %>
+      </p>
+
+      <p>
+        <strong>Pris:</strong><br />
+        DKK <%= number_with_delimiter(@speaker.price, :delimiter => '.') %>
+      </p>
+
+      <p>
+        <strong>Link:</strong><br />
+        <%= @speaker.speaker_link %>
+      </p>
+
+      <p>
+        <strong>Nummer:</strong><br />
+        <%= @speaker.nummer %>
+      </p>
+      
+      <p>
+        <strong>Sortering:</strong><br />
+        <%= @speaker.sorting %>
+      </p>
+
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <center>
+
+        <p>
+          <% if @speaker.image? %>
+            <%= image_tag @speaker.image.url(:messenger), class: 'image-border' %>
+          <% else %>
+            <%= link_to (image_tag '/thumbnail.png'), @speaker, class: 'speaker-image' %>
+          <% end %>
+        </p>
+      <%= link_to 'Ændre', edit_speaker_path(@speaker), class: 'btn-primary box' if user_signed_in? and current_user.id == @speaker.user_id %> 
+      <%= link_to 'Slet', speaker_path(@speaker),
+      data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @speaker.user_id %>
+
+      </center>
+
+    </div>
+  </div>
+</div>

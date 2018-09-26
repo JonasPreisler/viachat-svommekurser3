@@ -11,15 +11,15 @@ default: &default
 
 development:
   <<: *default
-  database: misschili_dev
+  database: netovo_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+# Do not set this db to the same as development or speakerion.
 test:
   <<: *default
-  database: misschili_test
+  database: netovo_test
 
-production:
+speakerion:
   <<: *default
-  database: misschili_prod
+  database: netovo_prod

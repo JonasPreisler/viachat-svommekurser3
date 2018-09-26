@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root to: 'pages#landing'
-  resources :product_images
-  resources :products
+  resources :speaker_images
+  resources :speakers
   resources :orders
   resources :slots
   devise_for :users
   resources :users, only: [:show], :shallow => true do
-    resources :products
+    resources :speakers
   end
   resources :businesses
   resources :leads
@@ -17,79 +17,79 @@ Rails.application.routes.draw do
   namespace 'api', defaults: { format: :json } do
     resources :users
     #scope "/:id", :as => "user" do
-    #  resources :products
+    #  resources :speakers
     #end
     resources :leads
-    resources :products
+    resources :speakers
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
-    #get '/:user', to: 'products#show'
+    #get '/:user', to: 'speakers#show'
 
     namespace 'more', defaults: { format: :json } do
       resources :users
-      resources :products
+      resources :speakers
     end
 
-    namespace 'product1' do
+    namespace 'speaker1' do
       resources :users
     end
-    namespace 'product2' do
+    namespace 'speaker2' do
       resources :users
     end
-    namespace 'product2', defaults: { format: :json } do
+    namespace 'speaker2', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product3', defaults: { format: :json } do
+    namespace 'speaker3', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product4', defaults: { format: :json } do
+    namespace 'speaker4', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product5', defaults: { format: :json } do
+    namespace 'speaker5', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product6', defaults: { format: :json } do
+    namespace 'speaker6', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product7', defaults: { format: :json } do
+    namespace 'speaker7', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product8', defaults: { format: :json } do
+    namespace 'speaker8', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product9', defaults: { format: :json } do
+    namespace 'speaker9', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product10', defaults: { format: :json } do
+    namespace 'speaker10', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product11', defaults: { format: :json } do
+    namespace 'speaker11', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product12', defaults: { format: :json } do
+    namespace 'speaker12', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product13', defaults: { format: :json } do
+    namespace 'speaker13', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product14', defaults: { format: :json } do
+    namespace 'speaker14', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product15', defaults: { format: :json } do
+    namespace 'speaker15', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product16', defaults: { format: :json } do
+    namespace 'speaker16', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product17', defaults: { format: :json } do
+    namespace 'speaker17', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product18', defaults: { format: :json } do
+    namespace 'speaker18', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product19', defaults: { format: :json } do
+    namespace 'speaker19', defaults: { format: :json } do
       resources :users
     end
-    namespace 'product20', defaults: { format: :json } do
+    namespace 'speaker20', defaults: { format: :json } do
       resources :users
     end
 

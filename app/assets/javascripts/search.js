@@ -11,8 +11,8 @@ document.addEventListener("turbolinks:load", function() {
 			listLocation: "materials",
 			header: "<strong>Materials</strong>",
 		},{
-			listLocation: "products",
-			header: "<strong>Products</strong>",
+			listLocation: "speakers",
+			header: "<strong>Speakers</strong>",
 		},{
 			listLocation: "merchants",
 			header: "<strong>Merchants</strong>",

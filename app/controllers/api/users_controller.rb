@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:product_1, :show, :edit, :update, :destroy]
+  before_action :set_user, only: [:speaker_1, :show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
 
@@ -9,7 +9,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @products = @user.products.all.order('sorting ASC')
+    @speakers = @user.speakers.all.order('sorting ASC')
     @user = User.first
     render :show
   end 

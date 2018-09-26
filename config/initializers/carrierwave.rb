@@ -1,5 +1,5 @@
 require 'carrierwave/orm/activerecord'
-if Rails.env.production?
+if Rails.env.speakerion?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       # Configuration for Amazon S3

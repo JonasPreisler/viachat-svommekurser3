@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2018_09_21_103822) do
     t.string "last user freeform input"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "product"
+    t.string "speaker"
     t.string "timeanddate"
     t.string "phone"
     t.string "email"
@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 2018_09_21_103822) do
     t.bigint "slot_id"
     t.string "secret"
     t.bigint "user_id"
-    t.bigint "product_id"
-    t.index ["product_id"], name: "index_leads_on_product_id"
+    t.bigint "speaker_id"
     t.index ["slot_id"], name: "index_leads_on_slot_id"
+    t.index ["speaker_id"], name: "index_leads_on_speaker_id"
     t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
@@ -109,29 +109,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_103822) do
     t.index ["lead_id"], name: "index_orders_on_lead_id"
   end
 
-  create_table "product_images", force: :cascade do |t|
-    t.integer "product_id"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "title"
-    t.string "image"
-    t.text "description"
-    t.string "price"
-    t.string "product_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "product_image_id"
-    t.string "nummer"
-    t.integer "sorting"
-    t.index ["product_image_id"], name: "index_products_on_product_image_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
-  end
-
   create_table "slots", force: :cascade do |t|
     t.date "date"
     t.time "time"
@@ -140,6 +117,29 @@ ActiveRecord::Schema.define(version: 2018_09_21_103822) do
     t.string "messenger_user_id"
     t.bigint "lead_id"
     t.index ["lead_id"], name: "index_slots_on_lead_id"
+  end
+
+  create_table "speaker_images", force: :cascade do |t|
+    t.integer "speaker_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "speakers", force: :cascade do |t|
+    t.string "title"
+    t.string "image"
+    t.text "description"
+    t.datetime "speakingtime"
+    t.string "speaker_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "speaker_image_id"
+    t.string "nummer"
+    t.integer "sorting"
+    t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
+    t.index ["user_id"], name: "index_speakers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -160,11 +160,11 @@ ActiveRecord::Schema.define(version: 2018_09_21_103822) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "leads", "products"
   add_foreign_key "leads", "slots"
+  add_foreign_key "leads", "speakers"
   add_foreign_key "leads", "users"
   add_foreign_key "orders", "businesses"
-  add_foreign_key "products", "product_images"
-  add_foreign_key "products", "users"
   add_foreign_key "slots", "leads"
+  add_foreign_key "speakers", "speaker_images"
+  add_foreign_key "speakers", "users"
 end
