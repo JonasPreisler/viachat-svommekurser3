@@ -31,7 +31,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  
+
   version :messenger do
     process resize_to_fit: [520, 520]
   end

@@ -14,8 +14,13 @@
 	padding: 4px;
   margin-top: 2px;
 }
+.container-large {
+  padding-left: 5%;
+  padding-right: 5%;
+  background: #f9f8f8
+}
 .container-fluid {
-  background: #fff;
+  background: #f9f8f8;
 }
 #footer {
     clear: both;
@@ -176,11 +181,15 @@ input, select, textarea {
   color: #fff !important;
   background: linear-gradient(to bottom right, #0052CC, #00b8cc);
   border: none !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-  padding-top: 11px !important;
-  padding-bottom: 11px !important;
   text-decoration: none !important;
+  border-radius: 25px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  &:hover {
+  background: #172b4d !important
+  }
 }
 
 /* END OF PROPERTIES INDEX */
@@ -204,6 +213,11 @@ input, select, textarea {
 .speaker-image:hover {
   opacity: .5;
 }
+.shorten {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .btn-green {
   background-color: #0052CC;
@@ -212,6 +226,14 @@ input, select, textarea {
   padding-top: 10px;
   padding-bottom: 10px;
   color: #fff !important;
+  font-size: 14px;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+  background: #172b4d !important;
+  text-decoration: none
+  }
 }
 .btn-red {
   background-color: #dc7063;
@@ -219,11 +241,15 @@ input, select, textarea {
   padding-right: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
+  border-radius: 5px;
   color: #fff !important;
+  width: 30%;
+  text-align: center;
   &:hover {
   background-color: #ac2925;
   }
   border: none;
+  text-decoration: none
 }
 .add-image {
   font-size:14px;
@@ -413,6 +439,6 @@ input, select, textarea {
   background: none
 }
 
-.panel-footer {
-  background: none !important
+.thumbnail {
+  background: #f3f2f2 !important
 }

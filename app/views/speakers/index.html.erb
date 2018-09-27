@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="col-md-6 col-sm-6">
-    <h1>Speakers</h1>
-  </div>
+    
   <div class="desktopHide">
     <div class="col-md-6 col-sm-6">
-      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 box shadow pull-right' %>
+      <h1>Speakers</h1>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 shadow pull-right' %>
     </div>
   </div>
 
   <div class="mobileHide">
+    <center>
+      <h1>Speakers</h1><br />
     <div class="col-md-6 col-sm-6">
-      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 box shadow' %>
+      
+      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 shadow' %>
+      </center><br />
     </div>
   </div>
 </div>
@@ -21,8 +26,7 @@
 <% else %>
 
 <br />
-<hr>
-<div class="row" style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;">
+<div class="row" style="background: #fff;padding:15px;border-radius:10px;color:#1c1c1c;">
 <center><h2>1. rad</h2></center>
 <br />
 
@@ -38,22 +42,23 @@
         <div class="caption">
           <div class="row">
             <div class="col-sm-6 col-sm-4 col-xs-6">
-              <h4 style="font-size:16px;padding-top: 10px;"><%= speaker.sorting %> - <%= link_to speaker.title, speaker %></h4>
+              <h4 style="font-size:16px;"><%= speaker.sorting %> <br /> 
+                <div style="padding-top: 5px"><%= link_to truncate(speaker.name, :length => 22), speaker, class: 'shorten' %>
+                </div></h4>
             </div>
             <div class="col-sm-6 col-sm-4 col-xs-6">
             </div>
           </div>
         </div>
-        <div class="panel-footer">
+        
             <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
             <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
-          <%= link_to 'Slet', speaker_path(speaker),
+          <%= link_to 'Slett', speaker_path(speaker),
           data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
           <%#div class="col-xs-8 col-sm-6">
             <% &#9889; rating %>
           <%#/div>
           <%#div class="col-xs-4 col-sm-6"%>
-        </div>
           <%#/div%>
       </div>
     </div>
@@ -78,7 +83,9 @@
           <div class="caption">
             <div class="row">
               <div class="col-sm-6 col-sm-4 col-xs-6">
-                <h4 style="font-size:16px;padding-top: 10px;"><%= speaker.sorting %> - <%= link_to speaker.title, speaker %></h4>
+                <h4 style="font-size:16px"> <br /> 
+                <div style="padding-top: 5px"><%= link_to truncate(speaker.name, :length => 22), speaker, class: 'shorten' %>
+                </div></h4>
               </div>
               <div class="col-sm-6 col-sm-4 col-xs-6">
               </div>
@@ -87,7 +94,7 @@
           <div class="panel-footer">
               <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
               <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
-            <%= link_to 'Slet', speaker_path(speaker),
+            <%= link_to 'Slett', speaker_path(speaker),
             data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
             <%#div class="col-xs-8 col-sm-6">
               <% &#9889; rating %>
