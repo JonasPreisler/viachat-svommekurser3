@@ -3,6 +3,13 @@
   <div class="row">
     <div class="col-md-6 col-sm-6 speaker">
 
+      <p>
+        <strong style="font-size: 26px"><%= @speaker.name %></strong><br />
+        <i style="font-size:14px">
+          <strong><%= @speaker.title %></strong><br />
+          <%= @speaker.date.strftime("%A, %w. %B") %><br />
+        Kl. <%= @speaker.time.strftime("%H") %></i>
+      </p>
       <center>
 
         <p>
@@ -19,15 +26,6 @@
       </center>
     </div>
     <div class="col-md-6 col-sm-6">
-      <p>
-        <strong style="font-size: 26px"><%= @speaker.name %></strong><br />
-        <hr style="border: 1px solid #c3c2c2">
-        <i style="font-size:14px">
-          <strong><%= @speaker.title %></strong><br />
-          <%= @speaker.date.strftime("%A, %w. %B") %><br />
-        Kl. <%= @speaker.time.strftime("%H") %></i>
-      </p>
-      <hr style="border: 1px solid #c3c2c2">
       
       <p><strong>Om:</strong><br />
         <%= @speaker.description %>
