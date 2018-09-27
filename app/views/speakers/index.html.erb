@@ -27,7 +27,7 @@
 
 <br />
 <div class="row" style="background: #fff;padding:15px;border-radius:10px;color:#1c1c1c;">
-<center><h2>1. rad</h2></center>
+<center><h2>Rad 1</h2></center>
 <br />
 
 <% @speakers.each do |speaker| %>
@@ -69,7 +69,7 @@
 <% if @speakers_2.any? %>
   <hr>
   <div class="row">
-  <center><h2>2. rad</h2></center>
+  <center><h2>Rad 2</h2></center>
   <br />
   <% @speakers_2.order('sorting ASC').each do |speaker| %>
     <% if current_user.id == speaker.user_id %>

@@ -2,21 +2,7 @@
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
   <div class="row">
     <div class="col-md-6 col-sm-6 speaker">
-      <p>
-        <strong><%= @speaker.name %></strong><br />
-        <i style="font-size:14px">
-          <strong><%= @speaker.title %></strong><br />
-          <%= @speaker.date.strftime("%A, %w. %B") %><br />
-        Kl. <%= @speaker.time.strftime("%H") %></i>
-      </p>
-      <hr style="border: 1px solid #fff">
-      <p>
-        <%= @speaker.description %>
-      </p>
-      
 
-    </div>
-    <div class="col-md-6 col-sm-6">
       <center>
 
         <p>
@@ -31,6 +17,24 @@
       data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @speaker.user_id %>
 
       </center>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <p>
+        <strong style="font-size: 26px"><%= @speaker.name %></strong><br />
+        <hr style="border: 1px solid #c3c2c2">
+        <i style="font-size:14px">
+          <strong><%= @speaker.title %></strong><br />
+          <%= @speaker.date.strftime("%A, %w. %B") %><br />
+        Kl. <%= @speaker.time.strftime("%H") %></i>
+      </p>
+      <hr style="border: 1px solid #c3c2c2">
+      
+      <p><strong>Om:</strong><br />
+        <%= @speaker.description %>
+      </p>
+      
+
+
 
     </div>
   </div>

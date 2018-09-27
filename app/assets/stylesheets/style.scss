@@ -213,6 +213,9 @@ input, select, textarea {
 .speaker-image:hover {
   opacity: .5;
 }
+.speaker-image > img {
+  width: 100%
+}
 .shorten {
     white-space: nowrap; 
     overflow: hidden;
