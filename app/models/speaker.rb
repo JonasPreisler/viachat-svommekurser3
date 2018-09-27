@@ -1,4 +1,6 @@
 class Speaker < ApplicationRecord
+	validates :time, :presence => true
+	validates :date, :presence => true
 	validates :sorting, :presence => true, :uniqueness => {:scope=>:user_id}
     mount_uploader :image, ImageUploader
 	belongs_to :user

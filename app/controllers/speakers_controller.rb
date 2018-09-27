@@ -75,7 +75,7 @@ class SpeakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:user_id, :image, :title, :speaker_link, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])
+      params.require(:speaker).permit(:user_id, :image, :title, :speaker_link, :time, :date, :name, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])
     end
 
     def require_login

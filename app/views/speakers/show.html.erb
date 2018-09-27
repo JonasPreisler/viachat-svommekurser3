@@ -3,29 +3,17 @@
   <div class="row">
     <div class="col-md-6 col-sm-6 speaker">
       <p>
-        <strong>Titel:</strong><br />
-        <%= @speaker.title %>
+        <strong><%= @speaker.name %></strong><br />
+        <i style="font-size:14px">
+          <strong><%= @speaker.title %></strong><br />
+          <%= @speaker.date.strftime("%A, %w. %B") %><br />
+        Kl. <%= @speaker.time.strftime("%H") %></i>
       </p>
-
+      <hr style="border: 1px solid #fff">
       <p>
-        <strong>Pris:</strong><br />
-        DKK <%= number_with_delimiter(@speaker.price, :delimiter => '.') %>
-      </p>
-
-      <p>
-        <strong>Link:</strong><br />
-        <%= @speaker.speaker_link %>
-      </p>
-
-      <p>
-        <strong>Nummer:</strong><br />
-        <%= @speaker.nummer %>
+        <%= @speaker.description %>
       </p>
       
-      <p>
-        <strong>Sortering:</strong><br />
-        <%= @speaker.sorting %>
-      </p>
 
     </div>
     <div class="col-md-6 col-sm-6">
@@ -38,8 +26,8 @@
             <%= link_to (image_tag '/thumbnail.png'), @speaker, class: 'speaker-image' %>
           <% end %>
         </p>
-      <%= link_to 'Ændre', edit_speaker_path(@speaker), class: 'btn-primary box' if user_signed_in? and current_user.id == @speaker.user_id %> 
-      <%= link_to 'Slet', speaker_path(@speaker),
+      <%= link_to 'Redigér', edit_speaker_path(@speaker), class: 'btn-primary box' if user_signed_in? and current_user.id == @speaker.user_id %> 
+      <%= link_to 'Slet speaker', speaker_path(@speaker),
       data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @speaker.user_id %>
 
       </center>

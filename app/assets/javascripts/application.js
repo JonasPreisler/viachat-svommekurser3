@@ -21,8 +21,25 @@
 //= require jquery.easy-autocomplete
 //= require chosen-jquery
 //= require cocoon
+//= require picker
+//= require picker.date
+//= require picker.time
 //= require_tree .
 
+
+$().ready(function () {
+  $('.datepicker').pickadate({
+    format: 'yyyy-mm-dd',
+  monthsFull: ['Januar', 'Februar', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augist', 'September', 'Oktober', 'November', 'Desember'],
+    weekdaysShort: ['Lør', 'Søn', 'Man', 'Tirs', 'Ons', 'Tors', 'Fre'],
+    today: 'I dag',
+  });
+  $('.timepicker').pickatime({
+    format: 'HH:i',
+    min: [0,0],
+  max: [23,0]
+  })
+});
 
 // data attributes (my preference because it's explicit and flexible)
 $('[data-target=my-form]')

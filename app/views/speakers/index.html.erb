@@ -23,7 +23,7 @@
 <br />
 <hr>
 <div class="row">
-<center><h2>1. række</h2></center>
+<center><h2>1. rad</h2></center>
 <br />
 
 <% @speakers.each do |speaker| %>
@@ -46,7 +46,7 @@
         </div>
         <div class="panel-footer">
             <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
-            <%= link_to "Ændre", edit_speaker_path(speaker), class: 'btn-green box' %>
+            <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
           <%= link_to 'Slet', speaker_path(speaker),
           data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
           <%#div class="col-xs-8 col-sm-6">
@@ -64,7 +64,7 @@
 <% if @speakers_2.any? %>
   <hr>
   <div class="row">
-  <center><h2>2. række</h2></center>
+  <center><h2>2. rad</h2></center>
   <br />
   <% @speakers_2.order('sorting ASC').each do |speaker| %>
     <% if current_user.id == speaker.user_id %>
@@ -86,7 +86,7 @@
           </div>
           <div class="panel-footer">
               <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
-              <%= link_to "Ændre", edit_speaker_path(speaker), class: 'btn-green box' %>
+              <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
             <%= link_to 'Slet', speaker_path(speaker),
             data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
             <%#div class="col-xs-8 col-sm-6">

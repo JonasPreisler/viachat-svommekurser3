@@ -15,12 +15,13 @@
  *= require_tree .
  *= require_self
  *= require chosen
-
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "default";
+@import "default.date";
+@import "default.time";
 
 
 @font-face {
