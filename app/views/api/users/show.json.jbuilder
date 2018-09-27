@@ -13,13 +13,13 @@ json.messages do
 						json.buttons do
 							json.array! [*1] do
 					            json.type "web_url"
-					            json.url "www.google.com/speaker#{speaker.id}?v=%20"
-					            json.title "Se mer"
+					            json.url "http://netovo.herokuapp.com/speakers/#{speaker.id}?v=%20"
+					            json.title "About (webview)"
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["produkt_#{speaker.sorting if speaker.sorting}"]
-					            json.title "Se mer"
+					            json.block_names ["Speaker#{speaker.sorting if speaker.sorting} Description"]
+					            json.title "About"
 					        end
 						end
 					end
@@ -36,7 +36,7 @@ if @speakers.count > 10
 			json.quick_replies do
 				json.array! [*1] do
 					json.title "Flere nyheder"
-					json.block_names ["nyheder_2"]
+					json.block_names ["speakers_2"]
 				end
 			end
 		end
