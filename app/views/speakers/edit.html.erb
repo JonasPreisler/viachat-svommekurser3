@@ -1,6 +1,6 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
-<h1>Nyt produkt</h1><br />
+<h1>Ny speaker</h1><br />
   <%= simple_form_for(@speaker, :html => { :multipart => true }) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -9,39 +9,65 @@
 
     <div class="mobileHide">
       <div class="form-inputs">
-        <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
-        <%= f.input :speaker_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
-        <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
-        <br />
-        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :title, placeholder: 'Tale tema', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Om speakeren', label: false, class: "form-control" %><br />
         <br />
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
-           <%= f.input :price, placeholder: 'pris', label: false %>
+        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
         </div><br />
 
+        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+
+        <br />
+        <div style="position: relative">
+          <div class="box2">
+          <%= text_field_tag("speaker[date]", value = @speaker.date, html_options = { class: 'form-control datepicker', placeholder: 'Seleccione fecha' }) %>
+          </div>
+          <br />
+          <br />
+
+          <div class="box2">
+            <%= text_field_tag("speaker[time]", value = @speaker.time&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Seleccionar hora' }) %>
+          </div>
+        </div>  
 
         <br />
       </div>
       <br />
 
       <div class="form-actions">
-        <%= f.submit 'Opret produkt', class: 'button' %>
+        <%= f.submit 'Opret speaker', class: 'button' %>
       </div>
     </div>
 
     <div class="desktopHide">
       <div class="form-inputs">
-        <%= f.input :title, placeholder: 'Titel', label: false, class: "form-control" %><br />
-        <%= f.input :speaker_link, placeholder: 'Link til produktside', label: false, class: "form-control" %><br />
-        <%= f.input :nummer, placeholder: 'Produkt nummer', label: false, class: "form-control" %><br />
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :title, placeholder: 'Tale tema', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Om speakeren', label: false, class: "form-control" %><br />
         <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
-        <div class="input-group" style="padding-left: 30%;">
-          <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3">DKK </span>
-           <%= f.input :price, placeholder: 'Pris', label: false %>
-        </div><br />
+        <br />
 
-        <strong>Billede for produkt siden:</strong><br /><%= f.file_field :image %><br />
+        <div class="row">
+          <div class="col-md-4 col-xs-6">
+
+            <div class="box2">
+            <%= text_field_tag("speaker[date]", value = @speaker.date, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-6">
+
+            <div class="box2">
+              <%= text_field_tag("speaker[time]", value = @speaker.time&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg tid' }) %>
+            </div>
+          </div>
+        </div>  
+
+
+
+        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
 
 
 
@@ -51,7 +77,7 @@
       <br />
 
       <div class="form-actions">
-        <%= f.submit 'Opret produkt', class: 'button' %>
+        <%= f.submit 'Opret speaker', class: 'button' %>
       </div>
     </div>
   <% end %>
