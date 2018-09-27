@@ -304,6 +304,7 @@ input, select, textarea {
 /* END OF DESKTOP RESPONSIVENESS */
 .navbar {
   margin-bottom: 0 !important;
+  border: none !important;
 }
 
 .header-top {
@@ -410,4 +411,8 @@ input, select, textarea {
 
 .image-border {
   background: none
+}
+
+.panel-footer {
+  background: none !important
 }
