@@ -1,4 +1,4 @@
-class Api::Program111::UsersController < ApplicationController
+class Api::Program11::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
