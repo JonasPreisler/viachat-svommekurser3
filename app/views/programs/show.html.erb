@@ -1,0 +1,50 @@
+<p id="notice"><%= notice if user_signed_in? %></p>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 speaker">
+
+      <p>
+        <strong style="font-size: 26px"><%= @program.name %></strong><br />
+        <i style="font-size:14px">
+          <strong><%= @program.name %></strong><br />
+          <%= @program.startday.strftime("%A, %d. %B") %><br />
+        Kl. <%= @program.starttime.strftime("%H") %> - <%= @program.endtime.strftime("%H") %></i>
+      </p>
+      <center>
+
+        <p>
+          <% if @program.image? %>
+            <%= image_tag @program.image.url(:messenger), class: 'image-border' %>
+          <% else %>
+            <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
+          <% end %>
+        </p>
+      <%= link_to 'Redigér', edit_program_path(@program), class: 'btn-primary box' if user_signed_in? and current_user.id == @program.user_id %> 
+      <%= link_to 'Slet program', program_path(@program),
+      data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @program.user_id %>
+
+      </center>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      
+      <p><strong>Om programmet:</strong><br />
+        <%= @program.description %>
+      </p>
+
+      <p><strong>Om speakeren:</strong><br />
+        <%= @program.speaker_about %>
+        <p>
+        <% if @program.speaker_image? %>
+          <%= image_tag @program.speaker_image.url(:messenger), class: 'image-border' %>
+        <% else %>
+          <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
+        <% end %>
+      </p>
+      </p>
+
+
+
+
+    </div>
+  </div>
+</div>

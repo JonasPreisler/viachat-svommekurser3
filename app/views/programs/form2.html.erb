@@ -1,0 +1,134 @@
+<%= simple_form_for(@program) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="mobileHide">
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Beskrivelse', label: false, class: "form-control" %><br />
+
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-md-4 col-xs-6">
+
+              <div class="box2">
+              <%= text_field_tag("program[startday]", value = @program.startday, html_options = { class: 'form-control datepicker', placeholder: 'Velg startdato' }) %>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+
+              <div class="box2">
+                <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
+              </div>
+            </div>
+          </div>  
+          
+           <div class="box2">
+            <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
+          </div>
+        </div>
+      </div>
+      <center>
+        <%= link_to 'Velg speaker', speakers_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
+        <div id="modal-window" class="modal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+
+
+          <%= image_tag ('/logo.png'), class: 'responsive' %>
+
+          <br />
+          <br />
+          <br />
+
+          <% Speaker.all.each do |rt| %>
+            <label class="btn btn-primary box3" for="table_speaker_id_<%=rt.id%>">
+              <%= f.radio_button :speaker_id, rt.id %>
+              <span><%= rt.id %></span>
+            </label>
+          <% end %>
+
+          <br />
+          <br />
+          <br />
+
+          <div class="form-actions">
+            <%= f.submit "Opret Program", class: 'btn-submit box2' %>
+          </div>
+        </div>
+      </center>
+      <div class="form-actions">
+        <%= f.submit "Opret Program", class: 'btn-submit box2' %>
+      </div>
+    </div>
+
+
+    <div class="desktopHide">
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Beskrivelse', label: false, class: "form-control" %><br />
+
+        <div class="form-inputs">
+          <div class="row">
+            <div class="col-md-4 col-xs-6">
+
+              <div class="box2">
+              <%= text_field_tag("program[startday]", value = @program.startday, html_options = { class: 'form-control datepicker', placeholder: 'Velg startdato' }) %>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+
+              <div class="box2">
+                <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
+              </div>
+            </div>
+          </div>  
+          
+           <div class="box2">
+            <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
+          </div>
+        </div>
+      </div>
+
+
+      <center>
+        <%= link_to 'Velg speaker', speakers_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary box3 btn-group"'}  %>
+        <div id="modal-window" class="modal" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+
+
+          <%= image_tag ('/logo.png'), class: 'responsive' %>
+
+          <br />
+          <br />
+          <br />
+
+          <% Speaker.all.each do |rt| %>
+            <label class="btn btn-primary box3" for="table_speaker_id_<%=rt.id%>">
+              <%= f.radio_button :speaker_id, rt.id %>
+              <span><%= rt.id %></span>
+            </label>
+          <% end %>
+
+          <br />
+          <br />
+          <br />
+
+          <div class="form-actions">
+            <%= f.submit "Opret Program", class: 'btn-submit box2' %>
+          </div>
+        </div>
+      </center>
+
+      <%= f.fields_for :speakers do |speakers| %>
+        <%= render 'speaker_fields', f: speakers %>
+      <% end %>
+
+      <div class="links">
+        <span style="font-size:14px;background:#bbb;padding:14px;border-radius:5px;"><%= link_to_add_association 'ADD SPEAKER', f, :speakers %></span>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Opret Program", class: 'btn-submit box2' %>
+      </div>
+    </div>
+<% end %>
+
+

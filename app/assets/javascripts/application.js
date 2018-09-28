@@ -19,6 +19,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.easy-autocomplete
+//= require bootstrap/modal
 //= require chosen-jquery
 //= require cocoon
 //= require picker

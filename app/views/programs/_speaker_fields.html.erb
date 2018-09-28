@@ -1,0 +1,63 @@
+<div class="nested-fields">
+
+<center>
+  <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
+  <h1>Ny speaker</h1><br />
+    <%= f.hidden_field :user_id, :value=> current_user.id  %>
+
+    <div class="mobileHide">
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :title, placeholder: 'Tale tema', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Om speakeren', label: false, class: "form-control" %><br />
+        <br />
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3" aria-describedby="basic-addon3"><%= I18n.t "currency" %> </span>
+        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
+        </div><br />
+
+        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+
+        <br />
+
+
+        <br />
+      </div>
+      <br />
+
+      <div class="form-actions">
+        <%= f.submit 'Opret speaker', class: 'button' %>
+      </div>
+    </div>
+
+    <div class="desktopHide">
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+        <%= f.input :title, placeholder: 'Tale tema', label: false, class: "form-control" %><br />
+        <%= f.input :description, placeholder: 'Om speakeren', label: false, class: "form-control" %><br />
+        <%= f.input :sorting, placeholder: 'Sortering', label: false, class: "form-control" %><br />
+        <br />
+
+        
+
+
+        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+
+
+
+
+        <br />
+      </div>
+      <br />
+
+      <div class="form-actions">
+        <%= f.submit 'Opret speaker', class: 'button' %>
+      </div>
+    </div>
+
+  </div>
+</center>
+
+
+
+</div>

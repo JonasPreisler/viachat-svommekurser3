@@ -5,6 +5,7 @@ class Speaker < ApplicationRecord
     mount_uploader :image, ImageUploader
 	belongs_to :user
 	has_many :speaker_images
+	has_one :program
     accepts_nested_attributes_for :speaker_images, allow_destroy: true
 
 end
