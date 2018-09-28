@@ -18,7 +18,7 @@ json.messages do
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["Speaker#{program.sorting if program.sorting} Description"]
+					            json.block_names ["Program#{program.sorting if program.sorting}"]
 					            json.title "About"
 					        end
 						end
