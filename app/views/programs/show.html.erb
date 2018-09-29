@@ -19,9 +19,9 @@
             <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
           <% end %>
         </p>
-      <%= link_to 'Redigér', edit_program_path(@program), class: 'btn-primary box' if user_signed_in? and current_user.id == @program.user_id %> 
+      <%= link_to 'Redigér', edit_program_path(@program), class: 'btn-green box' if user_signed_in? and current_user.id == @program.user_id %> 
       <%= link_to 'Slet program', program_path(@program),
-      data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @program.user_id %>
+      data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @program.user_id %>
 
       </center>
     </div>
@@ -31,13 +31,17 @@
         <%= @program.description %>
       </p>
 
-      <p><strong>Om speakeren:</strong><br />
-        <%= @program.speaker_about %>
+      <p><strong><%= "Om speakeren:" if @program.speakers.count < 2 %><%= "Om speakerne" if @program.speakers.count > 1 %></strong><br />
         <p>
-        <% if @program.speaker_image? %>
-          <%= image_tag @program.speaker_image.url(:messenger), class: 'image-border' %>
-        <% else %>
-          <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
+        <% @speakers.each do |speaker| %>
+          <strong><%= speaker.name %></strong><br />
+          <%= speaker.description %>
+          <% if speaker.image? %>
+            <%= image_tag speaker.image.url(:messenger), class: 'image-border' %> <br /><br />
+          <% else %>
+            <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
+
+          <% end %>
         <% end %>
       </p>
       </p>

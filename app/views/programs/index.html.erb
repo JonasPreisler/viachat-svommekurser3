@@ -6,7 +6,11 @@
       <h1>Program</h1>
     </div>
     <div class="col-md-6 col-sm-6">
-      <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow pull-right' %>
+      <% if current_user.programs.count < 20 %>
+        <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow pull-right' %>
+      <% else %>
+      <div class="btn-primary-grey shadow pull-right">Max 20 programmer.</div>
+      <% end %>
     </div>
   </div>
 

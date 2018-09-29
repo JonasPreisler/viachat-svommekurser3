@@ -191,6 +191,19 @@ input, select, textarea {
   background: #172b4d !important
   }
 }
+.btn-primary-grey {
+  margin: 10px;
+  height: 50%;
+  color: #aaa9a9 !important;
+  background: linear-gradient(to bottom right, #f3f2f2, #c3c2c2);
+  border: none !important;
+  text-decoration: none !important;
+  border-radius: 25px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
 
 /* END OF PROPERTIES INDEX */
 
@@ -445,3 +458,5 @@ input, select, textarea {
 .thumbnail {
   background: #f3f2f2 !important
 }
+
+

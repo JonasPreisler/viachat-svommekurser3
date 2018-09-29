@@ -7,7 +7,7 @@ json.messages do
 				json.image_aspect_ratio "square"
 				json.elements do
 					json.array! (@programs).limit(10) do |program|
-						json.title "#{program.name} | {program.title}"
+						json.speaker "#{program.name} | #{program.speakers.first.name}"
 						json.image_url "#{program.image.url(:messenger) if program.image}"
 						json.subtitle "#{program.startday.strftime("%A, %d. %B")} Kl. #{program.starttime.strftime("%H")}-#{program.endtime.strftime("%H")}"
 						json.buttons do

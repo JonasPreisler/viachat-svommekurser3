@@ -5,20 +5,16 @@
 
       <p>
         <strong style="font-size: 26px"><%= @speaker.name %></strong><br />
-        <i style="font-size:14px">
-          <strong><%= @speaker.title %></strong><br />
-          <%= @speaker.date.strftime("%A, %w. %B") %><br />
-        Kl. <%= @speaker.time.strftime("%H") %></i>
       </p>
       <center>
 
-        <p>
-          <% if @speaker.image? %>
-            <%= image_tag @speaker.image.url(:messenger), class: 'image-border' %>
-          <% else %>
-            <%= link_to (image_tag '/thumbnail.png'), @speaker, class: 'speaker-image' %>
-          <% end %>
-        </p>
+      <p>
+        <% if @speaker.image? %>
+          <%= image_tag @speaker.image.url(:messenger), class: 'image-border' %>
+        <% else %>
+          <%= link_to (image_tag '/thumbnail.png'), @speaker, class: 'speaker-image' %>
+        <% end %>
+      </p>
       <%= link_to 'Redigér', edit_speaker_path(@speaker), class: 'btn-primary box' if user_signed_in? and current_user.id == @speaker.user_id %> 
       <%= link_to 'Slet speaker', speaker_path(@speaker),
       data: {:confirm => 'Bekræft'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @speaker.user_id %>

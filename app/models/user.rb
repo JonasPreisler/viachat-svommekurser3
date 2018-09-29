@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :speakers
   has_many :programs
   has_many :leads
+
 end

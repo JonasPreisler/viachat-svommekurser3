@@ -5,19 +5,11 @@
     <div class="col-md-6 col-sm-6">
       <h1>Speakers</h1>
     </div>
-    <div class="col-md-6 col-sm-6">
-      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 shadow pull-right' %>
-    </div>
   </div>
 
   <div class="mobileHide">
     <center>
       <h1>Speakers</h1><br />
-    <div class="col-md-6 col-sm-6">
-      
-      <%= link_to 'Tilføj speaker', new_speaker_path, class: 'btn-primary2 shadow' %>
-      </center><br />
-    </div>
   </div>
 </div>
 
@@ -40,21 +32,15 @@
           <%= link_to (image_tag '/thumbnail.png'), speaker, class: 'speaker-image' %>
         <% end %>
         <div class="caption">
-          <div class="row">
-            <div class="col-sm-6 col-sm-4 col-xs-6">
-              <h4 style="font-size:16px;"><%= speaker.sorting %> <br /> 
-                <div style="padding-top: 5px"><%= link_to truncate(speaker.name, :length => 22), speaker, class: 'shorten' %>
-                </div></h4>
+          <h4 style="font-size:16px;"><%= speaker.sorting %> <br />
+            <div style="padding-top: 5px"><%= link_to truncate(speaker.name, :length => 22), speaker, class: 'shorten' %>
             </div>
-            <div class="col-sm-6 col-sm-4 col-xs-6">
-            </div>
-          </div>
+          </h4>
+          <div style="padding-top: 5px">Program: <%= link_to speaker.program.name, speaker.program %></div>
         </div>
         
             <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
             <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
-          <%= link_to 'Slett', speaker_path(speaker),
-          data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
           <%#div class="col-xs-8 col-sm-6">
             <% &#9889; rating %>
           <%#/div>
@@ -94,8 +80,6 @@
           <div class="panel-footer">
               <%= link_to "Vis", speaker_path(speaker), class: 'btn-green box' %>
               <%= link_to "Redigér", edit_speaker_path(speaker), class: 'btn-green box' %>
-            <%= link_to 'Slett', speaker_path(speaker),
-            data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
             <%#div class="col-xs-8 col-sm-6">
               <% &#9889; rating %>
             <%#/div>

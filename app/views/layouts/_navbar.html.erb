@@ -18,6 +18,7 @@
         <li style="color:#1c1c1c;padding:5px;">Din hemmelighet: <%= current_user.secret %><br />
           Dit user_id: <%= current_user.id %></li>
         <li><%= link_to 'Programs', programs_path, class: 'btn-primary shadow'%></li>
+        <li><%= link_to 'Speakers', speakers_path, class: 'btn-primary shadow'%></li>
         <li><%= link_to 'Konto', edit_user_registration_path, class: 'btn-primary shadow' %>
         <li><%= link_to 'Log ud', destroy_user_session_path, method: :delete, class: 'btn-primary shadow' %></li>
         <% else %>

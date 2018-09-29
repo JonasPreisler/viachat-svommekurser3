@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @programs = @user.programs.all.order('sorting ASC')
-    @speakers = @user.speakers.all.order('sorting ASC')
+    @speaker = @user.programs.all
     @user = User.first
     render :show
   end 
@@ -89,17 +89,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
-      def connect
-        last_purchased_item = params['last purchased item']
-        first_name = params['first name']
-        last_name = params['last name']
-        last_payment_address = params['last payment address']
-        last_payment_phone = params['last payment phone']
-        last_payment_email = params['last payment email']
-        last_payment_charge_id = params['last payment charge id']
-      end
+  def connect
+    last_purchased_item = params['last purchased item']
+    first_name = params['first name']
+    last_name = params['last name']
+    last_payment_address = params['last payment address']
+    last_payment_phone = params['last payment phone']
+    last_payment_email = params['last payment email']
+    last_payment_charge_id = params['last payment charge id']
+  end
 
   private
+
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

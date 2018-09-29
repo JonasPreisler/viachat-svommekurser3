@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_program, only: [:show, :edit, :update, :destroy]
   layout 'guest', only: [:show]
 
@@ -13,12 +14,13 @@ class ProgramsController < ApplicationController
   # GET /programs/1
   # GET /programs/1.json
   def show
+    @speakers = @program.speakers
   end
 
   # GET /programs/new
   def new
     @program = Program.new
-    @speakers = Speaker.all
+    @program.speakers.build
     @place = Place.all
   end
 
@@ -67,6 +69,7 @@ class ProgramsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_program
       @program = Program.find(params[:id])
@@ -74,6 +77,15 @@ class ProgramsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_params
-      params.require(:program).permit(:user_id, :startday, :starttime, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :title, :speaker_link, :time, :date, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
+      params.require(:program).permit(:user_id, :startday, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
     end
+
+
+    def require_login
+      unless current_user
+        flash[:notice] = "Du må logge deg på først."
+        redirect_to new_user_session_path
+      end
+    end
+
 end
