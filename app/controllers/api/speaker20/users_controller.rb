@@ -1,4 +1,4 @@
-class Api::Speaker1::UsersController < ApplicationController
+class Api::Speaker20::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -8,7 +8,7 @@ class Api::Speaker1::UsersController < ApplicationController
   end
 
   def show
-    @speaker = @user.speakers.find_by_sorting(1)
+    @speaker = @user.speakers.find_by_sorting(20)
     @user = User.first
     render :show
   end
