@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     resources :leads
     resources :speakers
     resources :programs
+    namespace 'speakers' do
+      resources :users
+      resources :speakers
+    end
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
     #get '/:user', to: 'speakers#show'
 

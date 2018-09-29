@@ -7,19 +7,23 @@ json.messages do
 				json.image_aspect_ratio "square"
 				json.elements do
 					json.array! (@speakers).limit(10) do |speaker|
-						json.title "#{speaker.name} | {speaker.program.name}"
-						json.image_url "#{speaker.image.url(:messenger) if speaker.image}"
-						json.subtitle "#{speaker.date.strftime("%A, %d. %B")} Kl. #{speaker.time.strftime("%H")}-#{program.endtime.strftime("%H")}"
+						json.title "#{speaker.name}"
+						if speaker.image.present?
+							json.image_url "#{speaker.image.url(:messenger) if speaker.image}"
+						else
+							json.image_url "http://netovo.herokuapp.com/thumbnail.png"
+						end
+						json.subtitle "Foredrag: #{speaker.program.name}"
 						json.buttons do
-							json.array! [*1] do
-					            json.type "web_url"
-					            json.url "http://netovo.herokuapp.com/speakers/#{speaker.id}?v=%20"
-					            json.title "📓 Info (webview)"
-					        end
 							json.array! [*1] do
 					            json.type "show_block"
 					            json.block_names ["Speaker#{speaker.sorting if speaker.sorting}"]
-					            json.title "📓 Info"
+					            json.title "Foredragsholder"
+					        end
+							json.array! [*1] do
+					            json.type "show_block"
+					            json.block_names ["Program#{speaker.program.sorting}"]
+					            json.title "➤ Til foredraget"
 					        end
 						end
 					end
@@ -29,7 +33,7 @@ json.messages do
 	end
 end
 
-if @programs.count > 10
+if @speakers.count > 10
 	json.messages do
 		json.array! [*1] do
 			json.text "Se flere speakers:"

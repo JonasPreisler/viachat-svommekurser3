@@ -6,20 +6,24 @@ json.messages do
 				json.template_type "generic"
 				json.image_aspect_ratio "square"
 				json.elements do
-					json.array! (@programs_2).limit(10) do |program|
-						json.title "#{program.name} | {program.title}"
-						json.image_url "#{program.image.url(:messenger) if program.image}"
-						json.subtitle "#{program.staryday.strftime("%A, %d. %B")} Kl. #{speaker.starttime.strftime("%H")}"
+					json.array! (@speakers_2).limit(10) do |speaker|
+						json.title "#{speaker.name}"
+						if speaker.image.present?
+							json.image_url "#{speaker.image.url(:messenger) if speaker.image}"
+						else
+							json.image_url "http://netovo.herokuapp.com/thumbnail.png"
+						end
+						json.subtitle "Foredrag: #{speaker.program.name}"
 						json.buttons do
 							json.array! [*1] do
-					            json.type "web_url"
-					            json.url "http://netovo.herokuapp.com/programs/#{program.id}?v=%20"
-					            json.title "About (webview)"
+					            json.type "show_block"
+					            json.block_names ["Speaker#{speaker.sorting if speaker.sorting}"]
+					            json.title "Foredragsholder"
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
-					            json.block_names ["Speaker#{program.sorting if program.sorting} Description"]
-					            json.title "About"
+					            json.block_names ["Program#{speaker.program.sorting}"]
+					            json.title "➤ Til foredraget"
 					        end
 						end
 					end
