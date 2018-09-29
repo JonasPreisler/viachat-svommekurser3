@@ -20,7 +20,7 @@
           <% end %>
         </p>
       <%= link_to 'Redigér', edit_program_path(@program), class: 'btn-green box' if user_signed_in? and current_user.id == @program.user_id %> 
-      <%= link_to 'Slet program', program_path(@program),
+      <%= link_to 'Slett program', program_path(@program),
       data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @program.user_id %>
 
       </center>
@@ -31,7 +31,7 @@
         <%= @program.description %>
       </p>
 
-      <p><strong style="font-size: 26px"><%= "Om speakeren:" if @program.speakers.count < 2 %><%= "Om speakerne" if @program.speakers.count > 1 %></strong><br />
+      <p><strong style="font-size: 26px"><%= "Om foredragsholderen:" if @program.speakers.count < 2 %><%= "Om foredragsholderne" if @program.speakers.count > 1 %></strong><br />
         <p>
         <% @speakers.each do |speaker| %>
           <strong><%= speaker.name %></strong><br />
