@@ -3,7 +3,7 @@
     
   <div class="desktopHide">
     <div class="col-md-6 col-sm-6">
-      <h1>Program</h1>
+      <h1>Programmer</h1>
     </div>
     <div class="col-md-6 col-sm-6">
       <% if current_user.programs.count < 20 %>
@@ -55,8 +55,8 @@
             </div>
         </div>
         
-            <%= link_to "Vis", program_path(program), class: 'btn-green box' %>
-            <%= link_to "Redigér", edit_program_path(program), class: 'btn-green box' %>
+            <%= link_to "Vis", program_path(program), class: 'btn-green-programs box' %>
+            <%= link_to "Redigér", edit_program_path(program), class: 'btn-green-programs box' %>
           <%= link_to 'Slett', program_path(program),
           data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
           <%#div class="col-xs-8 col-sm-6">
@@ -96,8 +96,8 @@
             </div>
           </div>
           <div class="panel-footer">
-              <%= link_to "Vis", program_path(program), class: 'btn-green box' %>
-              <%= link_to "Redigér", edit_program_path(program), class: 'btn-green box' %>
+              <%= link_to "Vis", program_path(program), class: 'btn-green-programs box' %>
+              <%= link_to "Redigér", edit_program_path(program), class: 'btn-green-programs box' %>
             <%= link_to 'Slett', program_path(program),
             data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red box' %>
             <%#div class="col-xs-8 col-sm-6">

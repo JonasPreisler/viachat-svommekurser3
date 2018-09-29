@@ -14,12 +14,12 @@ json.messages do
 							json.array! [*1] do
 					            json.type "web_url"
 					            json.url "http://netovo.herokuapp.com/speakers/#{speaker.id}?v=%20"
-					            json.title "About (webview)"
+					            json.title "📓 Info (webview)"
 					        end
 							json.array! [*1] do
 					            json.type "show_block"
 					            json.block_names ["Speaker#{speaker.sorting if speaker.sorting}"]
-					            json.title "About"
+					            json.title "📓 Info"
 					        end
 						end
 					end
