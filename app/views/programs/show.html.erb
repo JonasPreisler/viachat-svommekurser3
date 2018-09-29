@@ -27,15 +27,15 @@
     </div>
     <div class="col-md-6 col-sm-6">
       
-      <p><strong>Om programmet:</strong><br />
+      <p><strong style="font-size: 26px">Om programmet:</strong><br />
         <%= @program.description %>
       </p>
 
-      <p><strong><%= "Om speakeren:" if @program.speakers.count < 2 %><%= "Om speakerne" if @program.speakers.count > 1 %></strong><br />
+      <p><strong style="font-size: 26px"><%= "Om speakeren:" if @program.speakers.count < 2 %><%= "Om speakerne" if @program.speakers.count > 1 %></strong><br />
         <p>
         <% @speakers.each do |speaker| %>
           <strong><%= speaker.name %></strong><br />
-          <%= speaker.description %>
+          <%= speaker.description %><br />
           <% if speaker.image? %>
             <%= image_tag speaker.image.url(:messenger), class: 'image-border' %> <br /><br />
           <% else %>
