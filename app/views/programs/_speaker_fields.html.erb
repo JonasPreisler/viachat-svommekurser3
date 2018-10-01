@@ -6,8 +6,8 @@
       <div class="mobileHide">
         <div class="form-inputs">
 
-          <%= f.input :name, placeholder: 'Speaker navn', label: false, class: "form-control" %><br />
-          <%= f.text_area :description, placeholder: 'Om speakeren', label: false, :rows => 5, class: "form-control" %><br />
+          <%= f.input :name, placeholder: 'Foredragsholder navn', label: false, class: "form-control" %><br />
+          <%= f.text_area :description, placeholder: 'Om foredragsholderen', label: false, :rows => 5, class: "form-control" %><br />
           <br />
 
           <%= f.select(:sorting, [
@@ -37,7 +37,7 @@
 
           <br /><br />
 
-          <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+          <strong>Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
 
         </div>
         <br />

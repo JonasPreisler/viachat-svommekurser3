@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_081340) do
+ActiveRecord::Schema.define(version: 2018_10_01_015018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 2018_09_29_081340) do
     t.string "phone"
     t.string "logo"
     t.string "email"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "speaker_id"
+    t.string "name"
+    t.string "ticket"
+    t.string "image"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "leads", force: :cascade do |t|
@@ -134,6 +147,8 @@ ActiveRecord::Schema.define(version: 2018_09_29_081340) do
     t.bigint "user_id"
     t.integer "sorting"
     t.string "place"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_programs_on_event_id"
     t.index ["user_id"], name: "index_programs_on_user_id"
   end
 
@@ -167,6 +182,8 @@ ActiveRecord::Schema.define(version: 2018_09_29_081340) do
     t.integer "sorting"
     t.string "name"
     t.bigint "program_id"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_speakers_on_event_id"
     t.index ["program_id"], name: "index_speakers_on_program_id"
     t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
     t.index ["user_id"], name: "index_speakers_on_user_id"
@@ -190,13 +207,16 @@ ActiveRecord::Schema.define(version: 2018_09_29_081340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
   add_foreign_key "leads", "slots"
   add_foreign_key "leads", "speakers"
   add_foreign_key "leads", "users"
   add_foreign_key "orders", "businesses"
   add_foreign_key "places", "programs"
+  add_foreign_key "programs", "events"
   add_foreign_key "programs", "users"
   add_foreign_key "slots", "leads"
+  add_foreign_key "speakers", "events"
   add_foreign_key "speakers", "programs"
   add_foreign_key "speakers", "speaker_images"
   add_foreign_key "speakers", "users"

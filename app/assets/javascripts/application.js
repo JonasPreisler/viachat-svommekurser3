@@ -77,6 +77,16 @@ function myFunction() {
     }
   }
 }
-// end of  language dropdown //
+// end of language dropdown //
 
+// show on click //
 
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+// end of show on click //

@@ -4,7 +4,7 @@ json.messages do
 			json.type "template"
 			json.payload do
 				json.template_type "generic"
-				json.image_aspect_ratio "square"
+				json.image_aspect_ratio "horizontal"
 				json.elements do
 					json.array! (@programs).limit(10) do |program|
 						json.title "#{program.startday.strftime("%A, %d. %B")} Kl. #{program.starttime.strftime("%H")}-#{program.endtime.strftime("%H")} - #{program.name}"
@@ -13,7 +13,7 @@ json.messages do
 						else
 							json.image_url "http://netovo.herokuapp.com/thumbnail.png"
 						end
-						json.subtitle "Foredrag: #{program.speakers.first.name} Sted: #{program.place}"
+						json.subtitle "Foredrag: #{program.speakers.first.name} Sted: #{program.place if program.place}"
 						json.buttons do
 							json.array! [*1] do
 					            json.type "show_block"

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :days
+  resources :events
   resources :places
   resources :programs
   root to: 'pages#landing'

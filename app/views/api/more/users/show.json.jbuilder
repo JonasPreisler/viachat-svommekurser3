@@ -4,7 +4,7 @@ json.messages do
 			json.type "template"
 			json.payload do
 				json.template_type "generic"
-				json.image_aspect_ratio "square"
+				json.image_aspect_ratio "horizontal"
 				json.elements do
 					json.array! (@programs_2).limit(10) do |program|
 						json.title "#{program.name} | {program.speaker.name}"

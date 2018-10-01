@@ -3,7 +3,6 @@
     <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
       <h1>Nyt program</h1><br />
 
-
       <%= simple_form_for(@program) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -19,11 +18,35 @@
 
         <div class="desktopHide">
           <div class="form-inputs">
+
+            <div class="form-inputs">
+              <div class="row">
+                <div class="col-md-4 col-xs-6">
+
+                  <div class="box2">
+                  <%= text_field_tag("program[startday]", value = @program.startday, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-6">
+                  <div class="box2">
+                    <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                  <div class="box2">
+                    <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-xs-6">
-                <%= f.input :name, placeholder: 'Tittel', label: false, class: "form-control" %><br />
+                <%= f.collection_select :event_id, Event.order(:name),:id,:name %><br /><br />
+                <%= f.input :name, placeholder: 'Program tittel', label: false, class: "form-control" %><br />
                 <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
-                <%= f.input :place, placeholder: 'Lokation', label: false, class: "form-control" %><br />
+                <%= f.input :place, placeholder: 'Lokation (hal/scene/etc) - valgfri', label: false, class: "form-control" %><br />
 
             <%= f.select(:sorting, [
                 ['1', '1'],
@@ -51,44 +74,24 @@
                ) %>
               </div>
               <div class="col-xs-6">
+              <strong>Program Billede (500x260px):</strong><br /><%= f.file_field :image %><br /><br />
                 <%= image_tag ('/sample.png'), class: 'shadow' %>
               </div>
             </div>
             <hr>
 
-               <br /><br />
-               <%= image_tag ('/sorting.png'), class: 'full-width' %>
-                <br /><br />
-                <i style="color:#888787;padding-bottom:20px">(Merk: Sortering starter alltid fra #1 og fortsetter opptil #20. Dvs. du kan for eksempel ikke starte med #5, hvis du ikke har opprettet #4 endnu.)</i>
-                <br /><br /><br /><br />
+            <br /><br />
 
-            <strong>Program Billede:</strong><br /><%= f.file_field :image %><br />
 
-            <div class="form-inputs">
-              <div class="row">
-                <div class="col-md-4 col-xs-6">
+            
+           <%= image_tag ('/sorting.png'), class: 'full-width' %>
+            <br /><br />
+            <i style="color:#888787;padding-bottom:20px">(Merk: Sortering starter alltid fra #1 og fortsetter opptil #20. Dvs. du kan for eksempel ikke starte med #5, hvis du ikke har opprettet #4 endnu.)</i>
+            <br /><br /><br /><br />
 
-                  <div class="box2">
-                  <%= text_field_tag("program[startday]", value = @program.startday, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
-                  </div>
-                </div>
-                <div class="col-md-4 col-xs-6">
-                  <div class="box2">
-                    <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-xs-6">
-                  <div class="box2">
-                    <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <br /><br />
-
+          <hr style="border: 2px solid #fff"><br />
 
           <%= f.fields_for :speakers do |speakers| %>
             <h1>Foredragsholder</h1>

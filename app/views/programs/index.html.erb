@@ -16,7 +16,7 @@
 
   <div class="mobileHide">
     <center>
-      <h1>Speakers</h1><br />
+      <h1>Programmer</h1><br />
     <div class="col-md-6 col-sm-6">
       
       <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow' %>
@@ -26,7 +26,7 @@
 </div>
 
 <% unless current_user.programs.any? %>
-<div style="font-size:20px;text-align: center;padding-top:30px;">Hei! 🙂 Legg til ditt første program. </div>
+<div style="font-size:20px;text-align: center;padding-top:30px;">Hei! 🙂 Legg til ditt første program. Du kan legge til opptil 20 programmer.</div>
 <% else %>
 
 <br />

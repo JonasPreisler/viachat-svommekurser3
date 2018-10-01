@@ -1,0 +1,96 @@
+<div class="nested-fields">
+  <center>
+    <div style="background: #f3f2f2;border:1px solid #1c1c1c;border-radius:10px;color:#1c1c1c" class="speaker-form">
+      <h1>Foredragsholder</h1><br />
+
+      <%= f.hidden_field :user_id, :value=> current_user.id  %>
+
+      <div class="mobileHide">
+        <div class="form-inputs">
+
+          <%= f.input :name, placeholder: 'Foredragsholder navn', label: false, class: "form-control" %><br />
+          <%= f.text_area :description, placeholder: 'Om foredragsholderen', label: false, :rows => 5, class: "form-control" %><br />
+          <br />
+
+          <%= f.select(:sorting, [
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20']
+               ],{ :prompt => "Velg plassen i raden:"},
+                 { :size => 10 }
+               ) %>
+
+          <br /><br />
+
+          <strong>Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
+
+        </div>
+        <br />
+      </div>
+
+      <div class="desktopHide">
+        <div class="form-inputs">
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :name, placeholder: 'Navn', label: false, class: "form-control" %><br />
+                <%= f.text_area :description, placeholder: 'Om foredragsholderen', label: false, :rows => 7, class: "form-control" %><br />
+
+                <br />
+                <strong>Foredragsholder billede:</strong><br /><%= f.file_field :image %><br />
+              </div>
+              <div class="col-xs-6">
+
+                <%= f.select(:sorting, [
+                    ['1', '1'],
+                    ['2', '2'],
+                    ['3', '3'],
+                    ['4', '4'],
+                    ['5', '5'],
+                    ['6', '6'],
+                    ['7', '7'],
+                    ['8', '8'],
+                    ['9', '9'],
+                    ['10', '10'],
+                    ['11', '11'],
+                    ['12', '12'],
+                    ['13', '13'],
+                    ['14', '14'],
+                    ['15', '15'],
+                    ['16', '16'],
+                    ['17', '17'],
+                    ['18', '18'],
+                    ['19', '19'],
+                    ['20', '20']
+                   ],{ :prompt => "Velg plassen i raden:"},
+                     { :size => 10 }
+                   ) %>
+
+                 </div>
+               </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </center>
+</div>
+<br /><br />

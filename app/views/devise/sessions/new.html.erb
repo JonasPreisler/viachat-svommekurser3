@@ -1,6 +1,6 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
-	
+    <div style="width:50%">
 	<h4><b>Log ind</b></h4>
 	 <%- flash.each do |name, msg| -%>
 	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
@@ -19,5 +19,6 @@
 	<% end %>
 
 	<%= render "devise/shared/links" %>
+	</div>
 </div>
 </center>

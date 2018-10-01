@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  program_id: 1
+  speaker_id: 1
+  name: MyString
+  ticket: MyString
+  image: MyString
+  address: MyString
+
+two:
+  program_id: 1
+  speaker_id: 1
+  name: MyString
+  ticket: MyString
+  image: MyString
+  address: MyString

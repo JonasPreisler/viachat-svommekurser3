@@ -1,0 +1,110 @@
+<% if current_user.programs.count < 20 %>
+  <div class="nested-fields">
+    <center>
+      <div style="background: #f3f2f2;border:2px solid #1c1c1c;padding:15px;border-radius:10px;color:#1c1c1c" class="speaker-form">
+        <h1>Nyt program</h1><br />
+
+
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <%= f.hidden_field :user_id, :value=> current_user.id  %>
+
+        <div class="mobileHide">
+
+          Denne siden er ikke mobilsklar ennå.
+
+        </div>
+
+
+        <div class="desktopHide">
+          <div class="form-inputs">
+            <div class="row">
+              <div class="col-xs-6">
+                <%= f.input :name, placeholder: 'Tittel', label: false, class: "form-control" %><br />
+                <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
+                <%= f.input :place, placeholder: 'Lokation', label: false, class: "form-control" %><br />
+
+            <%= f.select(:sorting, [
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20']
+               ],{ :prompt => "Velg plassen i raden:"},
+                 { :size => 6 }
+               ) %>
+              </div>
+
+              <div class="col-xs-6">
+                <%= image_tag ('/sample.png'), class: 'shadow', :style => 'width: 90%' %>
+              </div>
+            </div>
+            <hr>
+
+               <br /><br />
+               <%= image_tag ('/sorting.png'), class: 'full-width' %>
+                <br /><br />
+                <i style="color:#888787;padding-bottom:20px">(Merk: Sortering starter alltid fra #1 og fortsetter opptil #20. Dvs. du kan for eksempel ikke starte med #5, hvis du ikke har opprettet #4 endnu.)</i>
+                <br /><br /><br /><br />
+
+            <strong>Program Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
+
+            <div class="form-inputs">
+              <div class="row">
+                <div class="col-md-4 col-xs-6">
+                  <%= f.fields_for :days do |days| %>
+                    <%= render 'day_fields', f: days %>
+                  <% end %>
+                </div>
+                <div class="col-md-4 col-xs-6">
+                  <div class="box2">
+                    <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                  <div class="box2">
+                    <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br /><br />
+
+
+          <%= f.fields_for :speakers do |speakers| %>
+            <br /><br />
+            <%= render 'speaker_fields', f: speakers %>
+          <% end %>
+
+          <div class="links">
+            <span class="white-text-bg shadow"><%= link_to_add_association 'LEGG TIL EN NY FOREDRAGSHOLDER', f, :speakers, class: 'white-text' %></span>
+          </div>
+
+        </div>
+      </div>
+    </center>
+  </div>
+<% else %>
+<% controller.redirect_to programs_path %>
+        <%= flash[:notice] = "Du kan opprette maksimalt 20 programmer pr. event." %>
+<% end %>
+<br /><br />

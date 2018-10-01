@@ -1,5 +1,6 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
+  <div style="width:50%">
   <h4><b>Registrér</b></h4>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,7 +8,6 @@
 
     <div class="form-inputs">
       <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
-      <%= f.input :secret, placeholder: 'Hemmelighed', label: false, required: true, autofocus: true %>
       <span style="color:#888787;font-size:12px;">Din hemmelighed er for at forsikre, at ingen andre kan sende data til hvilket som helst bruger ID.</span>
       <br /><br />
       <%= f.input :password, placeholder: 'Kodeord', label: false, required: true %>
@@ -21,6 +21,7 @@
 
     </div>
   <% end %>
+  </div>
 
   <%= render "devise/shared/links" %>
 </div>
