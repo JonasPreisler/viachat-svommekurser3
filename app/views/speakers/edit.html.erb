@@ -1,6 +1,6 @@
 <center>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
-<h1>Redigér speaker</h1><br />
+<h1>Redigér foredragsholder</h1><br />
   <%= simple_form_for(@speaker, :html => { :multipart => true }) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -40,7 +40,7 @@
                ) %>
                <br /><br />
 
-        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+        <strong>Bilde:</strong><br /><%= f.file_field :image %><br />
 
         <br />
 
@@ -49,7 +49,7 @@
       <br />
 
       <div class="form-actions">
-        <%= f.submit 'Oppdatér speaker', class: 'button' %>
+        <%= f.submit 'Oppdatér foredragsholder', class: 'button' %>
       </div>
     </div>
 
@@ -86,7 +86,7 @@
                <br /><br />
 
 
-        <strong>Billede:</strong><br /><%= f.file_field :image %><br />
+        <strong>Bilde:</strong><br /><%= f.file_field :image %><br />
 
 
 
@@ -96,7 +96,7 @@
       <br />
 
       <div class="form-actions">
-        <%= f.submit 'Opret speaker', class: 'button' %>
+        <%= f.submit 'Oppdatér foredragsholder', class: 'button' %>
       </div>
     </div>
   <% end %>

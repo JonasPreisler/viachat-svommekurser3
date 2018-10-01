@@ -1,149 +1,328 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
-en:
-  guests: "How many guests?"
-  today: "Today"
-  tomorrow: "Tomorrow"
-  table: "Choose table"
-  reserve: "Reserve"
-  redirect: "Redirecting to Messenger.com after"
-  seconds: "seconds"
-  reserveddate: "Date"
-  reservedtime: "Time"
-  reservedtable: "Table"
-  reservedguests: "Guests"
-  login: "Log in"
-  username: "Email"
-  password: "Password"
-  success: "Success"
-  repeat-password: "Repeat password"
-  current-password: "Current password"
-  secret-reason: "Your secret is to make sure that noone can send data to any random user_id."
-  uncompleted: "Uncompleted reservations"
-  secret: "Secret"
-  secret-description: "Send this secret from 3rd party"
-  logout: "__Log out__"
-  register: "Register"
-  currentsecretreason: "We need your current password to confirm your changes."
-  newreservation: "__New reservation__"
-  show: "__Show__"
-  edit: "__Edit__"
-  edit2: "Edit"
-  delete: "__Delete__"
-  delete2: "Delete"
-  delete3: "Delete picture"
-  back: "__Back__"
-  sure: "Are you sure?"
-  changedate: "__Change date__"
-  changetable: "__Change table__"
-  cancel: "__Cancel__"
-  name: "Name"
-  forsikring: "Insurance"
-  speakers: "__Speakers__"
-  speakers2: "Speakers"
-  newspeaker: "New speaker"
-  editspeaker: "Edit speaker"
-  address: "Address"
-  datedate: "Date"
-  timetime: "Time"
-  phone: "Phone"
+nb:
+  guests: "Hvor mange gjester?"
+  today: "Idag"
+  tomorrow: "Imorgen"
+  table: "Velg bord"
+  reserve: "Reservér"
+  redirect: "Omdirigerer til Messenger.com etter"
+  seconds: "sekunder"
+  reserveddate: "Dato"
+  reservedtime: "Tid"
+  reservedtable: "Bord"
+  reservedguests: "Gjester"
+  login: "Logg inn"
+  username: "email"
+  password: "Passord"
+  repeat-password: "Gjenta passord"
+  current-password: "Nåværende passord"
+  secret-reason: "Din hemmelighet er å sørge for at ingen kan sende data til et tilfeldig bruker-ID."
+  uncompleted: "Ufullstendige reservasjoner"
+  secret: "Hemmelighet"
+  secret-description: "Send denne hemmeligheten fra tredje part."
+  logout: "__Logg ut__"
+  newreservation: "__Ny reservasjon__"
+  show: "__Vis__"
+  edit: "__Redigér__"
+  edit2: "Redigér"
+  delete: "__Slett__"
+  delete2: "Slett"
+  delete3: "Slett bilde"
+  confirm: "Er du sikker?"
+  register: "Registrer"
+  currentsecretreason: "Vi trenger ditt nåværende passord for å bekrefte endringene dine."
+  back: "__Tilbake__"
+  changedate: "__Endre dato__"
+  changetable: "__Endre bord__"
+  cancel: "__Avbryt__"
+  name: "Navn"
+  forsikring: "Forsikring"
+  speakers: "__Eiendomme__"
+  speakers2: "Eiendomme"
+  newspeaker: "Ny eiendom"
+  editspeaker: "Rediger eiendom"
+  datedate: "Dato"
+  timetime: "Tid"
+  phone: "Mobil"
   new: "New"
-  great: "Great"
-  viewingconfirmed: "You have now booked a viewing of"
-  viewingconfirm: "We will confirm with you in the morning of"
-  whattime: "What date and time do you wish to see the apartment"
-  your: "Your"
-  yours: "Your"
-  yoursecret: "Your secret"
-  editaccount: "__Edit account__"
-  editaccount2: "Edit account"
-  createaccount: "Create account"
-  updateaccount: "Update account konto"
-  cancelaccount: "Cancel account"
-  confirmpassword: "Confirm password"
-  addspeaker: "__Add speaker__"
-  nospeaker: "Hei! 🙂 Legg til ditt første program. Du kan legge til opptil 20 programmer."
-  description: "Description"
-  price: "Price"
-  currency: "$"
-  imagesfor2: "Images for Messenger"
-  addanotherimage: "ADD ANOTHER IMAGE"
-  addimage: "ADD IMAGE"
-  createspeaker: "Create Speaker"
-  updatespeaker: "Update Speaker"
-  newlead: "New lead"
-  forgotpassword: ""
-  confirmationinstructions: "Didn't receive confirmation instructions?"
-  unlockinstructions: "Didn't receive unlock instructions?"
-  signup: "Sign Up"
-  mincharacters: "Minimum 6 characters"
-  lang: "Lang"
-  landing1: "Get out of the feed."
-  landing2: ""
-  landing3: "Get into the conversation"
-  landing4: "ViaChat can assist your customers in buying an insurance plan in a jiffy. ViaChat's AI powered chatbot can inform users of different travel plans and promotions, helping customers choose the right plan for them. By eliminating the need to hire workers to answer calls, chatbots save you money and your customers’ time while waiting for workers to pick up calls."
-  landing5: "Let AI be your"
+  great: "Flott"
+  viewingconfirmed: "Du har nå bestilt en visning av"
+  viewingconfirm: "Vi vil bekrefte med deg om morgenen"
+  whattime: "Hvilken dato og klokkeslett ønsker du å se"
+  your: "Din"
+  yours: "Din"
+  yoursecret: "Din hemmelighet"
+  editaccount: "__Rediger bruker__"
+  editaccount2: "Rediger bruker"
+  createaccount: "Opprett konto"
+  updateaccount: "Oppdater konto"
+  cancelaccount: "Slett konto"
+  confirmpassword: "Bekreft passord"
+  addspeaker: "__Opprett ny eiendom__"
+  nospeaker: "Hei der! 🙂 Du har ikke lagt til noen egenskaper enda."
+  address: "Adresse"
+  description: "Beskrivelse"
+  price: "Pris"
+  currency: "NOK"
+  imagesfor: "Bilde for siden 'Eiendomme'"
+  imagesfor2: "Bilder for Messenger"
+  addanotherimage: "LEGG TIL NYTT BILDE"
+  addimage: "LEGG TIL BILDE"
+  createspeaker: "Opprett Eiendom"
+  updatespeaker: "Oppdater Eiendom"
+  newlead: "Nytt lead"
+  signup: "Opret konto"
+  forgotpassword: "Glemt passord?"
+  confirmationinstructions: "Mottok ikke bekreftelsesinstruksjoner?"
+  unlockinstructions: "Mottok ikke opplåsningsanvisninger?"
+  signup: "Meld deg på"
+  signin: "Logg inn"
+  mincharacters: "Minst 6 tegn"
+  lang: "Språk"
+  landing1: "Gå ut av feedet"
+  landing2: "Kom ind i"
+  landing3: "samtalen"
+  landing4: "ViaChat kan hjelpe kundene dine med å kjøpe en forsikringsplan raskt og enkelt. ViaChats AI drevne chatbot kan informere brukere om forskjellige reiseplaner og kampanjer, og hjelper kundene med å velge riktig plan for dem. Ved å eliminere behovet for å ansette arbeidstakere for å svare på samtaler, sparer chatbots deg penger og kundenes tid mens du venter på at arbeidstakere skal ta telefonen."
+  landing5: "la AI være din"
   landing6: ""
-  landing7: "lead-generating machine"
-  landing8: "Sit back, relax and enjoy some coffee."
-  landing9: ""
-  landing10: "deals"
-  landing11: "That's that. We do what we are best at, and you do the same"
-  landing12: "There are too many half-assed agencies in this world"
-  landing13: "Go with a professional!"
+  landing7: "lead generasjonsmaskin"
+  landing8: "Len deg tilbake, slapp av og nyt litt kaffe."
+  landing9: "Du lukker"
+  landing10: "avtaler"
+  landing11: "Det er det. Vi gjør det vi er best på, og du gjør det samme"
+  landing12: "Det er for mange halvkalt byråer i denne verden"
 
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "ja": 'Ja'
+    "nei": 'Nei'
     required:
-      text: 'required'
+      text: 'Nødvendig'
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please fill out all the fields"
+      default_message: "Vennligst fyll ut alle feltene"
   devise:
     sessions:
       user:
-        signed_in: "You are now logged in"
-        signed_out: "You are now logged out"
+        signed_in: "Du er nå logget inn"
+        signed_out: "Du er nå logget ut"
     registrations:
       user:
-        signed_up: "You are now signed up"
+        signed_up: "Du er nå registrert"
     failure:
       user:
-        invalid: "Wrong email or password"
+        invalid: "Feil e-post eller passord"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'Det oppstod feil: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Kan ikke slette registreringen, fordi 1 %{record} avhenger av denne.
+          has_many: Kan ikke slette registreringen, fordi %{record} avhenger av denne.
+  date:
+    abbr_day_names:
+    - søn
+    - man
+    - tir
+    - ons
+    - tor
+    - fre
+    - lør
+    abbr_month_names:
+    -
+    - jan
+    - feb
+    - mar
+    - apr
+    - mai
+    - jun
+    - jul
+    - aug
+    - sep
+    - okt
+    - nov
+    - des
+    day_names:
+    - søndag
+    - mandag
+    - tirsdag
+    - onsdag
+    - torsdag
+    - fredag
+    - lørdag
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - januar
+    - februar
+    - mars
+    - april
+    - mai
+    - juni
+    - juli
+    - august
+    - september
+    - oktober
+    - november
+    - desember
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: rundt 1 time
+        other: rundt %{count} timer
+      about_x_months:
+        one: rundt 1 måned
+        other: rundt %{count} måneder
+      about_x_years:
+        one: rundt 1 år
+        other: rundt %{count} år
+      almost_x_years:
+        one: nesten 1 år
+        other: nesten %{count} år
+      half_a_minute: et halvt minutt
+      less_than_x_minutes:
+        one: mindre enn 1 minutt
+        other: mindre enn %{count} minutter
+      less_than_x_seconds:
+        one: mindre enn 1 sekund
+        other: mindre enn %{count} sekunder
+      over_x_years:
+        one: over 1 år
+        other: over %{count} år
+      x_days:
+        one: 1 dag
+        other: "%{count} dager"
+      x_minutes:
+        one: 1 minutt
+        other: "%{count} minutter"
+      x_months:
+        one: 1 måned
+        other: "%{count} måneder"
+      x_years:
+        one: 1 år
+        other: "%{count} år"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
+    prompts:
+      day: dag
+      hour: time
+      minute: minutt
+      month: måned
+      second: sekund
+      year: år
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: må være akseptert
+      blank: kan ikke være blank
+      present: må være blank
+      confirmation: er ikke lik %{attribute}
+      empty: kan ikke være tom
+      equal_to: må være lik %{count}
+      even: må være partall
+      exclusion: er reservert
+      greater_than: må være større enn %{count}
+      greater_than_or_equal_to: må være større enn eller lik %{count}
+      inclusion: er ikke inkludert i listen
+      invalid: er ugyldig
+      less_than: må være mindre enn %{count}
+      less_than_or_equal_to: må være mindre enn eller lik %{count}
+      model_invalid: "Det oppstod feil: %{errors}"
+      not_a_number: er ikke et tall
+      not_an_integer: er ikke et heltall
+      odd: må være oddetall
+      required: må eksistere
+      taken: er allerede i bruk
+      too_long: er for lang (maksimum %{count} tegn)
+      too_short: er for kort (minimum %{count} tegn)
+      wrong_length: er av feil lengde (maksimum %{count} tegn)
+      other_than: kan ikke være nøyaktig %{count}
+    template:
+      body: 'Det oppstod problemer med følgende felt:'
+      header:
+        one: Kunne ikke lagre %{model} på grunn av én feil.
+        other: Kunne ikke lagre %{model} på grunn av %{count} feil.
   helpers:
+    select:
+      prompt: Vennligst velg
     submit:
-      slot:
-        update: "Reserve"
-        edit: "dasd"
+      create: Lag %{model}
+      submit: Lagre %{model}
+      update: Reservér
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: kr
+    format:
+      delimiter: " "
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: true
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: milliard
+            other: milliarder
+          million:
+            one: million
+            other: millioner
+          quadrillion:
+            one: billiard
+            other: billiarder
+          thousand: tusen
+          trillion:
+            one: billion
+            other: billioner
+          unit: ''
+      format:
+        delimiter: " "
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: kB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " og "
+      two_words_connector: " og "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%A, %e. %B %Y, %H:%M"
+      long: "%A, %e. %B %Y, %H:%M"
+      short: "%e. %B, %H:%M"
+    pm: ''

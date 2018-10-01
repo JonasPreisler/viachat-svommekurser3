@@ -21,11 +21,11 @@
 </div>
 
 <% unless current_user.events.any? %>
-  <div style="font-size:20px;text-align: center;padding-top:30px;">Hei! 🙂 Legg til ditt første event.</div>
+  <div style="font-size:20px;text-align: center;padding-top:30px">Hei! 🙂 Legg til ditt første event.</div>
 <% else %>
   <br />
   <% @events.each do |event| %>
-    <div class="row" style="background: #fff;padding:15px;border-radius:10px;color:#1c1c1c;">
+    <div class="row" style="background: #fff;padding:15px;border-radius:10px;color:#1c1c1c;border: 1px solid #c3c2c2">
 
       <div class="desktopHideEvents">
         <div class="row">
@@ -61,6 +61,7 @@
       </div>
       <div id="programs-<%= event.id %>" style="display:none">
         <center>
+          <hr style="border: 1px solid #c3c2c2">
           <h3>Programmer</h3>
           <div onclick="toggle_div_hide('msg-<%= event.id %>');">
             <div class="btn-green-events box" style="cursor:pointer">Detaljer</div>
@@ -106,7 +107,6 @@
         <% if @programs_2.any? %>
           <% @programs_2.order('sorting ASC').each do |program| %>
             <% if event.id == program.event_id %>
-            <hr style="border: 2px solid #c3c2c2">
               <div class="col-md-3 col-sm-4">
                 <div class="thumbnail">
                   <% if program.image? %>
