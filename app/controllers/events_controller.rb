@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @events = current_user.events.all.limit(10).order('created_at DESC')
     @program = Program.all
     @programs = Program.all.limit(10).order('sorting ASC')
-    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting ASC')
+    @programs_2 = Program.all.offset(10).limit(10).order('sorting ASC')
 
   end
 
