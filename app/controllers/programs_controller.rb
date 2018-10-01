@@ -37,7 +37,7 @@ class ProgramsController < ApplicationController
 
     respond_to do |format|
       if @program.save
-        format.html { redirect_to @program, notice: 'Program was successfully created.' }
+        format.html { redirect_to @program, notice: 'Program ble opprettet.' }
         format.json { render :show, status: :created, location: @program }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class ProgramsController < ApplicationController
   def update
     respond_to do |format|
       if @program.update(program_params)
-        format.html { redirect_to @program, notice: 'Program was successfully updated.' }
+        format.html { redirect_to @program, notice: 'Program ble oppdateret.' }
         format.json { render :show, status: :ok, location: @program }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class ProgramsController < ApplicationController
   def destroy
     @program.destroy
     respond_to do |format|
-      format.html { redirect_to programs_url, notice: 'Program was successfully destroyed.' }
+      format.html { redirect_to programs_url, notice: 'Program ble slettet.' }
       format.json { head :no_content }
     end
   end

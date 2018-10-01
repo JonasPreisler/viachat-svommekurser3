@@ -24,12 +24,11 @@
       </div>
 
       <div class="form-actions">
-        <%= f.submit I18n.t('updateaccount'), class: 'button' %><br /><br />
+        <%= f.submit 'Oppdater konto', class: 'button' %><br /><br />
       </div>
     </div>
 
     <div class="desktopHide">
-      <strong><%= I18n.t "yoursecret" %>:</strong> <%= @user.secret %><br /><br />
 
       <div class="form-inputs">
         <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %><br />
@@ -38,20 +37,20 @@
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :password, placeholder: I18n.t('password'), label: false, autocomplete: "off", required: false %><br />
-        <%= f.input :password_confirmation, placeholder: I18n.t('repeat-password'), label: false, required: false %><br />
-        <%= f.input :current_password, placeholder: I18n.t('current-password'), label: false, required: true %>
-        <span style="color:#888787;font-size:12px;"><%= I18n.t "currentsecretreason" %></span><br />
+        <%= f.input :password, placeholder: 'BPassord', label: false, autocomplete: "off", required: false %><br />
+        <%= f.input :password_confirmation, placeholder: 'Bekreft passord', label: false, required: false %><br />
+        <%= f.input :current_password, placeholder: 'Nåværende passord', label: false, required: true %>
+        <span style="color:#888787;font-size:12px;">Vi trenger ditt nåværende passord for å bekrefte endringene dine.</span><br />
         <br /><br />
 
       </div>
 
       <div class="form-actions">
-        <%= f.submit I18n.t('updateaccount'), class: 'button' %><br /><br />
+        <%= f.submit 'Oppdater konto', class: 'button' %><br /><br />
     </div>
   <% end %>
 
-  <p><%= link_to I18n.t('cancelaccount'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p><%= link_to 'Avbryt konto', registration_path(resource_name), data: { confirm: "Er du sikker?" }, method: :delete %></p>
   </div>
 </div>
 </center>

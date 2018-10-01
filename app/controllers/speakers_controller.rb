@@ -34,7 +34,7 @@ class SpeakersController < ApplicationController
 
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to @speaker, notice: '👌 done' }
+        format.html { redirect_to @speaker, notice: '👌 done. Foredragsholder ble opprettet.' }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class SpeakersController < ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-        format.html { redirect_to @speaker, notice: '👌 done.' }
+        format.html { redirect_to @speaker, notice: '👌 done. Foredragsholder ble oppdateret.' }
         format.json { render :show, status: :ok, location: @speaker }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class SpeakersController < ApplicationController
   def destroy
     @speaker.destroy
     respond_to do |format|
-      format.html { redirect_to speakers_url, notice: '👌 done.' }
+      format.html { redirect_to speakers_url, notice: '👌 done. Foredragsholder ble slettet.' }
       format.json { head :no_content }
     end
   end

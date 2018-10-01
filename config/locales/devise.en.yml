@@ -3,30 +3,30 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Din email er bekreftet."
+      send_instructions: "Du vil motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter. "
+       send_paranoid_instructions: "Hvis email din finnes i vår database, vil du motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
+      already_authenticated: "Du er allerede logget på."
+      inactive: "Din konto er ikke aktivert enda."
+      invalid: "Ugyldig %{authentication_keys} eller passord."
+      locked: "Kontoen din er låst."
+      last_attempt: "Du har ett forsøk før kontoen din er låst."
       not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      timeout: "Økten din utløp. Vennligst logg inn igjen for å fortsette."
+      unauthenticated: "Du må logge inn eller registrere deg før du fortsetter."
+      unconfirmed: "Du må bekrefte email din før du fortsetter."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Bekreftelsesanvisninger"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Tilbakestill passord instruksjoner"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Lås opp instruksjonene"
       email_changed:
-        subject: "Email Changed"
+        subject: "Email endret"
       password_change:
-        subject: "Password Changed"
+        subject: "Passord endret"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -49,16 +49,16 @@ en:
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      send_instructions: "Du vil motta en email med instruksjoner for hvordan du låser opp kontoen din om noen få minutter."
+      send_paranoid_instructions: "Hvis kontoen din eksisterer, vil du motta en email med instruksjoner for hvordan du låser opp det om noen minutter."
+      unlocked: "Kontoen din har blitt låst opp. Vennligst logg inn for å fortsette."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "var allerede bekreftet, vennligst prøv å logge inn"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
+      expired: "er utløpt, vennligst be om en ny"
+      not_found: "ikke funnet"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 feil forbudt denne %{resource} blir gemt:"
+        other: "%{count} feil forbudt denne% %{resource} blir gemt:"
