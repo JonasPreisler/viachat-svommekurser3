@@ -3,6 +3,12 @@
     <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
       <h1>Nyt program</h1><br />
 
+      <% if current_user.event_ids.count < 2 %>
+        <% @events.each do |event| %>
+          <%= "..for #{event.name}" if current_user == event.user %>
+        <% end %>
+      <% end %>
+
       <%= simple_form_for(@program) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -43,7 +49,12 @@
 
             <div class="row">
               <div class="col-xs-6">
-                <%= f.collection_select :event_id, current_user.events.all.order(:name),:id,:name %><br /><br />
+                <% if current_user.event_ids.count > 1 %>
+                Event:
+                  <%= f.collection_select :event_id, current_user.events.all.order('created_at DESC'),:id,:name %><br /><br />
+                <% else %>
+                  <%= f.hidden_field :event_id, :value=> current_user.event_ids.first  %>
+                <% end %>
                 <%= f.input :name, placeholder: 'Program tittel', label: false, class: "form-control" %><br />
                 <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
                 <%= f.input :place, placeholder: 'Lokation (hal/scene/etc) - valgfri', label: false, class: "form-control" %><br />

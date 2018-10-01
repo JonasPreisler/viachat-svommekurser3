@@ -1,5 +1,12 @@
 <p id="notice"><%= notice if user_signed_in? %></p>
 <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;" class="speaker-form">
+  
+  <div class="pull-right">
+    <%= link_to 'Redigér program', edit_program_path(@program), class: 'btn-green-events box' if user_signed_in? and current_user.id == @program.user_id %> 
+    <%= link_to 'Slett program', program_path(@program),
+  data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'box btn-red-events' if user_signed_in? and current_user.id == @program.user_id %>
+  </div>
+
   <div class="row">
     <div class="col-md-6 col-sm-6 speaker">
 
@@ -19,9 +26,7 @@
             <%= link_to (image_tag '/thumbnail.png'), @program, class: 'speaker-image' %>
           <% end %>
         </p>
-      <%= link_to 'Redigér', edit_program_path(@program), class: 'btn-green box' if user_signed_in? and current_user.id == @program.user_id %> 
-      <%= link_to 'Slett program', program_path(@program),
-      data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'box btn-red' if user_signed_in? and current_user.id == @program.user_id %>
+
 
       </center>
     </div>

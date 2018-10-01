@@ -22,10 +22,12 @@ class ProgramsController < ApplicationController
   def new
     @program = Program.new
     @program.speakers.build
+    @events = Event.all
   end
 
   # GET /programs/1/edit
   def edit
+    @events = Event.all
   end
 
   # POST /programs

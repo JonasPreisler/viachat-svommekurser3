@@ -19,6 +19,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.easy-autocomplete
+//= require cocoon
+//= require global
 //= require bootstrap/modal
 //= require chosen-jquery
 //= require cocoon
@@ -81,12 +83,24 @@ function myFunction() {
 
 // show on click //
 
-function myFunction() {
-    var x = document.getElementById("myDIV");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
+
+function toggle_div(id) {
+
+  var divelement = document.getElementById(id);
+
+  if(divelement.style.display == 'block')
+    divelement.style.display = 'none';
+  else
+    divelement.style.display = 'block';
 }
+function toggle_div_hide(id) {
+
+  var divelement = document.getElementById(id);
+
+  if(divelement.style.display == 'none')
+    divelement.style.display = 'block';
+  else
+    divelement.style.display = 'none';
+}
+
 // end of show on click //

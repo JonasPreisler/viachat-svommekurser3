@@ -234,9 +234,7 @@ input, select, textarea {
 .event-image {
   overflow: hidden;
   opacity: 1;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
+  width: 100%}
 .shorten {
     white-space: nowrap; 
     overflow: hidden;
@@ -276,6 +274,21 @@ input, select, textarea {
   text-decoration: none
   }
 }
+.btn-green-events {
+  background-color: #c3c2c2;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff !important;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+  background: #172b4d !important;
+  text-decoration: none
+  }
+}
 .btn-red {
   background-color: #dc7063;
   padding-left: 5px;
@@ -291,6 +304,21 @@ input, select, textarea {
   }
   border: none;
   text-decoration: none
+}
+.btn-red-events {
+  background-color: #dc7063;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff !important;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+  background: #ac2925;
+  text-decoration: none
+  }
 }
 .add-image {
   font-size:14px;
@@ -351,6 +379,12 @@ input, select, textarea {
     display: none;
   }
 }
+@media only screen and (min-width: 1000px) {
+  .mobileHideEvents {
+    display: none;
+  }
+}
+
 /* END OF MOBILE RESPONSIVENESS */
 
 /* DESKTOP RESPONSIVENESS */
@@ -368,6 +402,13 @@ input, select, textarea {
     width: 80%;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .desktopHideEvents {
+    display: none;
+  }
+}
+
 /* END OF DESKTOP RESPONSIVENESS */
 .navbar {
   margin-bottom: 0 !important;

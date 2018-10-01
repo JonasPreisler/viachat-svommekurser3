@@ -5,15 +5,21 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
-      <div class="form-inputs">
-        <div class="row" style="width:90%">
-          <div class="col-xs-6">
-            <%= f.input :name, placeholder: 'Navn på eventet', label: false %><br />
-            <%= f.input :ticket, placeholder: 'Link til billett kjøp (valgfri)', label: false %>
-              </div>
-              <div class="col-xs-6">
-            <%= f.input :address, placeholder: 'Adresse', label: false %>
-            <strong>Program Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
+      <div class="mobileHide">
+        Denne side er ikke mobilsklar.
+      </div>
+
+      <div class="desktopHide">
+        <div class="form-inputs">
+          <div class="row" style="width:90%">
+            <div class="col-xs-6">
+              <%= f.input :name, placeholder: 'Navn på eventet', label: false %><br /><br />
+              <%= f.input :ticket, placeholder: 'Link til billett kjøp (valgfri)', label: false %>
+                </div>
+                <div class="col-xs-6">
+              <%= f.input :address, placeholder: 'Adresse', label: false %><br /><br />
+              <strong>Program Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
+            </div>
           </div>
         </div>
       </div>
@@ -22,7 +28,7 @@
       <br /><br />
 
       <div class="form-actions">
-        <%= f.submit "Opret Event", class: 'button' %>
+        <%= f.submit "Oppdatér Event", class: 'button' %>
       </div>
     <% end %>
   </div>

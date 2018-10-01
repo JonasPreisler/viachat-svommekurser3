@@ -38,6 +38,7 @@ gem "chartkick"
 gem 'groupdate'
 gem 'simple_form'
 gem 'route_downcaser'
+gem "cocoon"
 gem 'jquery-ui-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jquery-rails'
