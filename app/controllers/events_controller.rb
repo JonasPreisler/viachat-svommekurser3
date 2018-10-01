@@ -1,10 +1,16 @@
 class EventsController < ApplicationController
+  before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @event = Event.all.order(created_at: :desc)
+    @events = current_user.events.all.limit(10).order('created_at DESC')
+    @program = Program.all
+    @programs = Program.all.limit(10).order('sorting ASC')
+    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting ASC')
+
   end
 
   # GET /events/1
@@ -15,8 +21,6 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @program = Program.new
-    @event.programs.build
   end
 
   # GET /events/1/edit
@@ -71,6 +75,14 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:program_id, :user_id, :day_id, :speaker_id, :name, :ticket, :image, :address, programs_attributes: [:id, :_destroy, :user_id, :day_id, :startday, :event, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, days_attribues: [:id, :_destroy, :event_id, :program, :date], speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]]])
+      params.require(:event).permit(:program_id, :user_id, :speaker_id, :name, :ticket, :image, :address, programs_attributes: [:id, :_destroy, :user_id, :startday, :event, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]]])
+    end
+
+
+    def require_login
+      unless current_user
+        flash[:notice] = "Du må logge deg på først."
+        redirect_to new_user_session_path
+      end
     end
 end

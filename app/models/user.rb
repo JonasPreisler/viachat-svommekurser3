@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :business
   has_many :speakers
   has_many :programs
+  has_many :events
   has_many :leads
 
 end

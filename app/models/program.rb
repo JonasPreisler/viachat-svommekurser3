@@ -6,7 +6,7 @@ class Program < ApplicationRecord
 	has_many :speakers, dependent: :destroy
 	belongs_to :user
 	belongs_to :event
-    accepts_nested_attributes_for :speakers, allow_destroy: true
     mount_uploader :image, ImageUploader
     mount_uploader :speaker_image, ImageUploader
+    accepts_nested_attributes_for :speakers, allow_destroy: true
 end

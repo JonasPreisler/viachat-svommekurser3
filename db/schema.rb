@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_015018) do
+ActiveRecord::Schema.define(version: 2018_10_01_025520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,13 +136,9 @@ ActiveRecord::Schema.define(version: 2018_10_01_015018) do
     t.time "endtime"
     t.string "name"
     t.integer "speaker_id"
-    t.integer "place_id"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "speaker_name"
-    t.text "speaker_about"
-    t.string "speaker_image"
     t.string "image"
     t.bigint "user_id"
     t.integer "sorting"

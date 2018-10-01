@@ -231,6 +231,12 @@ input, select, textarea {
 .speaker-image > img {
   width: 100%
 }
+.event-image {
+  overflow: hidden;
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
 .shorten {
     white-space: nowrap; 
     overflow: hidden;

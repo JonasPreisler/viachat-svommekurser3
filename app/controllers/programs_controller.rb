@@ -21,9 +21,7 @@ class ProgramsController < ApplicationController
   # GET /programs/new
   def new
     @program = Program.new
-    @event = Event.all
     @program.speakers.build
-    @place = Place.all
   end
 
   # GET /programs/1/edit
@@ -81,7 +79,6 @@ class ProgramsController < ApplicationController
     def program_params
       params.require(:program).permit(:user_id, :startday, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
     end
-
 
     def require_login
       unless current_user
