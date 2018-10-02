@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :days
-  resources :events
+  resources :events do
+    resources :days, controller: 'events/days' do
+      resources :programs, controller: 'events/days/programs' do
+        resources :speakers
+      end
+    end
+  end
+  namespace 'events' do
+    namespace 'days' do
+      resources :programs
+    end
+  end
+  #get '/events/:id/days/:id/programs/:id', to: 'events/days/programs#show'
   resources :places
-  resources :programs
   root to: 'pages#landing'
   resources :speaker_images
   resources :speakers

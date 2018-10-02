@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<% @days.each_with_index do |day, i| %>
+<strong>Dag <%= (i+1).to_i %></strong> <%= day.date %><br />
+<% end %>
+<br />
+
 <p>
   <strong>Program:</strong>
   <%= @event.program_id %>

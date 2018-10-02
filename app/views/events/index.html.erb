@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="desktopHide">
+<div class="desktopHide">
+  <div class="row">
     <div class="col-md-6 col-sm-6">
       <h1>Events</h1>
     </div>
@@ -11,12 +11,9 @@
 
   <div class="mobileHide">
     <center>
-      <h1>Events</h1><br />
-    <div class="col-md-6 col-sm-6">
-      
+      <h1>Events</h1><br />      
       <%= link_to 'Tilføj event', new_event_path, class: 'btn-primary2 shadow' %>
-      </center><br />
-    </div>
+    </center><br />
   </div>
 </div>
 
@@ -24,27 +21,51 @@
   <div style="font-size:20px;text-align: center;padding-top:30px">Hei! 🙂 Legg til ditt første event.</div>
 <% else %>
   <br />
+
   <% @events.each do |event| %>
     <div class="row" style="background: #fff;padding:15px;border-radius:10px;color:#1c1c1c;border: 1px solid #c3c2c2">
+
 
       <div class="desktopHideEvents">
         <div class="row">
           <div class="col-xs-6">
-            <%= image_tag event.image.url(:messenger), class: 'event-image' %><br /><br />
-              <div onclick="toggle_div('programs-<%= event.id %>');" style="padding-left: 30px">
-              <div class="btn-green-events box" style="cursor:pointer;background:#0052CC">Vis programmer</div>
-              </div>
-              </center>
-          </div>
-          <div class="col-xs-6" style="padding-left:40px">
-            <h2><%= event.name %></h2><br />
-            Adresse: <%= event.address %><br />
-            <%= link_to "Link til billett kjøp", event.ticket, target: :_blank if event.ticket %><br /><br />
-            <span class="white-text-bg shadow"><%= link_to 'Tilføj program', new_program_path, class: 'white-text' %></span><hr>
-              <%= link_to "Redigér", edit_event_path(event), class: 'btn-green-events box' %>
-              <%= link_to 'Slett', event_path(event),
-                  data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red-events box' %>
+            <%= image_tag event.image.url(:messenger), class: 'event-image' %>          </div>
+          <div class="col-xs-6">
+            <div class="col-xs-6">
+              <h2><%= event.name %></h2><br />
+              Adresse: <%= event.address %><br />
+              <%= link_to "Link til billett kjøp", event.ticket, target: :_blank if event.ticket %><br /><br />
 
+
+              <%= link_to "Redigér", edit_event_path(event), class: 'btn-green-events box', :style => 'width:47%' %>
+              <%= link_to 'Slett', event_path(event),
+                  data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red-events box', :style => 'width:47%;margin-bottom:10px' %><br />
+              <% if event.programs.any? %>
+                <div onclick="toggle_div('programs-<%= event.id %>');">
+                  <span class="btn-green-events box" style="cursor:pointer;width:100%;background: #cc7a00">Vis programmer</span>
+                </div>
+                </center>
+              <% end %>
+
+            </div>
+            <div class="col-xs-6">
+              <% @days.each do |day, i| %>
+                <% if event.id == day.event_id %><br />
+                  <% if event.days.count < 2 %>
+                    <h3 style="margin-top:0;margin-bottom:0">Day 1</h3>
+                  <% elsif event.days.count < 3 and event.days.count > 1 %>
+                    <h3 style="margin-top:0">Day 2</h3>
+                  <% elsif event.days.count < 4 and event.days.count > 2 %>
+                    <h3 style="margin-top:0">Day 3</h3>
+                  <% end %>
+                  <%= day.date.strftime("%A, %d. %B") %>
+                  <div class="btn-green-events box" style="cursor:pointer;background:#0052CC">
+                    <%= link_to 'Tilføj program'.html_safe, new_event_day_program_path(event, day), class: 'white-text' %>
+                    
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -54,44 +75,46 @@
           Adresse: <%= event.address %><br />
           <%= link_to "Link til billett kjøp", event.ticket, target: :_blank if event.ticket %><br /><br />
           <%= image_tag event.image.url(:messenger), class: 'event-image' %><br /><br />
-          <span class="white-text-bg shadow"><%= link_to 'Tilføj program', new_program_path, class: 'white-text' %></span><hr>
-            <%= link_to 'Slett', event_path(event),
+          <%= link_to 'Slett', event_path(event),
                 data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'btn-red-events box' %>
         </center>
       </div>
       <div id="programs-<%= event.id %>" style="display:none">
         <center>
-          <hr style="border: 1px solid #c3c2c2">
+          <hr style="border: 1px solid #f3f2f2">
           <h3>Programmer</h3>
           <div onclick="toggle_div_hide('msg-<%= event.id %>');">
             <div class="btn-green-events box" style="cursor:pointer">Detaljer</div>
           </div>
+
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+            </div>
+          </div>
         </center>
         <% @programs.each do |program| %>
           <% if event.id == program.event_id %>
-            <div class="col-md-3 col-sm-4"  style="padding-top:40px">
+            <div class="col-md-3 col-sm-4" style="padding-top:40px">
               <div class="thumbnail">
                 <% if program.image? %>
-                  <%= link_to (image_tag program.image.url(:messenger)), program, class: 'speaker-image' %>
+                  <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
                 <% else %>
-                  <%= link_to (image_tag '/thumbnail.png'), program, class: 'speaker-image' %>
+                  <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
                 <% end %>
                 <div class="caption">
-                  <div style="padding-top: 5px"><h4><%= link_to truncate(program.name, :length => 22), program, class: 'shorten' %></h4>
+                  <div style="padding-top: 5px"><h4><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></h4>
                     </div>
                 </div>
 
                 <div id="msg-<%= event.id %>">
                   <h4 style="font-size:16px;"><%= program.sorting %></h4>
                   <i style="font-size:14px">
-                    <%= program.startday.strftime("%A, %d. %B") %> <br />
-                    Kl. <%= program.starttime.strftime("%H") %> - <%= program.endtime.strftime("%H") %>
-                      
+                    <%= program.day.date %>
                   </i> <br />
 
-                  <%= link_to "Vis", program_path(program), class: 'btn-green-programs box' %>
-                  <%= link_to "Redigér", edit_program_path(program), class: 'btn-green-programs box' %>
-                  <%= link_to 'Slett', program_path(program),
+                  <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                  <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                  <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
                   data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
                 </div>
                   <%#div class="col-xs-8 col-sm-6">
@@ -107,35 +130,28 @@
         <% if @programs_2.any? %>
           <% @programs_2.order('sorting ASC').each do |program| %>
             <% if event.id == program.event_id %>
-              <div class="col-md-3 col-sm-4">
+              <div class="col-md-3 col-sm-4" style="padding-top:40px">
                 <div class="thumbnail">
                   <% if program.image? %>
-                    <%= link_to (image_tag program.image.url(:messenger)), program, class: 'speaker-image' %>
+                    <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
                   <% else %>
-                    <%= link_to (image_tag '/thumbnail.png'), program, class: 'speaker-image' %>
+                    <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
                   <% end %>
+
                   <div class="caption">
-                    <div class="row">
-                      <div class="col-sm-6 col-sm-4 col-xs-6">
-                        <h4 style="font-size:16px"> <br /> 
-                        <div style="padding-top: 5px"><%= link_to truncate(program.name, :length => 22), program, class: 'shorten' %>
-                        </div></h4>
+                    <div style="padding-top: 5px"><h4><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></h4>
                       </div>
-                      <div class="col-sm-6 col-sm-4 col-xs-6">
-                      </div>
-                    </div>
                   </div>
                   <div id="msg-<%= event.id %>">
-                    <div class="panel-footer">
-                      <%= link_to "Vis", program_path(program), class: 'btn-green-programs box' %>
-                      <%= link_to "Redigér", edit_program_path(program), class: 'btn-green-programs box' %>
-                      <%= link_to 'Slett', program_path(program),
-                      data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
-                      <%#div class="col-xs-8 col-sm-6">
-                        <% &#9889; rating %>
-                      <%#/div>
-                      <%#div class="col-xs-4 col-sm-6"%>
-                    </div>
+
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                    <%#div class="col-xs-8 col-sm-6">
+                      <% &#9889; rating %>
+                    <%#/div>
+                    <%#div class="col-xs-4 col-sm-6"%>
                   </div>
                     <%#/div%>
                 </div>
@@ -145,7 +161,7 @@
           </div>
         <% end %>
       </div>
-      <hr style="padding:30px">
     </div>
+    <hr style="padding:30px">
   <% end %>
 <% end %>

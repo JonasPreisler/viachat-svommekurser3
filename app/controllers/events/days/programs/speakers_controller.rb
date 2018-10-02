@@ -1,6 +1,7 @@
 class SpeakersController < ApplicationController
   before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+  before_action :set_program, only: [:show, :new, :edit, :create, :update, :destroy]
   layout 'guest', only: [:show]
 
   # GET /speakers
@@ -31,10 +32,11 @@ class SpeakersController < ApplicationController
   # POST /speakers.json
   def create
     @speaker = Speaker.new(speaker_params)
+    @speaker.program_id = @program.id
 
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to @speaker, notice: '👌 done. Foredragsholder ble opprettet.' }
+        format.html { redirect_to program_url(@speaker.program_id), notice: '👌 done. Foredragsholder ble opprettet.' }
         format.json { render :show, status: :created, location: @speaker }
       else
         format.html { render :new }
@@ -48,7 +50,7 @@ class SpeakersController < ApplicationController
   def update
     respond_to do |format|
       if @speaker.update(speaker_params)
-        format.html { redirect_to @speaker, notice: '👌 done. Foredragsholder ble oppdateret.' }
+        format.html { redirect_to program_url(@speaker.program_id), notice: '👌 done. Foredragsholder ble oppdateret.' }
         format.json { render :show, status: :ok, location: @speaker }
       else
         format.html { render :edit }
@@ -62,7 +64,7 @@ class SpeakersController < ApplicationController
   def destroy
     @speaker.destroy
     respond_to do |format|
-      format.html { redirect_to speakers_url, notice: '👌 done. Foredragsholder ble slettet.' }
+      format.html { redirect_to program_url(@speaker.program_id), notice: '👌 done. Foredragsholder ble slettet.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,9 @@ class SpeakersController < ApplicationController
       @speaker = Speaker.find(params[:id])
     end
 
+    def set_program
+      @program = Program.find(params[:program_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
       params.require(:speaker).permit(:user_id, :image, :event, :speaker_link, :name, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])

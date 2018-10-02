@@ -1,0 +1,15 @@
+<%= simple_form_for [@event, @day] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="form-inputs">
+    <div class="box2">
+    <%= text_field_tag("day[date]", value = @day.date, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'button' %>
+  </div>
+<% end %>

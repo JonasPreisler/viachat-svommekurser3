@@ -2,8 +2,10 @@
 
 one:
   event: one
-  date: 2018-10-01
+  date: 2018-10-02
+  program_id: 1
 
 two:
   event: two
-  date: 2018-10-01
+  date: 2018-10-02
+  program_id: 1

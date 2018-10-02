@@ -1,11 +1,9 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 en:
   devise:
     confirmations:
       confirmed: "Din email er bekreftet."
-      send_instructions: "Du vil motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter. "
-       send_paranoid_instructions: "Hvis email din finnes i vår database, vil du motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
+      send_instructions: "Du vil motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
+      send_paranoid_instructions: "Hvis email din finnes i vår database, vil du motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
     failure:
       already_authenticated: "Du er allerede logget på."
       inactive: "Din konto er ikke aktivert enda."
