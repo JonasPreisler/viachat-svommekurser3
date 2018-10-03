@@ -1,127 +1,106 @@
-<% if current_user.programs.count < 20 %>
-  <center>
-    <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
-      <h1>Redigér program</h1><br />
+<center>
+  <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
+    <h1>Redigér program for <%= @event.name %></h1>
 
-      <% if current_user.event_ids.count < 2 %>
-        <% @events.each do |event| %>
-          <%= "..for #{event.name}" if current_user == event.user %>
-        <% end %>
-      <% end %>
+    <%= simple_form_for [@event, @day, @program] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.hidden_field :user_id, :value=> current_user.id  %>
 
-      <%= simple_form_for(@program) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="mobileHide">
 
-        <%= f.hidden_field :user_id, :value=> current_user.id  %>
+        Denne siden er ikke mobilsklar ennå.
 
-        <div class="mobileHide">
-
-          Denne siden er ikke mobilsklar ennå.
-
-        </div>
+      </div>
 
 
-        <div class="desktopHide">
-          <div class="form-inputs">
+      <div class="desktopHide">
+        <div class="form-inputs">
 
-            <div class="form-inputs">
-              <div class="row">
-                <div class="col-md-4 col-xs-6">
 
-                  <div class="box2">
-                  <%= text_field_tag("program[startday]", value = @program.startday, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
-                  </div>
-                </div>
-                <div class="col-md-4 col-xs-6">
-                  <div class="box2">
-                    <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
-                  </div>
-                </div>
-
-                <div class="col-md-4 col-xs-6">
-                  <div class="box2">
-                    <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
-                  </div>
-                </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box2">
+                <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p %T'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
+          <div style="font-size:12px;color:#999">Refresh siden hvis popupen ikke vises.</div>
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-xs-6">
-                <% if current_user.event_ids.count > 1 %>
-                Event:
-                  <%= f.collection_select :event_id, current_user.events.all.order('created_at DESC'),:id,:name %><br /><br />
-                <% else %>
-                  <%= f.hidden_field :event_id, :value=> current_user.event_ids.first  %>
-                <% end %>
-                <%= f.input :name, placeholder: 'Program tittel', label: false, class: "form-control" %><br />
-                <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
-                <%= f.input :place, placeholder: 'Lokation (hal/scene/etc) - valgfri', label: false, class: "form-control" %><br />
-
-                <%= f.select(:sorting, [
-                  ['1', '1'],
-                  ['2', '2'],
-                  ['3', '3'],
-                  ['4', '4'],
-                  ['5', '5'],
-                  ['6', '6'],
-                  ['7', '7'],
-                  ['8', '8'],
-                  ['9', '9'],
-                  ['10', '10'],
-                  ['11', '11'],
-                  ['12', '12'],
-                  ['13', '13'],
-                  ['14', '14'],
-                  ['15', '15'],
-                  ['16', '16'],
-                  ['17', '17'],
-                  ['18', '18'],
-                  ['19', '19'],
-                  ['20', '20']
-                 ],{ :prompt => "Velg plassen i raden:"},
-                   { :size => 6 }
-                 ) %>
-              </div>
-              <div class="col-xs-6">
-              <strong>Program bilde (500x260px):</strong><br /><%= f.file_field :image %><br /><br />
-                <%= image_tag ('/sample.png'), class: 'shadow' %>
+            <div class="col-md-6">
+              <div class="box2">
+                <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
               </div>
             </div>
-            <hr>
-
-            <br /><br />
-
-
-            
-           <%= image_tag ('/sorting.png'), class: 'full-width' %>
-            <br /><br />
-            <i style="color:#888787;padding-bottom:20px">(Merk: Sortering starter alltid fra #1 og fortsetter opptil #20. Dvs. du kan for eksempel ikke starte med #5, hvis du ikke har opprettet #4 endnu.)</i>
-            <br /><br /><br /><br />
-
           </div>
 
-          <hr style="border: 2px solid #fff"><br />
 
-          <%= f.fields_for :speakers do |speakers| %>
-            <h1>Foredragsholder</h1>
-            <%= render 'speaker_fields', f: speakers %>
-          <% end %>
+          <div class="row">
+            <div class="col-xs-6">
 
-          <div class="links">
-            <span class="white-text-bg shadow"><%= link_to_add_association 'LEGG TIL EN ANNEN FOREDRAGSHOLDER', f, :speakers, class: 'white-text' %></span>
+              <%= f.input :name, placeholder: 'Program tittel', label: false, class: "form-control" %><br />
+              <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
+              <%= f.input :place, placeholder: 'Lokation (hal/scene/etc) - valgfri', label: false, class: "form-control" %><br />
+
+              <%= f.select(:sorting, [
+                ['1', '1'],
+                ['2', '2'],
+                ['3', '3'],
+                ['4', '4'],
+                ['5', '5'],
+                ['6', '6'],
+                ['7', '7'],
+                ['8', '8'],
+                ['9', '9'],
+                ['10', '10'],
+                ['11', '11'],
+                ['12', '12'],
+                ['13', '13'],
+                ['14', '14'],
+                ['15', '15'],
+                ['16', '16'],
+                ['17', '17'],
+                ['18', '18'],
+                ['19', '19'],
+                ['20', '20']
+               ],{ :prompt => "Velg plassen i raden:"},
+                 { :size => 6 }
+               ) %>
+            </div>
+            <div class="col-xs-6">
+            <strong>Program bilde (500x260px):</strong><br /><%= f.file_field :image %><br /><br />
+              <%= image_tag ('/sample.png'), class: 'shadow' %>
+            </div>
           </div>
+          <hr>
+
           <br /><br />
 
-          <div class="form-actions">
-            <%= f.submit "Opret Program", class: 'button' %>
-          </div>
+
+          
+         <%= image_tag ('/sorting.png'), class: 'full-width' %>
+          <br /><br />
+          <i style="color:#888787;padding-bottom:20px">(Merk: Sortering starter alltid fra #1 og fortsetter opptil #20. Dvs. du kan for eksempel ikke starte med #5, hvis du ikke har opprettet #4 endnu.)</i>
+          <br /><br /><br /><br />
+
         </div>
-      <% end %>
-    </div>
-  </center>
-<% else %>
-<% controller.redirect_to programs_path %>
-        <%= flash[:notice] = "Du kan opprette maksimalt 20 programmer." %>
-<% end %>
+
+        <hr style="border: 1px solid #fff"><br />
+
+        <%= f.fields_for :speakers do |speakers| %>
+          <h1>Foredragsholder</h1>
+          <%= render 'speaker_fields', f: speakers %>
+        <% end %>
+
+        <div class="links">
+          <span class="white-text-bg shadow"><%= link_to_add_association 'LEGG TIL EN ANNEN FOREDRAGSHOLDER', f, :speakers, class: 'white-text' %></span>
+        </div>
+        <br /><br />
+
+        <div class="form-actions">
+          <%= f.submit "Opprett Program", class: 'button' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</center>
