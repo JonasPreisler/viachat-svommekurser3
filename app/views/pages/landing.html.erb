@@ -1,17 +1,44 @@
-<div class="desktopHide">
-	<div class="whitebg">
-	<h2 style="position: absolute;padding:120px;font-size:50px">Chatbots for<br /> arrangementer</h2>
-		<%= image_tag '/speaker.png', class: 'landingpic' %>
-	</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Particles.js Application</title>
+    <%= javascript_include_tag 'particles.min', 'app'%>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+  </body>
+</html>
+
+
+<div class="desktopHide" style="position: absolute;width:100%;padding-top:150px;margin: 0 auto">
+	<center>
+		<%= link_to root_path do %>
+	        <%= image_tag ('/logo.png'), class: 'logo' %>
+	    <% end %>
+		<h2 style="font-size:50px;color:#f3f2f2;width:100%;margin: 0 auto;padding-top:40px">Chatbots for arrangementer</h2>
+		<div class="col-xs-6">
+			<h2 style="padding-top:30px;font-size:30px;width:100%;margin: 0 auto">
+			<%= link_to 'Logg inn', new_user_session_path, class: 'btn-primary box pull-right' %></h2>
+		</div>
+		<div class="col-xs-6">
+			<h2 style="padding-top:30px;font-size:30px;width:100%;margin: 0 auto">
+			<%= link_to 'Registrér', new_user_registration_path, class: 'btn-primary box pull-left' %></h2>
+		</div>
+	</center>
 </div>
 
-<div class="mobileHide">
-	<div class="whitebg">
-	<h2 style="position: absolute;padding:20px;font-size:34px">Chatbots for <br />arrangementer</h2>
-			<center>
-				<%= image_tag '/speaker-mobile.png' %>
-			</center>
-	</div>
+<div class="mobileHide" style="position: absolute;width:100%;padding-top:20px;margin: 0 auto">
+	<center>
+		<%= link_to root_path do %>
+	        <%= image_tag ('/logo.png'), class: 'logo' %>
+	    <% end %>
+		<h2 style="font-size:40px;color:#f3f2f2;width:100%;margin: 0 auto;padding-top:40px;padding-left:10px;padding-right: 10px">Chatbots for arrangementer</h2>
+		<h2 style="padding-top:30px;font-size:30px;width:100%;margin: 0 auto">
+		<%= link_to 'Registrér', new_user_registration_path, class: 'btn-primary box' %></h2>
+		<h2 style="padding-top:30px;font-size:30px;width:100%;margin: 0 auto">
+		<%= link_to 'Logg inn', new_user_session_path, class: 'btn-primary box' %></h2>
+	</center>
 </div>
 
 

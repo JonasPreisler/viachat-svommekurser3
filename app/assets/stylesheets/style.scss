@@ -28,6 +28,12 @@
     height: 3em;
     height: 60px;
 }
+.footer {
+   position:absolute;
+   bottom:0;
+   width: 100%;
+   margin: 0 auto;
+}
 .box {
   position: relative;
   display: inline-block;
@@ -463,8 +469,12 @@ input, select, textarea {
 
 .dropdown a:hover {background-color: #ddd;}
 
-.dropdown-menu {
-  border: none !important
+ul.dropdown-menu {
+  border: none !important;
+}
+.hey {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  box-shadow: none !important
 }
 
 /* END OF DROPDOWN */
@@ -675,3 +685,19 @@ container-large {
   background: #333;
   padding: 30px;
 }
+
+#particles-js {
+   width: 100%;
+   height: 100%;
+   color: #f3f2f2;
+   background: #162C4A;
+   position: absolute;
+}
+
+ /* ---- particles.js container ---- */ 
+
+#particles-js{ position:absolute; width: 100%; height: 100%; background-color: #162C4A; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
+
+/* ---- stats.js ---- */
+
+.count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
