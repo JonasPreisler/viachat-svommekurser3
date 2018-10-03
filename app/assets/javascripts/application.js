@@ -21,6 +21,8 @@
 //= require jquery.easy-autocomplete
 //= require cocoon
 //= require global
+//= require app
+//= require particles
 //= require bootstrap/modal
 //= require chosen-jquery
 //= require cocoon
