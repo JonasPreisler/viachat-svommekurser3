@@ -45,7 +45,7 @@ document.addEventListener("turbolinks:load", function() {
           "random": true,
           "anim": {
             "enable": false,
-            "speed": 40,
+            "speed": 20,
             "size_min": 0.1,
             "sync": false
           }
@@ -59,7 +59,7 @@ document.addEventListener("turbolinks:load", function() {
         },
         "move": {
           "enable": true,
-          "speed": 6,
+          "speed": 1.5,
           "direction": "none",
           "random": false,
           "straight": false,
@@ -96,7 +96,7 @@ document.addEventListener("turbolinks:load", function() {
             "size": 40,
             "duration": 2,
             "opacity": 8,
-            "speed": 3
+            "speed": 1.5
           },
           "repulse": {
             "distance": 200
