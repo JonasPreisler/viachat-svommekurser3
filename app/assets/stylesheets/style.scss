@@ -73,6 +73,22 @@
   color: #1c1c1c !important;
   }
 }
+.btn-primary-landing {
+  margin: 10px;
+  height: 50%;
+  color: #1c1c1c !important;
+  background: #f3f2f2 !important;
+  border: none !important;
+  border-radius: 25px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  &:hover {
+  background: #f3f2f2 !important;
+  color: #1c1c1c !important;
+  }
+}
 .btn-primary-orange {
   margin: 10px;
   height: 50%;
