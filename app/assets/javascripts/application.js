@@ -23,6 +23,7 @@
 //= require global
 //= require app
 //= require particles.min
+//= require main
 //= require bootstrap/modal
 //= require chosen-jquery
 //= require cocoon
