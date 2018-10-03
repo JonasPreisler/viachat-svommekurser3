@@ -1,13 +1,13 @@
 <center>
   <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
-    <h1>Nyt event</h1><br />
+    <h1>Nytt arrangement</h1><br />
     <%= simple_form_for(@event) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
       <div class="mobileHide">
-        <%= f.input :name, placeholder: 'Navn på eventet', label: false %><br />
-        <%= f.input :ticket, placeholder: 'Link til billett kjøp (valgfri)', label: false %><br />
+        <%= f.input :name, placeholder: 'Navn på arrangementet', label: false %><br />
+        <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br />
         <%= f.input :address, placeholder: 'Adresse', label: false %><br /><br />
         <strong>Event Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
       </div>
@@ -16,19 +16,19 @@
         <div class="form-inputs">
           <div class="row" style="width:90%">
             <div class="col-xs-6">
-              <%= f.input :name, placeholder: 'Navn på eventet', label: false %><br /><br />
+              <%= f.input :name, placeholder: 'Navn på arrangementet', label: false %><br /><br />
               <%= f.input :address, placeholder: 'Adresse', label: false %>
             </div>
                 <div class="col-xs-6">
-              <%= f.input :ticket, placeholder: 'Link til billett kjøp (valgfri)', label: false %><br /><br />
-              <strong>Event bilde (500x260px):</strong><br /><%= f.file_field :image %><br />
+              <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br /><br />
+              <strong>Arrangement bilde (500x260px):</strong><br /><%= f.file_field :image %><br />
             </div>
           </div>
         </div>
       </div>
 
       <div class="form-actions">
-        <%= f.submit "Opprett Event", class: 'button' %>
+        <%= f.submit "Opprett arrangementvent", class: 'button' %>
       </div>
     <% end %>
   </div>

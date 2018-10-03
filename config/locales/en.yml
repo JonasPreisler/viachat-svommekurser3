@@ -58,7 +58,7 @@ nb:
   cancelaccount: "Slett konto"
   confirmpassword: "Bekreft passord"
   addspeaker: "__Opprett ny eiendom__"
-  nospeaker: "Hei der! 🙂 Du har ikke lagt til noen egenskaper enda."
+  nospeaker: "Hei der! 🙂 Du har ikke lagt til noen foredragsholder ennå."
   address: "Adresse"
   description: "Beskrivelse"
   price: "Pris"

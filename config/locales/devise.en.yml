@@ -2,27 +2,27 @@ en:
   devise:
     confirmations:
       confirmed: "Din email er bekreftet."
-      send_instructions: "Du vil motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
-      send_paranoid_instructions: "Hvis email din finnes i vår database, vil du motta en email med instruksjoner for hvordan du bekrefter email din om noen få minutter."
+      send_instructions: "Du vil motta en e-post med instruksjoner for hvordan du bekrefter e-posten din om noen få minutter."
+      send_paranoid_instructions: "Om e-posten din finnes i vår database, vil du motta en e-post med instruksjoner for hvordan du bekrefter e-posten din om noen få minutter."
     failure:
       already_authenticated: "Du er allerede logget på."
       inactive: "Din konto er ikke aktivert enda."
       invalid: "Ugyldig %{authentication_keys} eller passord."
-      locked: "Kontoen din er låst."
+      locked: "Kontoen din blir låst."
       last_attempt: "Du har ett forsøk før kontoen din er låst."
       not_found_in_database: "Invalid %{authentication_keys} or password."
       timeout: "Økten din utløp. Vennligst logg inn igjen for å fortsette."
       unauthenticated: "Du må logge inn eller registrere deg før du fortsetter."
-      unconfirmed: "Du må bekrefte email din før du fortsetter."
+      unconfirmed: "Du må bekrefte e-post din før du fortsetter."
     mailer:
       confirmation_instructions:
         subject: "Bekreftelsesanvisninger"
       reset_password_instructions:
-        subject: "Tilbakestill passord instruksjoner"
+        subject: "Tilbakestill passord"
       unlock_instructions:
-        subject: "Lås opp instruksjonene"
+        subject: "Lås opp"
       email_changed:
-        subject: "Email endret"
+        subject: "E-post endret"
       password_change:
         subject: "Passord endret"
     omniauth_callbacks:
@@ -47,8 +47,8 @@ en:
       signed_out: "Logget ut."
       already_signed_out: "Logget ut."
     unlocks:
-      send_instructions: "Du vil motta en email med instruksjoner for hvordan du låser opp kontoen din om noen få minutter."
-      send_paranoid_instructions: "Hvis kontoen din eksisterer, vil du motta en email med instruksjoner for hvordan du låser opp det om noen minutter."
+      send_instructions: "Du vil motta en e-post med instruksjoner for hvordan du låser opp kontoen din om noen få minutter."
+      send_paranoid_instructions: "Hvis kontoen din eksisterer, vil du motta en email med instruksjoner for hvordan du låser opp kontoen om noen minutter."
       unlocked: "Kontoen din har blitt låst opp. Vennligst logg inn for å fortsette."
   errors:
     messages:
@@ -58,5 +58,5 @@ en:
       not_found: "ikke funnet"
       not_locked: "was not locked"
       not_saved:
-        one: "1 feil forbudt denne %{resource} blir gemt:"
-        other: "%{count} feil forbudt denne% %{resource} blir gemt:"
+        one: "1 feil knyttet til denne %{resource} brukeren er lagret:"
+        other: "%{count} feil knyttet til denne brukeren %{resource} er lagret:"

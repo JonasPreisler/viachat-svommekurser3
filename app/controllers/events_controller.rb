@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to new_event_day_path(@event), notice: 'Eventet ble opprettet.' }
+        format.html { redirect_to new_event_day_path(@event), notice: 'Arrangementet ble opprettet.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to events_path, notice: 'Event er oppdateret.' }
+        format.html { redirect_to events_path, notice: 'Arrangementet er oppdateret.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event ble slettet.' }
+      format.html { redirect_to events_url, notice: 'Arrangementet ble slettet.' }
       format.json { head :no_content }
     end
   end
