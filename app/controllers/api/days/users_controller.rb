@@ -1,7 +1,6 @@
-class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:program_1, :show, :edit, :update, :destroy]
+class Api::Days::UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
-
 
   def index
     @user = User.all
@@ -9,11 +8,11 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @programs = @user.events.days.programs.all.order('sorting ASC')
-    @speaker = @user.programs.all
+    @day_one = @user.days.first
     @user = User.first
     render :show
-  end 
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -89,20 +88,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def connect
-    last_purchased_item = params['last purchased item']
-    first_name = params['first name']
-    last_name = params['last name']
-    last_payment_address = params['last payment address']
-    last_payment_phone = params['last payment phone']
-    last_payment_email = params['last payment email']
-    last_payment_charge_id = params['last payment charge id']
-  end
+      def connect
+        last_purchased_item = params['last purchased item']
+        first_name = params['first name']
+        last_name = params['last name']
+        last_payment_address = params['last payment address']
+        last_payment_phone = params['last payment phone']
+        last_payment_email = params['last payment email']
+        last_payment_charge_id = params['last payment charge id']
+      end
 
   private
-
-
-
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

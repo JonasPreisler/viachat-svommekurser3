@@ -1,12 +1,14 @@
 <center>
   <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
-    <h1>Nytt program for <%= @event.name %></h1>
+    
 
     <%= simple_form_for [@event, @day, @program] do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= f.hidden_field :event_id, value: @events.id %>
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
+
+      <h1>Nytt program</h1>
 
       <div class="mobileHide">
 

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :leads
     resources :speakers
     resources :programs
+    resources :days
     namespace 'speakers' do
       resources :users
       resources :speakers

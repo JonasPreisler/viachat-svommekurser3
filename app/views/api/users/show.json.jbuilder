@@ -7,7 +7,7 @@ json.messages do
 				json.image_aspect_ratio "horizontal"
 				json.elements do
 					json.array! (@programs).limit(10) do |program|
-						json.title "#{program.startday.strftime("%A, %d. %B")} Kl. #{program.starttime.strftime("%H")}-#{program.endtime.strftime("%H")} - #{program.name}"
+						json.title "Kl. #{program.starttime.strftime("%H")}-#{program.endtime.strftime("%H")} - #{program.name}"
 						if program.image.present?
 							json.image_url "#{program.image.url(:messenger) if program.image}"
 						else
