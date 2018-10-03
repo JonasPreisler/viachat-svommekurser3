@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require jquery-ui/effect-highlight
 //= require activestorage
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.easy-autocomplete
 //= require cocoon
@@ -29,6 +30,12 @@
 //= require picker.date
 //= require picker.time
 //= require_tree .
+
+$().ready(function () {
+particlesJS.load('particles-js', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+})});
+
 
 
 $().ready(function () {
