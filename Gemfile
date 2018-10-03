@@ -47,6 +47,9 @@ gem 'fog'
 gem "cocoon"
 gem 'pickadate-rails'
 gem 'whenever', require: false
+source 'https://rails-assets.org' do
+  gem 'rails-assets-particles.js'
+end
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
