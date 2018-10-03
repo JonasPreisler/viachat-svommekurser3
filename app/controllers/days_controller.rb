@@ -30,7 +30,7 @@ class Events::DaysController < ApplicationController
 
     respond_to do |format|
       if @day.save
-        format.html { redirect_to new_event_day_program_path(@event, @day), notice: 'Day was successfully created.' }
+        format.html { redirect_to new_event_day_path(@event, @day), notice: 'Day was successfully created.' }
         format.json { render :show, status: :created, location: @day }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class Events::DaysController < ApplicationController
   def destroy
     @day.destroy
     respond_to do |format|
-      format.html { redirect_to event_url(@day.event_id), notice: 'Day was successfully destroyed.' }
+      format.html { redirect_to events_path, notice: 'Day was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

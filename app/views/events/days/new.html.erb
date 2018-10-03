@@ -1,15 +1,49 @@
-<%= simple_form_for [@event, @day] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<center>
+  <div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:20px" class="speaker-form">
+    <%= simple_form_for [@event, @day] do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+      <h3>Vælg datoer for <%= @event.name %></h3>
 
-  <div class="form-inputs">
-    <div class="box2">
-    <%= text_field_tag("day[date]", value = @day.date, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
-    </div>
+      <div class="form-inputs">
+        <div class="box2">
+        <%= text_field_tag("day[date]", value = @day.date, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-xs-6 btn-primary-day">
+              <%= link_to "⬅ Redigér arrangement", edit_event_path(@event), class: 'white-text' %>
+          </div>
+          <div class="col-xs-6 btn-primary-day-2">
+              <%= f.submit "Opprett ny dag", class: 'btn-primary-orange' %>
+          </div>
+              <span style="font-size:14px;color:#999">Hvis ingenting skjer, så klikk <%= link_to "hér", new_event_day_path(@event, @day) %> og prøv igjen.</span>
+      </div>
+    <% end %>
+
+    <hr>
+
+    <% @event.days.each_with_index do |day, i| %>
+      <div class="row" style="padding:5px;border-radius:10px;margin-bottom:15px">
+        <div class="col-xs-6">
+          <h3><strong>Dag <%= (i+1) %>:</strong> <%= day.date.strftime("%A, %d. %B") %>
+          </h3>
+        </div>
+        <div class="desktopHide">
+          <div class="col-xs-6">
+            <div class="box">
+              <%= link_to 'Slett', event_day_path(@event, day),
+                    data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'white-text btn-red-events-large' %>
+            </div>
+            <div class="btn-green-events box" style="cursor:pointer;background:#0052CC;width:70%;padding:22px">
+              <%= link_to "Opprett program ➡", new_event_day_program_path(@event, day), class: 'white-text' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: 'button' %>
-  </div>
-<% end %>
+</center>
