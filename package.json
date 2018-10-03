@@ -1,5 +1,7 @@
 {
   "name": "ebot",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "particles.js": "^2.0.0"
+  }
 }
