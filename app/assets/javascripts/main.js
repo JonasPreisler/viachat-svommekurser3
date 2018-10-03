@@ -6,23 +6,23 @@ document.addEventListener("turbolinks:load", function() {
     {
       "particles": {
         "number": {
-          "value": 80,
+          "value": 2250,
           "density": {
             "enable": true,
-            "value_area": 800
+            "value_area": 4000
           }
         },
         "color": {
-          "value": "#ffffff"
+          "value": "#c3c2c2"
         },
         "shape": {
           "type": "circle",
           "stroke": {
             "width": 0,
-            "color": "#000000"
+            "color": "#c3c2c2"
           },
           "polygon": {
-            "nb_sides": 5
+            "nb_sides": 10
           },
           "image": {
             "src": "img/github.svg",
@@ -41,7 +41,7 @@ document.addEventListener("turbolinks:load", function() {
           }
         },
         "size": {
-          "value": 5,
+          "value": 2,
           "random": true,
           "anim": {
             "enable": false,
@@ -52,14 +52,14 @@ document.addEventListener("turbolinks:load", function() {
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 60,
           "color": "#ffffff",
           "opacity": 0.4,
-          "width": 1
+          "width": 0.7
         },
         "move": {
           "enable": true,
-          "speed": 1.5,
+          "speed": 1,
           "direction": "none",
           "random": false,
           "straight": false,
@@ -86,7 +86,7 @@ document.addEventListener("turbolinks:load", function() {
         },
         "modes": {
           "grab": {
-            "distance": 400,
+            "distance": 100,
             "line_linked": {
               "opacity": 1
             }
@@ -96,10 +96,10 @@ document.addEventListener("turbolinks:load", function() {
             "size": 40,
             "duration": 2,
             "opacity": 8,
-            "speed": 1.5
+            "speed": 3
           },
           "repulse": {
-            "distance": 200
+            "distance": 80
           },
           "push": {
             "particles_nb": 4
@@ -123,3 +123,4 @@ document.addEventListener("turbolinks:load", function() {
   );
 
 });
+
