@@ -1,5 +1,5 @@
 class Speaker < ApplicationRecord
-	validates :sorting, :presence => true, :uniqueness => {:scope=>:user_id}
+	validates :name, :presence => true
     mount_uploader :image, ImageUploader
 	belongs_to :user
 	has_many :speaker_images

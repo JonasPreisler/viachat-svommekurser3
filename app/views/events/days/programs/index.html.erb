@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
-    
   <div class="desktopHide">
     <div class="col-md-6 col-sm-6">
       <h1>Programmer</h1>
     </div>
     <div class="col-md-6 col-sm-6">
       <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow pull-right' %>
+      <p id="notice"><%= notice %></p>
     </div>
   </div>
 
@@ -15,8 +14,9 @@
       <h1>Programmer</h1><br />
     <div class="col-md-6 col-sm-6">
       
-      <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow' %>
-      </center><br />
+    <%= link_to 'Tilføj program', new_program_path, class: 'btn-primary2 shadow' %>
+    </center><br />
+    <p id="notice"><%= notice %></p>
     </div>
   </div>
 </div>
