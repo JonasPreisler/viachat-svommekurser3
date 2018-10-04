@@ -8,17 +8,18 @@
       <%= link_to 'Legg til arrangement', new_event_path, class: 'btn-primary2 shadow pull-right' %>
     </div>
   </div>
+</div>
 
-  <div class="mobileHide">
-    <center>
-      <h1>Events</h1><br />      
-      <%= link_to 'Legg til arrangement', new_event_path, class: 'btn-primary2 shadow' %>
-    </center><br />
-  </div>
+<div class="mobileHide">
+  <center>
+    <h1>Events</h1><br />      
+    <%= link_to 'Legg til arrangement', new_event_path, class: 'btn-primary2 shadow' %>
+  </center><br />
 </div>
 
 <% unless current_user.events.any? %>
-  <div style="font-size:20px;text-align: center;padding-top:30px">Hei! 🙂 Legg til ditt første arrangement.</div>
+  <div style="font-size:20px;text-align: center;padding-top:30px">Hei! 🙂 Legg til ditt første arrangement.
+  </div>
 <% else %>
   <br />
 
@@ -40,7 +41,10 @@
               <% if event.programs.any? %>
                 <div onclick="toggle_div('programs-<%= event.id %>');">
                   <div class="btn-green-days box" style="cursor:pointer;background:#c3c2c2;width:60%;margin:4px;margin-top:10px">
-                    <div class="white-text"> Vis programmer</div></div>
+                    <div class="white-text">
+                      Vis programmer
+                    </div>
+                  </div>
                 </div>
                 </center>
               <% end %>
@@ -51,7 +55,6 @@
                   <%= link_to 'Slett event', event_path(event),
                 data: {:confirm => 'Er du sikker?'}, :method => :delete, class: 'white-text' %>
               </div>
-
             </div>
 
 
@@ -85,7 +88,10 @@
               <% if event.programs.any? %>
                 <div onclick="toggle_div('programs-<%= event.id %>');">
                   <div class="btn-green-days box" style="cursor:pointer;background:#c3c2c2;width:60%;margin:4px;margin-top:10px">
-                    <div class="white-text"> Vis programmer</div>
+                    <div class="white-text">
+                      Vis programmer
+                    </div>
+                  </div>
                 </div>
               <% end %>
               <div class="btn-green-days box" style="cursor:pointer;background:#f3f2f2;width:60%;margin:4px;margin-top:10px">
