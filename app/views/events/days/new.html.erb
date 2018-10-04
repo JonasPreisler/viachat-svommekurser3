@@ -9,7 +9,13 @@
       <div class="form-inputs">
         <div class="box2">
         <%= text_field_tag("day[date]", value = @day.date, html_options = { class: 'form-control datepicker', placeholder: 'Velg dato' }) %>
-          <div style="font-size:12px;color:#999">Refresh siden hvis popupen ikke vises.</div>
+        </div>
+
+        <div onclick="toggle_div('klik');">
+          <div class="btn-green-events box" style="cursor:pointer">Klikk hér hvis popupen ikke vises.</div>
+        </div>
+        <div id="klik" style="display:none;margin-bottom: 20px">
+          <%= f.input :date %>
         </div>
       </div>
 

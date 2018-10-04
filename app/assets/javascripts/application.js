@@ -112,6 +112,16 @@ function toggle_div_hide(id) {
     divelement.style.display = 'none';
 }
 
+function toggle_div_hide(id) {
+
+  var divelement = document.getElementById(id);
+
+  if(divelement.style.display == 'none')
+    divelement.style.display = 'block';
+  else
+    divelement.style.display = 'none';
+}
+
 // end of show on click //
 
 

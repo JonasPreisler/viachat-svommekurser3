@@ -19,24 +19,36 @@
 
       <div class="desktopHide">
         <div class="form-inputs">
-
-
           <div class="row">
             <div class="col-md-6">
               <div class="box2">
-                <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>
-          <div style="font-size:12px;color:#999">Refresh siden hvis popupen ikke vises.</div>
+                <%= text_field_tag("program[starttime]", value = @program.starttime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg starttid' }) %>  
               </div>
-              <%= f.input :starttime %>
             </div>
 
             <div class="col-md-6">
               <div class="box2">
                 <%= text_field_tag("program[endtime]", value = @program.endtime&.strftime('%I:%M %p'), html_options = { class: 'form-control timepicker', placeholder: 'Velg sluttid' }) %>
               </div>
+              <div onclick="toggle_div('klik');">
+                <div class="btn-green-events box" style="cursor:pointer">Klikk hér hvis popupen ikke vises.
+                </div>
+              </div>
+              <br />
+              <div id="klik" style="display:none">
+                <div style="color:#999">
+                  Time på toppen<br />
+                  Minutt på bunnen<br />
+                </div>
+                <div class="col-xs-6">
+                  <%= f.input :starttime %>
+                </div>
+                <div class="col-xs-6" style="margin-bottom: 30px">
+                    <%= f.input :endtime %>
+                </div>
+              </div>
             </div>
           </div>
-
 
           <div class="row">
             <div class="col-xs-6">
