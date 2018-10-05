@@ -41,7 +41,7 @@ class Api::Users::SpeakersController < ApplicationController
     @user = User.find(params[:user_id])
     @program = Program.find(params[:program_id])
     @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(14
+    @speaker = @program.speakers.find_by_sorting(4)
     render :speaker4
   end
   def speaker5
@@ -62,7 +62,7 @@ class Api::Users::SpeakersController < ApplicationController
     @user = User.find(params[:user_id])
     @program = Program.find(params[:program_id])
     @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(17
+    @speaker = @program.speakers.find_by_sorting(17)
     render :speaker7
   end
   def speaker8
@@ -132,7 +132,7 @@ class Api::Users::SpeakersController < ApplicationController
     @user = User.find(params[:user_id])
     @program = Program.find(params[:program_id])
     @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(17
+    @speaker = @program.speakers.find_by_sorting(17)
     render :speaker17
   end
   def speaker18
