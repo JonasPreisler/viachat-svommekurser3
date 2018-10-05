@@ -1,5 +1,5 @@
 class Program < ApplicationRecord
-	validates :sorting, :presence => true, :uniqueness => {:scope=>:user_id}
+	validates :sorting, :presence => true, :uniqueness => {:scope=>:event_id}
 	validates :name, :presence => true
 	has_many :speakers, dependent: :destroy
 	belongs_to :user

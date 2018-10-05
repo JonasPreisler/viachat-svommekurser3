@@ -110,6 +110,14 @@ class Api::Users::ProgramsController < ApplicationController
     @program = @event.days.programs.find_by_sorting(1)
     render :program1
   end
+  def program2
+  end
+  def program3
+  end
+  def program4
+  end
+  def program5
+  end
 
   def index
     @day = Day.all
