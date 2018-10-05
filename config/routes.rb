@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resources :events do
         resources :programs, controller: 'users/days'
         get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
+        get 'program1', 'program2', 'program3', 'program4', 'program5', controller: 'users/programs'
       end
     end
     #scope "/:id", :as => "user" do

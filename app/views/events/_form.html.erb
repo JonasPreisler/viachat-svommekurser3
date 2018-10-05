@@ -5,6 +5,7 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
+      <%= f.hidden_field :event_id, :value=> @event.id  %>
       <div class="mobileHide">
         <%= f.input :name, placeholder: 'Navn på arrangementet', label: false %><br />
         <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br />

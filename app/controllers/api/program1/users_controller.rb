@@ -1,6 +1,18 @@
-class Api::Program1::UsersController < ApplicationController
+class Api::Programs::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+
+  def program1
+    @programs = @user.programs.find_by_sorting(1)
+    @user = User.first
+    render :program1
+  end
+  def program2
+    @programs = @user.programs.find_by_sorting(2)
+    @user = User.first
+    render :program2
+  end
+
 
   def index
     @user = User.all

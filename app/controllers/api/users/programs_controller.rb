@@ -1,5 +1,5 @@
 class Api::Users::ProgramsController < ApplicationController
-  before_action :set_program, only: [:day1, :day2, :day3, :day4, :day5, :show, :edit, :update, :destroy]
+  before_action :set_program, only: [:day1, :day2, :day3, :day4, :day5, :program1, :show, :edit, :update, :destroy]
   before_action :set_day, only: [:day1, :index, :show, :edit, :update, :destroy]
   before_action :set_event, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_user, only: [:day1, :show, :new, :edit, :create, :update, :destroy]
@@ -10,10 +10,19 @@ class Api::Users::ProgramsController < ApplicationController
     @event = Event.find(params[:event_id])
     @day = Day.all
     @days = @event.days.first
-    @events = Event.all
     @programs = Program.all
     @program = @days.programs.all.limit(10).order('sorting ASC')
     render :day1
+  end
+
+  def day1_2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @days = @event.days.first
+    @programs = Program.all
+    @program = @days.programs.all.offset(10).order('sorting ASC')
+    render :day1_2
   end
 
   def day2
@@ -21,8 +30,17 @@ class Api::Users::ProgramsController < ApplicationController
     @day = Day.all
     @days = @user.days.second
     @programs = Program.all
-    @program = @days.programs.all
+    @program = @days.programs.all.limit(10).order('sorting ASC')
     render :day2
+  end
+
+  def day2_2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @days = @event.days.second
+    @program = @days.programs.all.offset(10).order('sorting ASC')
+    render :day2_2
   end
 
   def day3
@@ -30,8 +48,18 @@ class Api::Users::ProgramsController < ApplicationController
     @day = Day.all
     @days = @user.days.third
     @programs = Program.all
-    @program = @days.programs.all
+    @program = @days.programs.all.limit(10).order('sorting ASC')
     render :day3
+  end
+
+  def day3_2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @days = @event.days.third
+    @programs = Program.all
+    @program = @days.programs.all.offset(10).order('sorting ASC')
+    render :day3_2
   end
 
   def day4
@@ -39,8 +67,18 @@ class Api::Users::ProgramsController < ApplicationController
     @day = Day.all
     @days = @user.days.fourth
     @programs = Program.all
-    @program = @days.programs.all
+    @program = @days.programs.all.limit(10).order('sorting ASC')
     render :day4
+  end
+
+  def day4_2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @days = @event.days.fourth
+    @programs = Program.all
+    @program = @days.programs.all.offset(10).order('sorting ASC')
+    render :day4_2
   end
   
   def day5
@@ -48,11 +86,31 @@ class Api::Users::ProgramsController < ApplicationController
     @day = Day.all
     @days = @user.days.fifth
     @programs = Program.all
-    @program = @days.programs.all
+    @program = @days.programs.all.limit(10).order('sorting ASC')
     @first_day = @day.first
     render :day5
   end
+
+  def day5_2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @days = @event.days.fifth
+    @programs = Program.all
+    @program = @days.programs.all.offset(10).order('sorting ASC')
+    render :day5_2
+  end
   
+
+  def program1
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @day = Day.all
+    @programs = Program.all
+    @program = @event.days.programs.find_by_sorting(1)
+    render :program1
+  end
+
   def index
     @day = Day.all
     @first_day = @user.days
@@ -66,7 +124,6 @@ class Api::Users::ProgramsController < ApplicationController
   def show
     @program = Program.all
     @programs = @day.programs.all.limit(10).order('sorting ASC')
-
   end
 
   # GET /days/new

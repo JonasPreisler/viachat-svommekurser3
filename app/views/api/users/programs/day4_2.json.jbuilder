@@ -37,18 +37,3 @@ json.messages do
 		end
 	end
 end
-
-
-if @program.count > 10
-	json.messages do
-		json.array! [*1] do
-			json.text "Se flere programmer:"
-			json.quick_replies do
-				json.array! [*1] do
-					json.title "Flere programmer"
-					json.block_names ["day1_2"]
-				end
-			end
-		end
-	end
-end

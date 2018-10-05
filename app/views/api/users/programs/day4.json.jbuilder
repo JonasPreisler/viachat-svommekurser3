@@ -46,7 +46,7 @@ if @program.count > 10
 			json.quick_replies do
 				json.array! [*1] do
 					json.title "Flere programmer"
-					json.block_names ["day1_2"]
+					json.block_names ["day4_2"]
 				end
 			end
 		end
