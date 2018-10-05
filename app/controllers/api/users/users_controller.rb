@@ -1,7 +1,7 @@
-class Api::UsersController < ApplicationController
-  before_action :set_user, only: [:program_1, :show, :edit, :update, :destroy]
+class Api::Users::UsersController < ApplicationController
+  before_action :set_user, only: [:days, :program_1, :show, :edit, :update, :destroy]
+  before_action :set_day, only: [:day1, :index, :show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
-
 
   def index
     @user = User.all
@@ -9,8 +9,12 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @programs = @user.events.days.programs.all.order('sorting ASC')
-    @speaker = @user.programs.all
+    @days = @user.days.all.limit(10)
+    @event = Event.all.order(created_at: :desc)
+    @events = @user.events.all.limit(10)
+    @program = Program.all
+    @programs = @user.programs.all.limit(10).order('sorting ASC')
+    @programz = @events.first.days.first
     @user = User.first
     render :show
   end 
@@ -100,16 +104,16 @@ class Api::UsersController < ApplicationController
   end
 
   private
-
-
-
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
+    def set_day
+      @day = Day.find(params[:user_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.permit(:first_name, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :user, :timeanddate, :email, :slot_id, :secret)
+      params.permit(:first_name, :program, :program_id, :day_id, :last_name, :gender, :source, :locale, :profile_pic_url, :timezone, :messenger_user_id, :chatfuel_user_id, :ref, :country, :city, :state, :zip, :address, :latitude, :longitude, :map_url, :last_visited_block_name, :last_visited_block_id, :last_clicked_button_name, :last_user_freeform_input, :user, :timeanddate, :email, :slot_id, :secret)
   end
 end

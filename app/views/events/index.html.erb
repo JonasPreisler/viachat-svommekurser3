@@ -2,7 +2,7 @@
 <div class="desktopHide">
   <div class="row">
     <div class="col-md-6 col-sm-6">
-      <h1>Events</h1>
+      <h1>Arrangementer</h1>
     </div>
     <div class="col-md-6 col-sm-6">
       <%= link_to 'Legg til arrangement', new_event_path, class: 'btn-primary2 shadow pull-right' %>
@@ -12,7 +12,7 @@
 
 <div class="mobileHide">
   <center>
-    <h1>Events</h1><br />      
+    <h1>Arrangementer</h1><br />      
     <%= link_to 'Legg til arrangement', new_event_path, class: 'btn-primary2 shadow' %>
   </center><br />
 </div>
@@ -23,7 +23,7 @@
 <% else %>
   <br />
 
-  <% @events.each do |event| %>
+  <% @events.order('created_at DESC').each do |event| %>
     <div class="row" style="background: #fff;border-radius:10px;color:#1c1c1c;border: 1px solid #c3c2c2">
 
 

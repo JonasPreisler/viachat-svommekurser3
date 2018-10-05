@@ -6,7 +6,7 @@ json.messages do
 				json.template_type "generic"
 				json.image_aspect_ratio "horizontal"
 				json.elements do
-					json.array! (@programs).limit(10) do |program|
+					json.array! (@program).limit(10) do |program|
 						json.title "Kl. #{program.starttime.strftime("%H")}-#{program.endtime.strftime("%H")} - #{program.name}"
 						if program.image.present?
 							json.image_url "#{program.image.url(:messenger) if program.image}"
@@ -32,20 +32,6 @@ json.messages do
 					        end
 						end
 					end
-				end
-			end
-		end
-	end
-end
-
-if @programs.count > 10
-	json.messages do
-		json.array! [*1] do
-			json.text "Se flere programmer:"
-			json.quick_replies do
-				json.array! [*1] do
-					json.title "Flere programmer"
-					json.block_names ["programs_2"]
 				end
 			end
 		end

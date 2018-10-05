@@ -29,7 +29,10 @@ Rails.application.routes.draw do
   get '/:id/tid', to: 'leads#edit'
 
   namespace 'api', defaults: { format: :json } do
-    resources :users
+    resources :users do
+      resources :programs, controller: 'users/days'
+      get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
+    end
     #scope "/:id", :as => "user" do
     #  resources :speakers
     #end
