@@ -105,18 +105,141 @@ class Api::Users::ProgramsController < ApplicationController
   def program1
     @user = User.find(params[:user_id])
     @event = Event.find(params[:event_id])
-    @day = Day.all
     @programs = Program.all
-    @program = @event.days.programs.find_by_sorting(1)
+    @program = @event.programs.find_by_sorting(1)
     render :program1
   end
   def program2
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(2)
+    render :program2
   end
   def program3
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @program = @event.programs.find_by_sorting(3)
+    render :program3
   end
   def program4
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(4)
+    render :program4
   end
   def program5
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(5)
+    render :program5
+  end
+  def program6
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(6)
+    render :program6
+  end
+  def program7
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(7)
+    render :program7
+  end
+  def program8
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(8)
+    render :program8
+  end
+  def program9
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(9)
+    render :program9
+  end
+  def program10
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(10)
+    render :program10
+  end
+  def program11
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(11)
+    render :program11
+  end
+  def program12
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(12)
+    render :program12
+  end
+  def program13
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(13)
+    render :program13
+  end
+  def program14
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(14)
+    render :program14
+  end
+  def program15
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(15)
+    render :program15
+  end
+  def program16
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(16)
+    render :program16
+  end
+  def program17
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(17)
+    render :program17
+  end
+  def program18
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(18)
+    render :program18
+  end
+  def program19
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(19)
+    render :program19
+  end
+  def program20
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @programs = Program.all
+    @program = @event.programs.find_by_sorting(20)
+    render :program20
   end
 
   def index

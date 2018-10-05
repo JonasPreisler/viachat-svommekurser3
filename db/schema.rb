@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_065419) do
+ActiveRecord::Schema.define(version: 2018_10_05_152827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_065419) do
     t.string "name"
     t.bigint "program_id"
     t.bigint "event_id"
+    t.integer "sorting"
     t.index ["event_id"], name: "index_speakers_on_event_id"
     t.index ["program_id"], name: "index_speakers_on_program_id"
     t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
