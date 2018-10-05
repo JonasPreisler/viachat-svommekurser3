@@ -1,5 +1,5 @@
 class Api::Users::ProgramsController < ApplicationController
-  before_action :set_program, only: [:day1, :show, :edit, :update, :destroy]
+  before_action :set_program, only: [:day1, :day2, :day3, :day4, :day5, :show, :edit, :update, :destroy]
   before_action :set_day, only: [:day1, :index, :show, :edit, :update, :destroy]
   before_action :set_event, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_user, only: [:day1, :show, :new, :edit, :create, :update, :destroy]
@@ -7,8 +7,10 @@ class Api::Users::ProgramsController < ApplicationController
 
   def day1
     @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
     @day = Day.all
-    @days = @user.days.first
+    @days = @event.days.first
+    @events = Event.all
     @programs = Program.all
     @program = @days.programs.all.limit(10).order('sorting ASC')
     render :day1

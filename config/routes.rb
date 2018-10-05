@@ -30,8 +30,10 @@ Rails.application.routes.draw do
 
   namespace 'api', defaults: { format: :json } do
     resources :users do
-      resources :programs, controller: 'users/days'
-      get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
+      resources :events do
+        resources :programs, controller: 'users/days'
+        get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
+      end
     end
     #scope "/:id", :as => "user" do
     #  resources :speakers
