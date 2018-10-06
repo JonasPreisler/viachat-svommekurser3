@@ -39,7 +39,7 @@
               <div style="color:#c3c2c2;font-size: 12px"> ID: <%= event.id %></div>
               <div style="font-size: 12px">
                 <strong>Adresse:</strong> <%= event.address %><br />
-                <strong>Lenke:</strong> <%= event.ticket if event.ticket %><br />
+                <strong>Billettkjøp:</strong> <%= event.ticket if event.ticket %><br />
                 <strong><%= link_to "Kort oversigt", event if event.map %></strong><br />
                 <%= event.programs.count %> program<%= 'mer' if event.programs.count > 1 %>
               </div>
@@ -91,7 +91,7 @@
               <h2><%= event.name %></h2><br />
               <div style="color:#c3c2c2;font-size: 12px"> ID: <%= event.id %></div>
               <strong>Adresse: <%= event.address %></strong><br />
-              <strong>Lenke:</strong> <%= event.ticket if event.ticket %><br />
+              <strong>Billettkjøp:</strong> <%= event.ticket if event.ticket %><br />
               <strong><%= link_to "Kort oversigt", event if event.map %></strong><br />
               <%= event.programs.count %> program<%= 'mer' if event.programs.count > 1 %><br />
 
