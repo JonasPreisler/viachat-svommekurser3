@@ -11,18 +11,21 @@
         <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br />
         <%= f.input :address, placeholder: 'Adresse', label: false %><br /><br />
         <strong>Event Billede (500x260px):</strong><br /><%= f.file_field :image %><br />
+        <strong>Kort over arrangementet (500x500px) (valgfri):</strong><br /><%= f.file_field :image %><br />
       </div>
 
       <div class="desktopHide">
         <div class="form-inputs">
           <div class="row" style="width:90%">
             <div class="col-xs-6">
-              <%= f.input :name, placeholder: 'Navn på arrangementet', label: false %><br /><br />
-              <%= f.input :address, placeholder: 'Adresse', label: false %>
+              <%= f.input :name, placeholder: 'Navn på arrangementet', label: false %><br />
+              <%= f.input :address, placeholder: 'Adresse', label: false %><br />
+              <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br />
+
             </div>
-                <div class="col-xs-6">
-              <%= f.input :ticket, placeholder: 'Lenke til billett kjøp (valgfri)', label: false %><br /><br />
+            <div class="col-xs-6">
               <strong>Arrangement bilde (500x260px):</strong><br /><%= f.file_field :image %><br />
+              <strong>Kort oversigt (500x500px) (valgfri):</strong><br /><%= f.file_field :map %><br />
             </div>
           </div>
         </div>

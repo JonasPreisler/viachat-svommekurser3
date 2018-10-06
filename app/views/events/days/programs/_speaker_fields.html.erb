@@ -2,6 +2,7 @@
   <center>
     <div style="background: #f3f2f2;border-radius:10px;color:#1c1c1c" class="speaker-form">
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
+      <%= f.hidden_field :event_id, :value=> @event.id  %>
 
       <div class="mobileHide">
         <div class="form-inputs">

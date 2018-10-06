@@ -6,7 +6,7 @@ json.messages do
 				json.template_type "generic"
 				json.image_aspect_ratio "horizontal"
 				json.elements do
-					json.array! (@speakers).limit(10) do |speaker|
+					json.array! (@speaker).limit(10) do |speaker|
 						json.title "#{speaker.name}"
 						if speaker.image.present?
 							json.image_url "#{speaker.image.url(:messenger) if speaker.image}"
@@ -33,7 +33,7 @@ json.messages do
 	end
 end
 
-if @speakers.count > 10
+if @speaker.count > 10
 	json.messages do
 		json.array! [*1] do
 			json.text "Se flere speakers:"

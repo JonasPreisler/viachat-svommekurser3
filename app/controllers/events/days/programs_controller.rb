@@ -57,7 +57,7 @@ class Events::Days::ProgramsController < ApplicationController
   def update
     respond_to do |format|
       if @program.update(program_params)
-        format.html { redirect_to day_url(@program.day_id), notice: 'Program ble oppdateret.' }
+        format.html { redirect_to events_path(@day, @event), notice: 'Program ble oppdateret.' }
         format.json { render :show, status: :ok, location: @program }
       else
         format.html { render :edit }
@@ -93,7 +93,7 @@ class Events::Days::ProgramsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_params
-      params.require(:program).permit(:user_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
+      params.require(:program).permit(:user_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :event_id, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
     end
 
     def require_login

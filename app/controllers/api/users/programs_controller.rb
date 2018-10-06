@@ -4,6 +4,18 @@ class Api::Users::ProgramsController < ApplicationController
   before_action :set_event, only: [:show, :new, :edit, :create, :update, :destroy]
   before_action :set_user, only: [:day1, :show, :new, :edit, :create, :update, :destroy]
 
+  def map
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    render :map
+  end
+
+  def link
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    render :link
+  end
+
 
   def day1
     @user = User.find(params[:user_id])

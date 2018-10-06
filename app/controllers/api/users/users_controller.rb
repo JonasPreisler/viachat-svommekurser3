@@ -3,6 +3,7 @@ class Api::Users::UsersController < ApplicationController
   before_action :set_day, only: [:day1, :index, :show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
+
   def index
     @user = User.all
     render :show

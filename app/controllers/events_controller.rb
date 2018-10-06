@@ -78,7 +78,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:program_id, :user_id, :day_id, :speaker_id, :name, :ticket, :image, :address, days_attributes: [:id, :_destroy, :event_id, :date, :program_id], programs_attributes: [:id, :_destroy, :user_id, :startday, :event, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]]])
+      params.require(:event).permit(:program_id, :user_id, :day_id, :map, :speaker_id, :name, :ticket, :image, :address, days_attributes: [:id, :_destroy, :event_id, :date, :program_id], programs_attributes: [:id, :_destroy, :user_id, :startday, :event, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :nummer, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]]])
     end
 
 

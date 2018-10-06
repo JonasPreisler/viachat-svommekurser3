@@ -5,9 +5,12 @@ class Api::Users::SpeakersController < ApplicationController
   layout 'guest', only: [:show]
 
   def index
-  @speaker = Speaker.all.order(sorting: :desc)
-  @speakers = current_user.speakers.all.limit(10).order('sorting ASC')
-  render :index
+    @user = User.find(params[:user_id])
+    @event = Event.find(params[:event_id])
+    @events = Event.all
+    @speakers = Speaker.all
+    @speaker = @event.speakers.all.limit(10).order('sorting ASC')
+    render :index
   end
 
   def speakers_2

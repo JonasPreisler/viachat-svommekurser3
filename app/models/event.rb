@@ -7,5 +7,6 @@ class Event < ApplicationRecord
     has_many :programs, dependent: :destroy
     belongs_to :user
     mount_uploader :image, ImageUploader
+    mount_uploader :map, ImageUploader
     accepts_nested_attributes_for :days, allow_destroy: true
 end

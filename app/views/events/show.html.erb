@@ -1,39 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @event.name %></h1><br />
+
+<%= link_to "Tilbake", events_path %>
+
+<br />
 <% @days.each_with_index do |day, i| %>
-<strong>Dag <%= (i+1).to_i %></strong> <%= day.date %><br />
+<strong>Dag <%= (i+1).to_i %></strong> <%= day.date %>
 <% end %>
 <br />
+<br />
 
-<p>
-  <strong>Program:</strong>
-  <%= @event.program_id %>
-</p>
-
-<p>
-  <strong>Speaker:</strong>
-  <%= @event.speaker_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Ticket:</strong>
-  <%= @event.ticket %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @event.image %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+Kort oversigt:<br />
+<%= image_tag @event.map.url(:messenger), class: 'event-image-mobile' if @event.map %>

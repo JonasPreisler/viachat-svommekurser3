@@ -5,7 +5,7 @@
     <%= simple_form_for [@event, @day, @program] do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-      <%= f.hidden_field :event_id, value: @events.id %>
+
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
 
       <h1>Nytt program</h1>
