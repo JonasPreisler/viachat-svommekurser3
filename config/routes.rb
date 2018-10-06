@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  get 'docs', to: 'pages#docs'
   namespace 'events' do
     namespace 'days' do
       resources :programs
