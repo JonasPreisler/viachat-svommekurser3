@@ -25,7 +25,7 @@ class Events::Days::ProgramsController < ApplicationController
     @program = Program.new
     @day = Day.find(params[:day_id])
     @events = @day.event
-    @event = @day.event
+    @event = Event.find(params[:event_id])
     @program.speakers.build
   end
 
