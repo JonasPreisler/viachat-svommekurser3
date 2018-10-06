@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     @days = Day.all
   end
 
+
   # GET /events/1
   # GET /events/1.json
   def show

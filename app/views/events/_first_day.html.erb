@@ -1,0 +1,32 @@
+<% @programs.each do |program| %>
+<% if event.id == program.event_id and program.day == event.days.first %>
+  <div class="col-md-3 col-sm-4" style="padding-top:40px">
+    <div class="thumbnail">
+      <% if program.image? %>
+        <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+      <% else %>
+        <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+      <% end %>
+      <div class="caption">
+        <div style="padding-top: 5px"><h4><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></h4>
+          </div>
+      </div>
+
+      <h4 style="font-size:16px;"><%= program.sorting %></h4>
+      <i style="font-size:14px">
+        <%= program.day.date %>
+      </i> <br />
+
+      <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+      <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+      <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+      data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+        <%#div class="col-xs-8 col-sm-6">
+          <% &#9889; rating %>
+        <%#/div>
+        <%#div class="col-xs-4 col-sm-6"%>
+        <%#/div%>
+    </div>
+  </div>
+<% end %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_124244) do
+ActiveRecord::Schema.define(version: 2018_10_06_150443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -192,6 +192,8 @@ ActiveRecord::Schema.define(version: 2018_10_06_124244) do
     t.bigint "program_id"
     t.bigint "event_id"
     t.integer "sorting"
+    t.bigint "day_id"
+    t.index ["day_id"], name: "index_speakers_on_day_id"
     t.index ["event_id"], name: "index_speakers_on_event_id"
     t.index ["program_id"], name: "index_speakers_on_program_id"
     t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
@@ -228,6 +230,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_124244) do
   add_foreign_key "programs", "events"
   add_foreign_key "programs", "users"
   add_foreign_key "slots", "leads"
+  add_foreign_key "speakers", "days"
   add_foreign_key "speakers", "events"
   add_foreign_key "speakers", "programs"
   add_foreign_key "speakers", "speaker_images"
