@@ -3,4 +3,5 @@ class Day < ApplicationRecord
   belongs_to :event
   belongs_to :user
   has_many :programs
+  has_many :sortings, through: :programs
 end

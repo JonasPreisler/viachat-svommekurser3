@@ -75,6 +75,6 @@ class Events::DaysController < ApplicationController
  
     # Never trust parameters from the scary internet, only allow the white list through.
     def day_params
-      params.require(:day).permit(:event_id, :date, :program_id, :user_id)
+      params.require(:day).permit(:event_id, :date, :program_id, :user_id, :sorting_id)
     end
 end

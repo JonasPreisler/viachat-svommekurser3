@@ -8,8 +8,8 @@ class EventsController < ApplicationController
     @event = Event.all.order(created_at: :desc)
     @events = current_user.events.all.limit(10)
     @program = Program.all
-    @programs = current_user.programs.all.limit(10).order('sorting ASC')
-    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting ASC')
+    @programs = current_user.programs.all.limit(10).order('sorting_id ASC')
+    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting_id ASC')
     @days = Day.all
   end
 

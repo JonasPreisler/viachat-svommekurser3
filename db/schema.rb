@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_150443) do
+ActiveRecord::Schema.define(version: 2018_10_08_104626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,9 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "sorting_id"
     t.index ["event_id"], name: "index_days_on_event_id"
+    t.index ["sorting_id"], name: "index_days_on_sorting_id"
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
@@ -153,12 +155,13 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.bigint "user_id"
-    t.integer "sorting"
     t.string "place"
     t.bigint "event_id"
     t.bigint "day_id"
+    t.bigint "sorting_id"
     t.index ["day_id"], name: "index_programs_on_day_id"
     t.index ["event_id"], name: "index_programs_on_event_id"
+    t.index ["sorting_id"], name: "index_programs_on_sorting_id"
     t.index ["user_id"], name: "index_programs_on_user_id"
   end
 
@@ -170,6 +173,12 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
     t.string "messenger_user_id"
     t.bigint "lead_id"
     t.index ["lead_id"], name: "index_slots_on_lead_id"
+  end
+
+  create_table "sortings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "program_id"
   end
 
   create_table "speaker_images", force: :cascade do |t|
@@ -193,9 +202,11 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
     t.bigint "event_id"
     t.integer "sorting"
     t.bigint "day_id"
+    t.bigint "sorting_id"
     t.index ["day_id"], name: "index_speakers_on_day_id"
     t.index ["event_id"], name: "index_speakers_on_event_id"
     t.index ["program_id"], name: "index_speakers_on_program_id"
+    t.index ["sorting_id"], name: "index_speakers_on_sorting_id"
     t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
     t.index ["user_id"], name: "index_speakers_on_user_id"
   end
@@ -219,6 +230,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
   end
 
   add_foreign_key "days", "events"
+  add_foreign_key "days", "sortings"
   add_foreign_key "days", "users"
   add_foreign_key "events", "users"
   add_foreign_key "leads", "slots"
@@ -228,11 +240,13 @@ ActiveRecord::Schema.define(version: 2018_10_06_150443) do
   add_foreign_key "places", "programs"
   add_foreign_key "programs", "days"
   add_foreign_key "programs", "events"
+  add_foreign_key "programs", "sortings"
   add_foreign_key "programs", "users"
   add_foreign_key "slots", "leads"
   add_foreign_key "speakers", "days"
   add_foreign_key "speakers", "events"
   add_foreign_key "speakers", "programs"
+  add_foreign_key "speakers", "sortings"
   add_foreign_key "speakers", "speaker_images"
   add_foreign_key "speakers", "users"
 end

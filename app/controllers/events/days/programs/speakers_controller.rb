@@ -1,4 +1,4 @@
-class SpeakersController < ApplicationController
+class Events::Days::Programs::SpeakersController < ApplicationController
   before_action :require_login, only: [:index, :edit, :update, :destroy]
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
   before_action :set_program, only: [:show, :new, :edit, :create, :update, :destroy]
@@ -23,6 +23,9 @@ class SpeakersController < ApplicationController
     @speaker = Speaker.new
     @speaker_image = @speaker.speaker_images.build
     @event = Event.find(params[:event_id])
+    @day = Day.find(params[:day_id])
+    @programs = @day.programs
+    @sortings = Sorting.where.not(programs: @programs)
   end
 
   # GET /speakers/1/edit
@@ -81,7 +84,7 @@ class SpeakersController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:user_id, :day_id, :image, :event_id, :event, :speaker_link, :name, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])
+      params.require(:speaker).permit(:user_id, :day_id, :image, :sorting_id, :event_id, :event, :speaker_link, :name, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])
     end
 
     def require_login

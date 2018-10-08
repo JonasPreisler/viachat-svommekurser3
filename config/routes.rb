@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sortings
   resources :events do
     resources :days, controller: 'events/days' do
       resources :programs, controller: 'events/days/programs' do
@@ -34,9 +35,9 @@ Rails.application.routes.draw do
       resources :events do
         get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
         get 'map', 'link', 'programs', 'programs_2', 'program1', 'program2', 'program3', 'program4', 'program5', 'program6', 'program7', 'program8', 'program9', 'program10', 'program11', 'program12', 'program13', 'program14', 'program15', 'program16', 'program17', 'program18', 'program19', 'program20', controller: 'users/programs'
-        resources :speakers, controller: 'users/speakers'
         resources :programs, controller: 'users/programs' do
           get 'speakers', 'speakers_2' 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', controller: 'users/speakers'
+          resources :speakers, controller: 'users/programs/speakers'
         end
       end
     end

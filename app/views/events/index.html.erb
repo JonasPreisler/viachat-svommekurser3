@@ -145,6 +145,7 @@
             </div>
           </div>
         </center>
+
         <% @programs.each do |program| %>
           <% if event.id == program.event_id %>
             <% if program.day == event.days.first %>
@@ -160,7 +161,7 @@
                   </div>
 
                   <div style="font-size:14px;padding-left: 8px"> 
-                    Sortering: <%= program.sorting %><br />
+                    Sortering: <%= program.sorting_id %><br />
                     <div style="color:#999"> Dag 1 - <%= program.day.date %></div>
                   </div>
                   <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
@@ -174,6 +175,40 @@
                     <%#/div%>
                 </div>
               </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @programs_2.any? %>
+          <% @programs_2.each do |program| %>
+            <% if event.id == program.event_id %>
+              <% if program.day == event.days.first %>
+                <div class="col-md-3 col-sm-4" style="padding-top:20px">
+                  <div class="thumbnail">
+                    <% if program.image? %>
+                      <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% else %>
+                      <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% end %>
+                    <div class="caption">
+                      <div style="font-size: 16px"><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></div>
+                    </div>
+
+                    <div style="font-size:14px;padding-left: 8px"> 
+                      Sortering: <%= program.sorting_id %><br />
+                      <div style="color:#999"> Dag 1 - <%= program.day.date %></div>
+                    </div>
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                      <%#div class="col-xs-8 col-sm-6">
+                        <% &#9889; rating %>
+                      <%#/div>
+                      <%#div class="col-xs-4 col-sm-6"%>
+                      <%#/div%>
+                  </div>
+                </div>
+                <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -193,7 +228,7 @@
                   </div>
 
                   <div style="font-size:14px;padding-left: 8px"> 
-                    Sortering: <%= program.sorting %><br />
+                    Sortering: <%= program.sorting_id %><br />
                     <div style="color:#999"> Dag 2 - <%= program.day.date %></div>
                   </div>
                   <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
@@ -207,10 +242,43 @@
                     <%#/div%>
                 </div>
               </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @programs_2.any? %>
+          <% @programs_2.each do |program| %>
+            <% if event.id == program.event_id %>
+              <% if program.day == event.days.second %>
+                <div class="col-md-3 col-sm-4" style="padding-top:20px">
+                  <div class="thumbnail">
+                    <% if program.image? %>
+                      <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% else %>
+                      <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% end %>
+                    <div class="caption">
+                      <div style="font-size: 16px"><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></div>
+                    </div>
+
+                    <div style="font-size:14px;padding-left: 8px"> 
+                      Sortering: <%= program.sorting_id %><br />
+                      <div style="color:#999"> Dag 2 - <%= program.day.date %></div>
+                    </div>
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                      <%#div class="col-xs-8 col-sm-6">
+                        <% &#9889; rating %>
+                      <%#/div>
+                      <%#div class="col-xs-4 col-sm-6"%>
+                      <%#/div%>
+                  </div>
+                </div>
+                <% end %>
             <% end %>
           <% end %>
         <% end %>
-
         <% @programs.each do |program| %>
           <% if event.id == program.event_id %>
             <% if program.day == event.days.third %>
@@ -226,7 +294,7 @@
                   </div>
 
                   <div style="font-size:14px;padding-left: 8px"> 
-                    Sortering: <%= program.sorting %><br />
+                    Sortering: <%= program.sorting_id %><br />
                     <div style="color:#999"> Dag 3 - <%= program.day.date %></div>
                   </div>
                   <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
@@ -240,10 +308,43 @@
                     <%#/div%>
                 </div>
               </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @programs_2.any? %>
+          <% @programs_2.each do |program| %>
+            <% if event.id == program.event_id %>
+              <% if program.day == event.days.third %>
+                <div class="col-md-3 col-sm-4" style="padding-top:20px">
+                  <div class="thumbnail">
+                    <% if program.image? %>
+                      <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% else %>
+                      <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% end %>
+                    <div class="caption">
+                      <div style="font-size: 16px"><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></div>
+                    </div>
+
+                    <div style="font-size:14px;padding-left: 8px"> 
+                      Sortering: <%= program.sorting_id %><br />
+                      <div style="color:#999"> Dag 3 - <%= program.day.date %></div>
+                    </div>
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                      <%#div class="col-xs-8 col-sm-6">
+                        <% &#9889; rating %>
+                      <%#/div>
+                      <%#div class="col-xs-4 col-sm-6"%>
+                      <%#/div%>
+                  </div>
+                </div>
+                <% end %>
             <% end %>
           <% end %>
         <% end %>
-
         <% @programs.each do |program| %>
           <% if event.id == program.event_id %>
             <% if program.day == event.days.fourth %>
@@ -259,7 +360,7 @@
                   </div>
 
                   <div style="font-size:14px;padding-left: 8px"> 
-                    Sortering: <%= program.sorting %><br />
+                    Sortering: <%= program.sorting_id %><br />
                     <div style="color:#999"> Dag 4 - <%= program.day.date %></div>
                   </div>
                   <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
@@ -273,10 +374,43 @@
                     <%#/div%>
                 </div>
               </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @programs_2.any? %>
+          <% @programs_2.each do |program| %>
+            <% if event.id == program.event_id %>
+              <% if program.day == event.days.fourth %>
+                <div class="col-md-3 col-sm-4" style="padding-top:20px">
+                  <div class="thumbnail">
+                    <% if program.image? %>
+                      <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% else %>
+                      <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% end %>
+                    <div class="caption">
+                      <div style="font-size: 16px"><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></div>
+                    </div>
+
+                    <div style="font-size:14px;padding-left: 8px"> 
+                      Sortering: <%= program.sorting_id %><br />
+                      <div style="color:#999"> Dag 4 - <%= program.day.date %></div>
+                    </div>
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                      <%#div class="col-xs-8 col-sm-6">
+                        <% &#9889; rating %>
+                      <%#/div>
+                      <%#div class="col-xs-4 col-sm-6"%>
+                      <%#/div%>
+                  </div>
+                </div>
+                <% end %>
             <% end %>
           <% end %>
         <% end %>
-
         <% @programs.each do |program| %>
           <% if event.id == program.event_id %>
             <% if program.day == event.days.fifth %>
@@ -292,7 +426,7 @@
                   </div>
 
                   <div style="font-size:14px;padding-left: 8px"> 
-                    Sortering: <%= program.sorting %><br />
+                    Sortering: <%= program.sorting_id %><br />
                     <div style="color:#999"> Dag 5 - <%= program.day.date %></div>
                   </div>
                   <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
@@ -306,6 +440,40 @@
                     <%#/div%>
                 </div>
               </div>
+              <% end %>
+          <% end %>
+        <% end %>
+        <% if @programs_2.any? %>
+          <% @programs_2.each do |program| %>
+            <% if event.id == program.event_id %>
+              <% if program.day == event.days.fifth %>
+                <div class="col-md-3 col-sm-4" style="padding-top:20px">
+                  <div class="thumbnail">
+                    <% if program.image? %>
+                      <%= link_to (image_tag program.image.url(:messenger)), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% else %>
+                      <%= link_to (image_tag '/thumbnail.png'), event_day_program_path(program.event_id, program.day_id, program), class: 'speaker-image' %>
+                    <% end %>
+                    <div class="caption">
+                      <div style="font-size: 16px"><%= link_to truncate(program.name, :length => 22), event_day_program_path(program.event_id, program.day_id, program), class: 'shorten' %></div>
+                    </div>
+
+                    <div style="font-size:14px;padding-left: 8px"> 
+                      Sortering: <%= program.sorting_id %><br />
+                      <div style="color:#999"> Dag 5 - <%= program.day.date %></div>
+                    </div>
+                    <%= link_to "Vis", event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to "Redigér", edit_event_day_program_path(program.event_id, program.day_id, program), class: 'btn-green-programs box' %>
+                    <%= link_to 'Slett', event_day_program_path(program.event_id, program.day_id, program),
+                    data: {:confirm => 'Er du sikker? Dette kan ikke fortrydes.'}, :method => :delete, class: 'btn-red box' %>
+                      <%#div class="col-xs-8 col-sm-6">
+                        <% &#9889; rating %>
+                      <%#/div>
+                      <%#div class="col-xs-4 col-sm-6"%>
+                      <%#/div%>
+                  </div>
+                </div>
+                <% end %>
             <% end %>
           <% end %>
         <% end %>

@@ -8,9 +8,10 @@ class Events::Days::ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    @program = Program.all.order(sorting: :desc)
-    @programs = current_user.programs.all.limit(10).order('sorting ASC')
-    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting ASC')
+    @program = Program.all.order(sorting_id: :desc)
+    @programs = current_user.programs.all.limit(10).order('sorting_id ASC')
+    @programs_2 = current_user.programs.all.offset(10).limit(10).order('sorting_id ASC')
+    @event = current_user.event
   end
 
   # GET /programs/1
@@ -24,9 +25,11 @@ class Events::Days::ProgramsController < ApplicationController
   def new
     @program = Program.new
     @day = Day.find(params[:day_id])
-    @events = @day.event
-    @event = Event.find(params[:event_id])
+    @event = @day.event
+    @speaker = Speaker.new
     @program.speakers.build
+    @programs = @day.programs
+    @sortings = Sorting.where.not(programs: @programs)
   end
 
   # GET /programs/1/edit
@@ -43,7 +46,7 @@ class Events::Days::ProgramsController < ApplicationController
 
     respond_to do |format|
       if @program.save
-        format.html { redirect_to events_path(@day, @event), notice: 'Program ble opprettet.' }
+        format.html { redirect_to events_path, notice: 'Program ble opprettet.' }
         format.json { render :show, status: :created, location: @program }
       else
         format.html { render :new }
@@ -93,7 +96,7 @@ class Events::Days::ProgramsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_params
-      params.require(:program).permit(:user_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :user_id, :image, :speaker_link, :name, :description, :event_id, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
+      params.require(:program).permit(:user_id, :sorting_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :sorting_id, :user_id, :image, :speaker_link, :name, :description, :event_id, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
     end
 
     def require_login

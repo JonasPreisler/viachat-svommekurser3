@@ -6,11 +6,9 @@
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      Nytt program for <%= @event.name %>
-
       <%= f.hidden_field :user_id, :value=> current_user.id  %>
 
-      <h1>Nytt program</h1>
+      <h1>Nytt program for <%= @event.name %></h1>
 
       <div class="mobileHide">
 
@@ -59,31 +57,12 @@
               <%= f.text_area :description, placeholder: 'Om programmet', label: false, :rows => 7, class: "form-control" %><br />
               <%= f.input :place, placeholder: 'Lokasjon (hal/scene/etc) - valgfri', label: false, class: "form-control" %><br />
 
-              
-              <%= f.select(:sorting, [
-                ['1', '1'],
-                ['2', '2'],
-                ['3', '3'],
-                ['4', '4'],
-                ['5', '5'],
-                ['6', '6'],
-                ['7', '7'],
-                ['8', '8'],
-                ['9', '9'],
-                ['10', '10'],
-                ['11', '11'],
-                ['12', '12'],
-                ['13', '13'],
-                ['14', '14'],
-                ['15', '15'],
-                ['16', '16'],
-                ['17', '17'],
-                ['18', '18'],
-                ['19', '19'],
-                ['20', '20']
-               ],{ :prompt => "Velg plassen i raden:"},
-                 { :size => 10 }
-               ) %>
+
+
+
+              <%= f.select :sorting_id, @sortings.collect {|c| [c.id]} %>
+
+
             </div>
             <div class="col-xs-6">
             <strong>Program bilde (500x260px):</strong><br /><%= f.file_field :image %><br /><br />
