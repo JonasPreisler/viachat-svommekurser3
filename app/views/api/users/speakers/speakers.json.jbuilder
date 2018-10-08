@@ -36,10 +36,10 @@ end
 if @speaker.count > 10
 	json.messages do
 		json.array! [*1] do
-			json.text "Se flere speakers:"
+			json.text "Se flere foredragsholdere:"
 			json.quick_replies do
 				json.array! [*1] do
-					json.title "Flere speakers"
+					json.title "Flere talere"
 					json.block_names ["speakers_2"]
 				end
 			end

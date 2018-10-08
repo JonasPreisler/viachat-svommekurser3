@@ -13,7 +13,7 @@ json.messages do
 						else
 							json.image_url "http://netovo.herokuapp.com/thumbnail.png"
 						end
-						json.subtitle "Foredrag: #{program.speakers.first.name} Sted: #{program.place if program.place}"
+						json.subtitle "Foredrag: #{program.speaker.name if program.speaker} Sted: #{program.place if program.place}"
 						json.buttons do
 							json.array! [*1] do
 					            json.type "show_block"
@@ -46,7 +46,7 @@ if @program.count > 10
 			json.quick_replies do
 				json.array! [*1] do
 					json.title "Flere programmer"
-					json.block_names ["day4_2"]
+					json.block_names ["day1_2"]
 				end
 			end
 		end

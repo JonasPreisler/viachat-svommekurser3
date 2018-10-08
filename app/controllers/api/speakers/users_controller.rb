@@ -2,15 +2,14 @@ class Api::Speakers::UsersController < ApplicationController
   before_action :set_user, only: [:program_1, :show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
-
   def index
     @user = User.all
     render :show
   end
 
   def show
-    @programs = @user.programs.all.order('sorting ASC')
-    @speakers = @user.speakers.all.order('sorting ASC')
+    @programs = @user.programs.all.order('sorting_id ASC')
+    @speakers = @user.speakers.all.order('sorting_id ASC')
     @user = User.first
     render :show
   end 

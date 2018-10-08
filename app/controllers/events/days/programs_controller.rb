@@ -27,7 +27,6 @@ class Events::Days::ProgramsController < ApplicationController
     @day = Day.find(params[:day_id])
     @event = @day.event
     @speaker = Speaker.new
-    @program.speakers.build
     @programs = @day.programs
     @sortings = Sorting.where.not(programs: @programs)
   end
@@ -96,7 +95,7 @@ class Events::Days::ProgramsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def program_params
-      params.require(:program).permit(:user_id, :sorting_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speakers_attributes: [:id, :_destroy, :sorting_id, :user_id, :image, :speaker_link, :name, :description, :event_id, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
+      params.require(:program).permit(:user_id, :sorting_id, :day_id, :event, :event_id, :starttime, :speaker_id, :endtime, :name, :speaker_id, :speaker_name, :sorting, :speaker_about, :place, :speaker_image, :image, :description, speaker_attributes: [:id, :_destroy, :sorting_id, :user_id, :image, :speaker_link, :name, :description, :event_id, :speakingtime, :speaker_image_id, :sorting, speaker_images_attributes: [:id, :image, :speaker_id, :destroy]])
     end
 
     def require_login

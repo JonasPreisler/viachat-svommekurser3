@@ -84,13 +84,13 @@
 
         <hr style="border: 1px solid #fff"><br />
 
-        <%= f.fields_for :speakers do |speakers| %>
+        <%= f.fields_for :speaker do |speaker| %>
           <h1>Foredragsholder</h1>
-          <%= render 'speaker_fields', f: speakers %>
+          <%= render 'speaker_fields', f: speaker %>
         <% end %>
 
         <div class="links">
-          <span class="white-text-bg shadow"><%= link_to_add_association 'LEGG TIL EN ANNEN FOREDRAGSHOLDER', f, :speakers, class: 'white-text' %></span>
+          <span class="white-text-bg shadow"><%= link_to_add_association 'LEGG TIL EN ANNEN FOREDRAGSHOLDER', f, :speaker, class: 'white-text' %></span>
         </div>
         <br /><br />
 

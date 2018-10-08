@@ -1,7 +1,6 @@
 class Api::Users::SpeakersController < ApplicationController
   before_action :require_login, only: [:index, :edit, :update, :destroy]
-  before_action :set_speaker, only: [:speakers_2, :speaker1, :show, :edit, :update, :destroy]
-  before_action :set_program, only: [:show, :new, :edit, :create, :update, :destroy]
+  before_action :set_speaker, only: [:speaker1, :speaker4, :show, :new, :edit, :create, :update, :destroy]
   layout 'guest', only: [:show]
 
   def index
@@ -9,154 +8,162 @@ class Api::Users::SpeakersController < ApplicationController
     @event = Event.find(params[:event_id])
     @events = Event.all
     @speakers = Speaker.all
-    @speaker = @event.speakers.all.limit(10).order('sorting ASC')
+    @speaker = @event.speakers.all.limit(10).order('sorting_id ASC')
     render :index
   end
 
+  def speakers
+    @event = Event.find(params[:event_id])
+    @speaker = Speaker.all.order(sorting_id: :desc)
+    @speakers = @event.speakers.all.limit(10).order('sorting_id ASC')
+    render :speakers
+  end
+
   def speakers_2
-  @speaker = Speaker.all.order(sorting: :desc)
-  @speakers_2 = current_user.speakers.all.offset(10).limit(10).order('sorting ASC')
-  render :speaker_2
+    @event = Event.find(params[:event_id])
+    @speaker = Speaker.all.order(sorting_id: :desc)
+    @speakers_2 = @event.speakers.all.offset(10).limit(10).order('sorting_id ASC')
+    render :speakers_2
   end
 
   def speaker1
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(1)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(1)
     render :speaker1
   end
   def speaker2
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(2)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(2)
     render :speaker2
   end
   def speaker3
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(3)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(3)
     render :speaker3
   end
   def speaker4
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(4)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(4)
     render :speaker4
   end
   def speaker5
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(5)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(5)
     render :speaker5
   end
   def speaker6
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(6)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(6)
     render :speaker6
   end
   def speaker7
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(17)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(17)
     render :speaker7
   end
   def speaker8
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(8)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(8)
     render :speaker8
   end
   def speaker9
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(9)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(9)
     render :speaker9
   end
   def speaker10
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(10)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @eventspeakers.find_by_sorting_id(10)
     render :speaker10
   end
   def speaker11
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(11)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(11)
     render :speaker11
   end
   def speaker12
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(12)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(12)
     render :speaker12
   end
   def speaker13
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(13)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(13)
     render :speaker13
   end
   def speaker14
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(14)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(14)
     render :speaker14
   end
   def speaker15
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(15)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(15)
     render :speaker15
   end
   def speaker16
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(16)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(16)
     render :speaker16
   end
   def speaker17
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(17)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(17)
     render :speaker17
   end
   def speaker18
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(18)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(18)
     render :speaker18
   end
   def speaker19
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(19)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(19)
     render :speaker19
   end
   def speaker20
     @user = User.find(params[:user_id])
-    @program = Program.find(params[:program_id])
-    @programs = Program.all
-    @speaker = @program.speakers.find_by_sorting(20)
+    @event = Event.find(params[:event_id])
+    @speakers = Speaker.all
+    @speaker = @event.speakers.find_by_sorting_id(20)
     render :speaker20
   end
   # GET /speakers/1
@@ -218,13 +225,22 @@ class Api::Users::SpeakersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_speaker
-      @speaker = Speaker.find(params[:id])
+      @speaker = Speaker.all
     end
 
-    def set_program
-      @program = Program.find(params[:program_id])
+    def set_day
+      @day = Day.find(params[:user_id])
     end
+    def set_user
+      @day = User.find(params[:user_id])
+    end
+
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
       params.require(:speaker).permit(:user_id, :image, :event, :speaker_link, :name, :description, :sorting, :nummer, :speakingtime, :speaker_image_id, speaker_images_attributes: [:id, :image, :speaker_id, :destroy])

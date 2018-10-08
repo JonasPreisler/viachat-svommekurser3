@@ -7,9 +7,9 @@ class Events::Days::Programs::SpeakersController < ApplicationController
   # GET /speakers
   # GET /speakers.json
   def index
-  @speaker = Speaker.all.order(sorting: :desc)
-  @speakers = current_user.speakers.all.limit(10).order('sorting ASC')
-  @speakers_2 = current_user.speakers.all.offset(10).limit(10).order('sorting ASC')
+  @speaker = Speaker.all.order(sorting_id: :desc)
+  @speakers = current_user.speakers.all.limit(10).order('sorting_id ASC')
+  @speakers_2 = current_user.speakers.all.offset(10).limit(10).order('sorting_id ASC')
   end
 
   # GET /speakers/1

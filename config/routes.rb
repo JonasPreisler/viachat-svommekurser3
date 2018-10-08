@@ -33,19 +33,15 @@ Rails.application.routes.draw do
   namespace 'api', defaults: { format: :json } do
     resources :users do
       resources :events do
-        get 'day1', 'day2', 'day3', 'day4', 'day5', controller: 'users/programs'
+        get 'day1', 'day2', 'day3', 'day4', 'day5', 'day1_2', 'day2_2', 'day3_2', 'day4_2', 'day5_2', controller: 'users/programs'
         get 'map', 'link', 'programs', 'programs_2', 'program1', 'program2', 'program3', 'program4', 'program5', 'program6', 'program7', 'program8', 'program9', 'program10', 'program11', 'program12', 'program13', 'program14', 'program15', 'program16', 'program17', 'program18', 'program19', 'program20', controller: 'users/programs'
-        resources :programs, controller: 'users/programs' do
-          get 'speakers', 'speakers_2' 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', 'speaker1', controller: 'users/speakers'
-          resources :speakers, controller: 'users/programs/speakers'
-        end
+        get 'speakers', 'speakers_2', 'speaker1', 'speaker2', 'speaker3', 'speaker4', 'speaker5', 'speaker6', 'speaker7', 'speaker8', 'speaker9', 'speaker10', 'speaker11', 'speaker12', 'speaker13', 'speaker14', 'speaker15', 'speaker16', 'speaker17', 'speaker18', 'speaker19', 'speaker20', controller: 'users/speakers'
       end
     end
     #scope "/:id", :as => "user" do
     #  resources :speakers
     #end
     resources :leads
-    resources :speakers
     resources :programs
     resources :days
     namespace 'speakers' do
