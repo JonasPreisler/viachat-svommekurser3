@@ -1,0 +1,25 @@
+<center>
+<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:30px" class="speaker-form">
+  <div style="width:80%">
+  <h4><b>Rediger medlem</b></h4>
+
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+
+      <%= f.collection_select :team_id, Team.all, :id, :name, :size => 10 %><br /><br />
+
+      <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %>
+      <br /><br />
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Rediger medlem', class: 'button' %><br /><br />
+
+    </div>
+  <% end %>
+  </div>
+
+</div>
+</center>
