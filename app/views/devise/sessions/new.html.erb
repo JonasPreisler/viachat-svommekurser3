@@ -1,24 +1,15 @@
-<center>
-<div style="background: #f3f2f2;padding:15px;border-radius:10px;color:#1c1c1c;margin-top:30px" class="speaker-form">
-    <div style="width:80%">
-	<h4><b>Logg inn</b></h4>
-	 <%- flash.each do |name, msg| -%>
-	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-	  <%- end -%>  
+<h2>Log in</h2>
 
-	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :password, required: false %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
 
-		  <div class="form-inputs">
-		    <%= f.input :email, placeholder: 'Email', label: false, required: false, autofocus: true %><br />
-		    <%= f.input :password, placeholder: 'Passord', label: false, required: false %><br />
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+<% end %>
 
-		</div>
-	  <div class="form-actions">
-	    <%= f.submit 'Logg inn', class: 'button' %><br /><br />
-	  </div>
-	<% end %>
-
-	<%= render "devise/shared/links" %>
-	</div>
-</div>
-</center>
+<%= render "devise/shared/links" %>

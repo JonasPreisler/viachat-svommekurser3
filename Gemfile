@@ -41,6 +41,8 @@ gem 'route_downcaser'
 gem "cocoon"
 gem 'jquery-ui-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem "cancan"
+gem "rolify"
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'fog'

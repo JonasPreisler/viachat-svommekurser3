@@ -3,11 +3,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_one :business
-  has_many :speakers
-  has_many :programs
-  has_many :events
-  has_many :days
-  has_many :leads
-
+  belongs_to :team
 end

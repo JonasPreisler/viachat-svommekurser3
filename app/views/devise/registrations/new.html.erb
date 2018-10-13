@@ -7,6 +7,9 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+
+      <%= f.collection_select :team_id, Team.all, :id, :name, :size => 10 %><br /><br />
+
       <%= f.input :email, placeholder: 'Email', label: false, required: true, autofocus: true %>
       <br /><br />
       <%= f.input :password, placeholder: 'Passord', label: false, required: true %>

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+    get '/:id/edit' => 'users#update'
+  end
+  resources :users, :controller => "users"
+  get '/brukere', to: 'pages#brukere'
+  resources :teams
   resources :sortings
   resources :events do
     resources :days, controller: 'events/days' do
@@ -14,28 +23,13 @@ Rails.application.routes.draw do
     end
   end
   #get '/events/:id/days/:id/programs/:id', to: 'events/days/programs#show'
-  resources :places
-  root to: 'pages#landing'
-  resources :speaker_images
-  resources :speakers
-  resources :orders
-  resources :slots
-  devise_for :users
-  resources :users, only: [:show], :shallow => true do
-    resources :speakers
-  end
-  resources :businesses
-  resources :leads
-  root to: "leads#index"
-  get '/nyeleads', to: 'leads#nyeleads'
-  get '/:id/tid', to: 'leads#edit'
+  root to: 'teams#index'
+
+
 
   namespace 'api', defaults: { format: :json } do
     resources :users do
       resources :events do
-        get 'day1', 'day2', 'day3', 'day4', 'day5', 'day1_2', 'day2_2', 'day3_2', 'day4_2', 'day5_2', controller: 'users/programs'
-        get 'map', 'link', 'programs', 'programs_2', 'program1', 'program2', 'program3', 'program4', 'program5', 'program6', 'program7', 'program8', 'program9', 'program10', 'program11', 'program12', 'program13', 'program14', 'program15', 'program16', 'program17', 'program18', 'program19', 'program20', controller: 'users/programs'
-        get 'speakers', 'speakers_2', 'speaker1', 'speaker2', 'speaker3', 'speaker4', 'speaker5', 'speaker6', 'speaker7', 'speaker8', 'speaker9', 'speaker10', 'speaker11', 'speaker12', 'speaker13', 'speaker14', 'speaker15', 'speaker16', 'speaker17', 'speaker18', 'speaker19', 'speaker20', controller: 'users/speakers'
       end
     end
     #scope "/:id", :as => "user" do
@@ -44,20 +38,7 @@ Rails.application.routes.draw do
     resources :leads
     resources :programs
     resources :days
-    namespace 'speakers' do
-      resources :users
-      resources :speakers
-    end
     get '/:messenger_user_id/tid', to: 'leads#broadcast'
     #get '/:user', to: 'speakers#show'
-
-    namespace 'more', defaults: { format: :json } do
-      resources :users
-      resources :programs
-    end
-    namespace 'morespeakers', defaults: { format: :json } do
-      resources :users
-      resources :speakers
-    end
   end
 end

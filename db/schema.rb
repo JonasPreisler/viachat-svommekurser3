@@ -10,205 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_104626) do
+ActiveRecord::Schema.define(version: 2018_10_13_143500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "businesses", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.string "image"
-    t.string "website"
-    t.string "secret"
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "representative_image"
-    t.string "representative_name"
-    t.string "street"
-    t.string "city"
-    t.string "phone"
-    t.string "logo"
-    t.string "email"
-  end
-
-  create_table "days", force: :cascade do |t|
-    t.bigint "event_id"
-    t.date "date"
-    t.integer "program_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "sorting_id"
-    t.index ["event_id"], name: "index_days_on_event_id"
-    t.index ["sorting_id"], name: "index_days_on_sorting_id"
-    t.index ["user_id"], name: "index_days_on_user_id"
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.integer "program_id"
-    t.integer "speaker_id"
-    t.string "name"
-    t.string "ticket"
-    t.string "image"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.integer "day_id"
-    t.string "map"
-    t.index ["user_id"], name: "index_events_on_user_id"
-  end
-
-  create_table "leads", force: :cascade do |t|
-    t.string "first_name"
-    t.string "first name"
-    t.string "last_name"
-    t.string "last name"
-    t.string "gender"
-    t.string "source"
-    t.string "locale"
-    t.string "profile_pic_url"
-    t.string "profile pic url"
-    t.string "timezone"
-    t.string "messenger_user_id"
-    t.string "messenger user id"
-    t.string "chatfuel_user_id"
-    t.string "chatfuel user id"
-    t.string "ref"
-    t.string "country"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "address"
-    t.string "latitude"
-    t.string "longitude"
-    t.string "map_url"
-    t.string "map url"
-    t.string "last_visited_block_name"
-    t.string "last_visited_block_id"
-    t.string "last_clicked_button_name"
-    t.string "last_user_freeform_input"
-    t.string "last visited block name"
-    t.string "last visited block id"
-    t.string "last clicked_button name"
-    t.string "last user freeform input"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "speaker"
-    t.string "timeanddate"
-    t.string "phone"
-    t.string "email"
-    t.date "date"
-    t.bigint "slot_id"
-    t.string "secret"
-    t.bigint "user_id"
-    t.bigint "speaker_id"
-    t.index ["slot_id"], name: "index_leads_on_slot_id"
-    t.index ["speaker_id"], name: "index_leads_on_speaker_id"
-    t.index ["user_id"], name: "index_leads_on_user_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "last_purchased_item"
-    t.string "address"
-    t.string "phone"
-    t.string "email"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "amount"
-    t.bigint "lead_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first name"
-    t.string "last name"
-    t.string "last purchased item"
-    t.string "last_payment_charge_id"
-    t.string "last payment charge id"
-    t.string "last_payment_address"
-    t.string "last payment address"
-    t.string "last_payment_phone"
-    t.string "last payment phone"
-    t.string "last_payment_email"
-    t.string "last payment email"
-    t.bigint "business_id"
-    t.index ["business_id"], name: "index_orders_on_business_id"
-    t.index ["lead_id"], name: "index_orders_on_lead_id"
-  end
-
-  create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.bigint "program_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["program_id"], name: "index_places_on_program_id"
-  end
-
-  create_table "programs", force: :cascade do |t|
-    t.time "starttime"
-    t.time "endtime"
-    t.string "name"
-    t.integer "speaker_id"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image"
-    t.bigint "user_id"
-    t.string "place"
-    t.bigint "event_id"
-    t.bigint "day_id"
-    t.bigint "sorting_id"
-    t.index ["day_id"], name: "index_programs_on_day_id"
-    t.index ["event_id"], name: "index_programs_on_event_id"
-    t.index ["sorting_id"], name: "index_programs_on_sorting_id"
-    t.index ["user_id"], name: "index_programs_on_user_id"
-  end
-
-  create_table "slots", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "messenger_user_id"
-    t.bigint "lead_id"
-    t.index ["lead_id"], name: "index_slots_on_lead_id"
-  end
-
   create_table "sortings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "program_id"
   end
 
-  create_table "speaker_images", force: :cascade do |t|
-    t.integer "speaker_id"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "speakers", force: :cascade do |t|
-    t.string "image"
-    t.text "description"
-    t.datetime "speakingtime"
-    t.string "speaker_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "speaker_image_id"
+  create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.bigint "program_id"
-    t.bigint "event_id"
-    t.integer "sorting"
-    t.bigint "day_id"
-    t.bigint "sorting_id"
-    t.index ["day_id"], name: "index_speakers_on_day_id"
-    t.index ["event_id"], name: "index_speakers_on_event_id"
-    t.index ["program_id"], name: "index_speakers_on_program_id"
-    t.index ["sorting_id"], name: "index_speakers_on_sorting_id"
-    t.index ["speaker_image_id"], name: "index_speakers_on_speaker_image_id"
-    t.index ["user_id"], name: "index_speakers_on_user_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -220,33 +35,18 @@ ActiveRecord::Schema.define(version: 2018_10_08_104626) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "secret"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.bigint "team_id"
+    t.string "name"
+    t.string "surname"
+    t.string "phone"
+    t.string "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["team_id"], name: "index_users_on_team_id"
   end
 
-  add_foreign_key "days", "events"
-  add_foreign_key "days", "sortings"
-  add_foreign_key "days", "users"
-  add_foreign_key "events", "users"
-  add_foreign_key "leads", "slots"
-  add_foreign_key "leads", "speakers"
-  add_foreign_key "leads", "users"
-  add_foreign_key "orders", "businesses"
-  add_foreign_key "places", "programs"
-  add_foreign_key "programs", "days"
-  add_foreign_key "programs", "events"
-  add_foreign_key "programs", "sortings"
-  add_foreign_key "programs", "users"
-  add_foreign_key "slots", "leads"
-  add_foreign_key "speakers", "days"
-  add_foreign_key "speakers", "events"
-  add_foreign_key "speakers", "programs"
-  add_foreign_key "speakers", "sortings"
-  add_foreign_key "speakers", "speaker_images"
-  add_foreign_key "speakers", "users"
+  add_foreign_key "teams", "users"
+  add_foreign_key "users", "teams"
 end
