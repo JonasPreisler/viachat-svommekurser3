@@ -5,7 +5,9 @@
       <h1>Kurs</h1>
     </div>
     <div class="col-md-6 col-sm-6">
-      <%= link_to 'Legg til kurs', new_team_path, class: 'btn-primary2 shadow pull-right' %>
+      <% if user_signed_in? %>
+        <%= link_to 'Legg til kurs', new_team_path, class: 'btn-primary2 shadow pull-right' if current_user.admin? %>
+      <% end %>
     </div>
   </div>
 
@@ -27,7 +29,9 @@
         </div>
         
         <%# if can? :manage, team %>
-        <%= link_to "Redigér", edit_team_path(team), class: 'btn-green box' if current_user.admin? %>
+        <% if user_signed_in? %>
+          <%= link_to "Redigér", edit_team_path(team), class: 'btn-green box' if current_user.admin? %>
+        <% end %>
         <%# end %>
         <%#div class="col-xs-8 col-sm-6">
           <% &#9889; rating %>
