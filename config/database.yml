@@ -17,14 +17,14 @@ development:
   database: heroku_b53baed0fd674b6
   username: bd28859a8aa472
   password: 5591cda0
-  host: 7.16.1
+  host: mysql://bd28859a8aa472:5591cda0@eu-cdbr-west-02.cleardb.net/heroku_b53baed0fd674b6?reconnect=true
 
 test:
   adapter: mysql2
   database: heroku_b53baed0fd674b6
   username: bd28859a8aa472
   password: 5591cda0
-  host: 7.16.1
+  host: mysql://bd28859a8aa472:5591cda0@eu-cdbr-west-02.cleardb.net/heroku_b53baed0fd674b6?reconnect=true127.0.0.1
 
 
 production:
@@ -32,14 +32,14 @@ production:
   database: heroku_b53baed0fd674b6
   username: bd28859a8aa472
   password: 5591cda0
-  host: 7.16.1
+  host: mysql://bd28859a8aa472:5591cda0@eu-cdbr-west-02.cleardb.net/heroku_b53baed0fd674b6?reconnect=true
 
 db:
   adapter: mysql2
   database: heroku_b53baed0fd674b6
   username: bd28859a8aa472
   password: 5591cda0
-  host: 7.16.1
+  host: mysql://bd28859a8aa472:5591cda0@eu-cdbr-west-02.cleardb.net/heroku_b53baed0fd674b6?reconnect=true
 
 
 
