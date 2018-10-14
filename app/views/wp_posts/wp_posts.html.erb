@@ -1,0 +1,7 @@
+<% @wp_posts.each do |post| %>
+<h2><%= post.post_name %></h2><br />
+<%= post.post_content %><br /><br />
+<%= link_to 'show', post %> |
+<%= link_to 'Edit', edit_wp_post_path(post)  %>
+<% end %>
+

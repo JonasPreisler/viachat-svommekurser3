@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li style="color:#f3f2f2;padding:18px">
-        <li><%= link_to 'Kurs', teams_path, class: 'btn-primary shadow'%></li>
+        <li><%= link_to 'Posts', wp_posts_path, class: 'btn-primary shadow'%></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle btn-primary shadow" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Meny <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -28,7 +28,7 @@
           </ul>
         </li>
         <% else %>
-        <li><%= link_to 'Opprett konto', new_user_registration_path, class: 'btn-primary shadow'%></li>
+        <li><%= link_to 'Posts', wp_posts_path, class: 'btn-primary shadow'%></li>
         <li><%= link_to 'Logg inn', new_user_session_path, class: 'btn-primary shadow'%></li>
         <% end %>
 

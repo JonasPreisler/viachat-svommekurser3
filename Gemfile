@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.7'
@@ -24,7 +25,6 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'httparty', '~> 0.16.2'
-gem 'pg'
 gem 'country_select'
 gem 'mini_magick', '~> 4.8'
 gem 'friendly_id', '~> 5.1.0'

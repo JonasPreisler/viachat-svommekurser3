@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :users, :controller => "users"
   get '/brukere', to: 'pages#brukere'
+  get '/posts', to: 'pages#api_posts'
   resources :teams
   resources :sortings
   resources :events do
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
     end
   end
   #get '/events/:id/days/:id/programs/:id', to: 'events/days/programs#show'
-  root to: 'teams#index'
+  root to: 'wp_posts#wp_posts'
+  get '/wp_posts', to: 'wp_posts#wp_posts'
+  get '/wp_posts/:id', to: 'wp_posts#show'
+  get '/wp_posts/:id/edit', to: 'wp_posts#edit'
+  resources :wp_posts
 
 
 
