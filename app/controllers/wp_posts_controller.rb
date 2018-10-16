@@ -15,7 +15,7 @@ class WpPostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @wp_post = WpPost.new
   end
 
   # POST /sortings
