@@ -16,6 +16,7 @@ class WpPostsController < ApplicationController
 
   def new
     @wp_post = WpPost.new
+    @date = Time.now.strftime("%Y-%m-%d %H:%M:%S")
   end
 
   # POST /sortings
@@ -25,7 +26,7 @@ class WpPostsController < ApplicationController
 
     respond_to do |format|
       if @wp_post.save
-        format.html { redirect_to post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @wp_post }
       else
         format.html { render :new }
@@ -61,7 +62,7 @@ class WpPostsController < ApplicationController
 
 
   def wp_post_params
-    params.require(:wp_post).permit(:id, :post_author, :post_content, :post_title)
+    params.require(:wp_post).permit(:id, :post_author, :post_date, :post_content, :post_title, :post_status, :post_name, :post_type)
   end
 
     def require_admin
