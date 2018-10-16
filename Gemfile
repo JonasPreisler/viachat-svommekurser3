@@ -44,7 +44,6 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'cancancan', '1.15.0'
 gem "rolify"
 gem 'jquery-rails'
-gem 'carrierwave', '~> 1.0'
 gem "cocoon"
 gem 'pickadate-rails'
 gem 'whenever', require: false
