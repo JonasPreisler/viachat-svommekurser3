@@ -62,7 +62,7 @@ class WpPostsController < ApplicationController
 
 
   def wp_post_params
-    params.require(:wp_post).permit(:id, :post_author, :post_date, :post_content, :post_title, :post_status, :post_name, :post_type)
+    params.require(:wp_post).permit(:id, :post_author, :post_date, :post_date_gmt, :post_content, :post_title, :post_status, :post_name, :post_type)
   end
 
     def require_admin

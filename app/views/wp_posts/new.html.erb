@@ -8,6 +8,7 @@
     <%= f.input :post_title %>
     <%= f.input :post_content %>
     <%= f.input :post_date, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= f.input :post_date_gmt, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
   </div>
 
   <div class="form-actions">
