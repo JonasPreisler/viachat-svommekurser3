@@ -1,5 +1,5 @@
 class WpPostsController < ApplicationController
-  before_action :set_wp_post, only: [:show, :edit, :new, :create, :update, :destroy]
+  before_action :set_wp_post, only: [:show, :edit, :update, :destroy]
   before_action :require_admin, only: [:brukere]
 
   def wp_posts
