@@ -45,7 +45,6 @@ gem 'cancancan', '1.15.0'
 gem "rolify"
 gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
-gem 'fog'
 gem "cocoon"
 gem 'pickadate-rails'
 gem 'whenever', require: false
