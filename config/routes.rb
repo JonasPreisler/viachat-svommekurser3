@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   root to: 'wp_posts#wp_posts'
   get '/wp_posts', to: 'wp_posts#wp_posts'
   get '/wp_posts/:id', to: 'wp_posts#show'
+  get '/wp_posts/new', to: 'wp_posts#new'
   get '/wp_posts/:id/edit', to: 'wp_posts#edit'
   resources :wp_posts
 

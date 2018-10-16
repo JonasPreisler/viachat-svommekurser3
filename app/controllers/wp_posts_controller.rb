@@ -14,6 +14,10 @@ class WpPostsController < ApplicationController
     @wp_post = WpPost.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
   # POST /sortings
   # POST /sortings.json
   def create
