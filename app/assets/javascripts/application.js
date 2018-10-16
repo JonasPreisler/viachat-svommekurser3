@@ -14,7 +14,6 @@
 //= require chartkick
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/effect-highlight
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
