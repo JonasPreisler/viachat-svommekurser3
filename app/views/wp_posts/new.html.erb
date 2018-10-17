@@ -12,6 +12,10 @@
     <%= f.hidden_field :post_modified, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
     <%= f.hidden_field :post_modified_gmt, :value=>Time.now.strftime("%Y-%m-%d %H:%M:%S") %>
     <%= f.hidden_field :post_type, :value=>"post" %>
+    <%= f.hidden_field :post_status, :value=>"published" %>
+    <%= f.hidden_field :post_author, :value=>"Jonas" %>
+    <%= f.hidden_field :post_excerpt, :value=>"This is an post_excerpt" %>
+    <%= f.hidden_field :comment_status, :value=>"approve" %>
   </div>
 
   <div class="form-actions">
