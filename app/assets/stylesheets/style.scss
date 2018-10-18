@@ -15,12 +15,12 @@
   margin-top: 2px;
 }
 .container-large {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
   background: #f9f8f8
 }
 .container-fluid {
-  background: #162C4A;
+  background: #ff3f00;
 }
 #footer {
     clear: both;
@@ -54,8 +54,8 @@
 .btn-primary {
 	margin: 10px;
 	height: 50%;
-	color: #fff !important;
-	background: #0052CC !important;
+	color: #1c1c1c !important;
+	background: #fff !important;
 	border: none !important;
   border-radius: 25px;
   padding-left: 25px !important;
@@ -250,7 +250,7 @@ input, select, textarea {
   margin: 10px;
   height: 50%;
   color: #fff !important;
-  background: linear-gradient(to bottom right, #0052CC, #00b8cc);
+  background: linear-gradient(to bottom right, #ff3f00, #ff0040);
   border: none !important;
   text-decoration: none !important;
   border-radius: 25px;
@@ -259,7 +259,7 @@ input, select, textarea {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   &:hover {
-  background: #172b4d !important
+  background: linear-gradient(to bottom right, #b22c00, #b2002d);
   }
 }
 .btn-primary-grey {
@@ -321,7 +321,7 @@ input, select, textarea {
     text-overflow: ellipsis;
 }
 .btn-green {
-  background-color: #0052CC;
+  background-color: #fff;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 10px;
@@ -338,7 +338,7 @@ input, select, textarea {
 }
 
 .btn-green-programs {
-  background-color: #0052CC;
+  background-color: #ff3f00;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -701,7 +701,7 @@ container-large {
 
  /* ---- particles.js container ---- */ 
 
-#particles-js{ position:absolute; width: 100%; height: 100%; background-color: #162C4A; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
+#particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ff3f00; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; }
 
 /* ---- stats.js ---- */
 
@@ -709,4 +709,26 @@ container-large {
 
 .fullwidth {
   width: 100%
+}
+
+/* MEMBERS INDEX PAGE */
+table { 
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+ }
+tr { background: #fff; border-bottom: 3px solid #f3f2f2; transition: background 0.4s; transition: color 0.4s; }
+tr:hover { background: #faf9f9; color:#1c1c1c }
+
+/* END OF MEMBERS INDEX PAGE */
+
+@media (min-width: 644px) {
+  .only-mobile {
+    display: none;
+  }
+}
+@media (max-width: 644px) {
+  .only-desktop {
+    display: none;
+  }
 }

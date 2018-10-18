@@ -1,9 +1,51 @@
-<%= link_to 'Ny post', new_wp_post_path %> |
+<script>
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 
-<% @wp_posts.each do |post| %>
-<h2><%= post.post_title %></h2><br />
-<%= post.post_content %><br /><br />
-<%= link_to 'show', post %> |
-<%= link_to 'Edit', edit_wp_post_path(post)  %>
-<% end %>
+<img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg">
+<p>Step 1 - Login.</p>
+<a href="/auth/auth0">Login</a>
 
+
+<br />
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <h1>Kurs</h1>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <%= link_to 'Ny post', new_wp_post_path, class: 'btn-primary2 shadow pull-right' %>
+    </div>
+  </div>
+
+<br />
+
+<table class="table table-hover">
+	<thead>
+	  <tr>
+	    <th>ID</th>
+	    <th>Image</th>
+	    <th>Title</th>
+	    <th>Content</th>
+	    <th>Edit</th>
+	    <th>Delete</th>
+	    <th colspan="3"></th>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  <% @wp_posts.each do |post, i| %>
+		    <tr class="clickable-row" style="cursor: pointer;" data-href='http://localhost:3000/wp_posts/<%= post.id %>'>
+		      <td><%= post.id %></td>
+		      <td><%= image_tag '/jonas.jpg' %></td>
+		      <td><%= link_to post.post_title, post %></td>
+		      <td><%=h truncate(post.post_content, :length => 20) %></td>
+		      <td><%= link_to 'Rediger', edit_wp_post_path(post)  %></td>
+		      <td><%= link_to 'Slett', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    </tr>
+	  <% end %>
+	</tbody>
+</table>

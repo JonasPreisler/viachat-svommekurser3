@@ -50,6 +50,11 @@ gem 'whenever', require: false
 source 'https://rails-assets.org' do
   gem 'rails-assets-particles.js'
 end
+gem 'omniauth', '~> 1.6.1'
+gem 'omniauth-auth0', '~> 2.0.0'
+
+
+
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

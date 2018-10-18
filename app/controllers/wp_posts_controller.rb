@@ -1,13 +1,14 @@
 class WpPostsController < ApplicationController
   before_action :set_wp_post, only: [:show, :edit, :update, :destroy]
-  before_action :require_admin, only: [:brukere]
 
   def wp_posts
-    @wp_posts = WpPost.all
+    @wp_posts = WpPost.where(:post_type => 'post')
+    @wp_postmetas = WpPostmeta.all
   end
 
   def show
     @wp_post = WpPost.find(params[:id])
+    @wp_postmeta = WpPostmeta.where(:post_id == @wp_post.id)
   end
 
   def edit
@@ -26,7 +27,7 @@ class WpPostsController < ApplicationController
 
     respond_to do |format|
       if @wp_post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to wp_posts_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @wp_post }
       else
         format.html { render :new }
@@ -49,11 +50,15 @@ class WpPostsController < ApplicationController
     end
   end
 
-	
-	def brukere
-		@users = User.all
-	end
+  def destroy
+    @wp_post.destroy
+    respond_to do |format|
+      format.html { redirect_to wp_posts_path, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
+	
 	private
 
   def set_wp_post
@@ -62,14 +67,7 @@ class WpPostsController < ApplicationController
 
 
   def wp_post_params
-    params.require(:wp_post).permit(:id, :post_author, :post_date, :post_date_gmt, :post_modified, :post_modified_gmt, :post_type, :post_content, :post_title, :post_status, :post_name, :post_excerpt, :comment_status)
+    params.require(:wp_post).permit(:id, :post_author, :post_date, :post_date_gmt, :post_modified, :post_modified_gmt, :post_type, :post_content, :post_title, :post_status, :post_name, :post_excerpt, :comment_status, :ping_status, :to_ping, :pinged, :menu_order, :post_content_filtered, :guid, :post_mime_type, :post_id, wp_postmetas_attributes: [:id, :post_id] )
   end
-
-    def require_admin
-      unless current_user.admin
-        flash[:notice] = "You must log in."
-        redirect_to new_user_session_path
-      end
-    end
 
 end

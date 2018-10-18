@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'auth/oauth2/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
   devise_for :users
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
@@ -27,11 +29,18 @@ Rails.application.routes.draw do
   root to: 'wp_posts#wp_posts'
   get '/wp_posts', to: 'wp_posts#wp_posts'
   get '/wp_posts/new', to: 'wp_posts#new'
-  get '/wp_posts/:id', to: 'wp_posts#show'
+  get '/wp_posts/:id', to: 'wp_posts#show' do
+    get '/wp_postmeta/:id', to: 'wp_postmeta#show'
+  end
   get '/wp_posts/:id/edit', to: 'wp_posts#edit'
   resources :wp_posts
 
-
+  root to: 'wp_postmetas#wp_postmetas'
+  get '/wp_postmetas', to: 'wp_postmetas#wp_postmetas'
+  get '/wp_postmetas/new', to: 'wp_postmetas#new'
+  get '/wp_postmetas/:id', to: 'wp_postmetas#show'
+  get '/wp_postmetas/:id/edit', to: 'wp_postmetas#edit'
+  resources :wp_postmeta
 
   namespace 'api', defaults: { format: :json } do
     resources :users do

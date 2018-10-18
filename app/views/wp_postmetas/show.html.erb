@@ -1,13 +1,19 @@
 
-<span style="font-size: 20px;padding-left:15%;"><%= link_to '← Tilbake', root_path %></span>
+<% @wp_postmeta.each do |postmeta| %>
+	<% if @wp_post.id == postmeta.post_id %>
+		<%= @wp_post.post_title.upcase %>
+	<% end %>
+<% end %>
+
+<span style="font-size: 20px;padding-left:15%;"><%= link_to '← Back', root_path %></span>
 <div class="container only-desktop" style="width: 70%;padding-top: 20px;">
   <div class="row">
     <div class="col-xs-6 col-md-6"><br />
-      <%= image_tag '/jonas2.jpg' %>
+      <%= image_tag '/logo.png' %>
     </div>
     <div class="col-xs-6 col-md-6">
       <h3 class="card-title"><%= @wp_post.post_title %></h3>
-      <h4>ID: <%= @wp_post.id %></h4><br />
+      <h4>Category: <%= @wp_post.post_title %></h4><br />
       <%= @wp_post.post_title %>
     </div>
 
@@ -22,7 +28,7 @@
   <div class="row">
     <div class="col-lg-9">
       <div class="card mt-4"><br /><br />
-        <%= image_tag '/jonas2.jpg' %>
+        <%= image_tag '/logo.png' %>
         <div class="card-body">
           <center>
             <h3 class="card-title"><%= @wp_post.post_title %></h3>
