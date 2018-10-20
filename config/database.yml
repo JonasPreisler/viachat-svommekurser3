@@ -37,13 +37,5 @@ production:
   port: 3306
 
 
-db:
-  adapter: mysql2
-  database: db211511
-  username: db211511
-  password: <%= ENV["PASSWORD"] %>
-  host: 211511.db.tornado-node.net
-  port: 3306
-
 
 
