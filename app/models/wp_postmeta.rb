@@ -1,4 +1,4 @@
 class WpPostmeta < ActiveRecord::Base
-  establish_connection(:db)
+  establish_connection(:production)
   self.table_name = "wp_postmeta"
 end
